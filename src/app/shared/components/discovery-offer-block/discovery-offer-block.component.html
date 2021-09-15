@@ -1,4 +1,4 @@
-<div *ngIf="!currentUser?.has_discovery_offer" class="discovery-offer-wrapper">
+<div *ngIf="!currentUser?.has_discovery_offer" class="discovery-offer-wrapper flex-between d-flex">
   <img class="right-column-sms"
        src="assets/icons/psychics/dyscovery-offer-icon.svg">
 
@@ -15,5 +15,5 @@
   </div>
 
   <button (click)="openOffer()"
-          class="green-button input-text">{{ "psychics.discoveryOfferButtonLabel" | translate}}</button>
+          class="green-button input-text" style="max-width: 30%;text-align: center;">{{ "psychics.discoveryOfferButtonLabel" | translate}}</button>
 </div>

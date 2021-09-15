@@ -5,20 +5,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 4px;
   }
 }
 
-.custom-select, .country-select .mat-select-arrow {
+.custom-select,
+.country-select .mat-select-arrow {
   border-left: 32px solid transparent !important;
   border-right: none !important;
   border-top: 32px solid transparent !important;
-  background: no-repeat 100% 115% url("~src/assets/icons/horoscope/right-arrow-input-icon.svg");
+  background: no-repeat 100% 115%
+    url("~src/assets/icons/horoscope/right-arrow-input-icon.svg");
   margin: 0;
 }
 
 nsp-before-consultation {
   .mat-select-value {
-    margin-bottom: 24px;
+    //margin-bottom: 24px;
   }
 
   .mat-form-field-infix {
@@ -47,23 +50,24 @@ nsp-before-consultation {
   background-color: $white;
 }
 
-nsp-experience, nsp-pro-status {
+nsp-experience,
+nsp-pro-status {
   .mat-form-field-appearance-fill .mat-form-field-flex {
     background-color: transparent;
     padding: 0 !important;
   }
 
-  .input-middle.mat-form-field-appearance-fill.mat-form-field-disabled .mat-form-field-flex {
+  .input-middle.mat-form-field-appearance-fill.mat-form-field-disabled
+    .mat-form-field-flex {
     margin-left: -7px;
     width: calc(100% + 7px);
     height: 47%;
     margin-top: 16px;
   }
 
-  .input.mat-form-field-appearance-fill.mat-form-field-disabled .mat-form-field-flex {
+  .input.mat-form-field-appearance-fill.mat-form-field-disabled
+    .mat-form-field-flex {
     margin-left: -7px;
     width: calc(100% + 7px);
   }
 }
-
-

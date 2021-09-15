@@ -1,5 +1,5 @@
 <div class="cards-wrapper">
-  <div class="tarot-cards flex-column flex-center">
+  <div class="tarot-cards flex-column flex-center" style="margin-top: 10px;">
     <h1 class="light-green-title text-uppercase m-0">
       {{selectedPack.titleText}}
     </h1>
@@ -47,7 +47,7 @@
     </div>
 
     <ng-container *ngIf="showResult">
-      <div class="cards-result-wrapper">
+      <div class="cards-result-wrapper" style="width: 100%;">
         <div *ngFor="let day of result"
              class="day-block">
           <div class="day flex-between">

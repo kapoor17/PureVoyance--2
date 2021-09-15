@@ -98,9 +98,9 @@ body {
 
 .main-green {
   background-image: linear-gradient(
-      to bottom,
-      rgb(0, 168, 170) 0%,
-      rgb(11, 35, 37) 100%
+    to bottom,
+    rgb(0, 168, 170) 0%,
+    rgb(11, 35, 37) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -134,10 +134,10 @@ input {
   width: 100%;
   height: min-content;
   background: linear-gradient(
-      180deg,
-      #02bec0 -4.2%,
-      #066365 45.34%,
-      #0b2325 98.07%
+    180deg,
+    #02bec0 -4.2%,
+    #066365 45.34%,
+    #0b2325 98.07%
   ) !important;
   color: #ffffff;
   text-align: center !important;
@@ -190,7 +190,7 @@ input {
   border: none;
   background: #24cb3f;
   color: $white !important;
-  min-width: max-content;
+  //min-width: max-content;
   padding: 13px 31.44px;
   text-transform: uppercase;
 }

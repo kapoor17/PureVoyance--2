@@ -15,12 +15,11 @@
   }
 
   .middle-column-offer {
-
     p {
       @include paragraph-black;
       font-size: 28px;
       line-height: 28px;
-      color: #D1AB42;
+      color: #d1ab42;
       text-align: center;
       margin: 0;
     }
@@ -50,14 +49,14 @@
 
     @media (max-width: 450px) {
       font-size: 13px;
-      min-width: 35% !important;
-      padding: 6px 14px !important;
-      margin-right: 5px !important;
+      //min-width: 35% !important;
+      //padding: 6px 14px !important;
+      //margin-right: 5px !important;
     }
   }
 
   @media (max-width: 1292px) {
-    justify-content: center;
+    //justify-content: center;
     row-gap: 32px;
   }
 
@@ -71,14 +70,13 @@
   }
 }
 
-
 @media (max-width: 914px) {
   .discovery-offer-wrapper {
     width: 100%;
 
     .right-column-sms {
-      width: 54px;
-      height: 54px;
+      width: 15%;
+      height: 48%;
     }
 
     .middle-column-offer {
@@ -103,7 +101,8 @@
     }
 
     .green-button {
-      padding: 6px 24.44px;
+      padding: 8px 5px;
+      margin-left: 12px 5px;
     }
   }
 }
@@ -113,7 +112,7 @@
     row-gap: 12px;
     width: 100%;
     flex-wrap: nowrap;
-    padding: 14px 0 14px 14px;
+    padding: 10px;
 
     .middle-column-offer {
       padding: 4px 0 5px;
@@ -121,7 +120,7 @@
 
     .green-button {
       margin-right: 0;
-      min-width: 50%;
+      //min-width: 50%;
     }
   }
 }

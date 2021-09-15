@@ -57,7 +57,7 @@
 
 @media (max-width: 650px) {
   .login-dialog-wrapper {
-    width: 95%;
+    width: 100%;
 
     .sign-in-container {
       @include auth-dialog;

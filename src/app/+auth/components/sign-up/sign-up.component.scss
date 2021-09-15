@@ -1,5 +1,5 @@
-@import 'variables';
-@import 'auth';
+@import "variables";
+@import "auth";
 @import "text-styles";
 
 * {
@@ -16,7 +16,6 @@
   }
 
   .step-header {
-
     .step-sub-title {
       color: $black;
       font-size: 24px;
@@ -29,7 +28,6 @@
       width: 100%;
       padding: 0 32px;
       margin-top: 32px;
-
 
       .step-title {
         line-height: 40px;
@@ -54,11 +52,11 @@
 
           .phone-code-select {
             height: 50px;
-            width: 35%;
+            width: 40%;
             border: $border-grey;
             border-right: none;
             border-radius: 0;
-            padding: 0 10px;
+            padding: 0 5px;
           }
         }
       }
@@ -117,7 +115,8 @@ h2 {
         display: flex;
         align-items: center;
 
-        .euro-sign, .price-number {
+        .euro-sign,
+        .price-number {
           font-size: 64px;
           font-weight: 700;
           margin: 0;
@@ -175,7 +174,6 @@ h2 {
       height: 48px;
       border-radius: 50%;
       background-color: $pink;
-
     }
 
     .info-title {
@@ -282,12 +280,11 @@ h2 {
 
     .card-field {
       background: url("~src/assets/images/sign-up/credit-card.svg") no-repeat;
-
     }
 
     .date-field {
       background: url("~src/assets/images/sign-up/calendar.svg") no-repeat;
-      border-right: 2px solid #E6E8EC;
+      border-right: 2px solid #e6e8ec;
     }
 
     .cvv-field {
@@ -315,7 +312,6 @@ h2 {
   }
 }
 
-
 @media (max-width: 650px) {
   .sign-up-container {
     width: 100%;
@@ -325,9 +321,7 @@ h2 {
     }
 
     .stepper-container {
-
       .sign-up-fields {
-
         .phone-input {
           width: 74%;
 
