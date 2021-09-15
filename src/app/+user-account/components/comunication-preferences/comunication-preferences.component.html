@@ -1,0 +1,57 @@
+<div class="preferences-wrapper flex-column align-center">
+  <form [formGroup]="preferencesForm" action="">
+    <div class="title flex-column align-center">
+      <h1
+        class="light-green-title text-uppercase text-center">{{"communicationPreferences.titleLabel" | translate}}</h1>
+
+      <img alt="" class="divider" src="assets/images/divider.png">
+
+      <h2 class="paragraph-black">{{"communicationPreferences.textFirstLabel" | translate}}</h2>
+
+      <p class="text-center paragraph-black">{{"communicationPreferences.textSecondLabel" | translate}}</p>
+    </div>
+
+    <div class="sms-block flex-column align-center">
+      <h2 class="sub-title-black text-uppercase">{{"communicationPreferences.smsLabel" | translate}}</h2>
+
+      <img alt="" class="divider" src="assets/images/divider.png">
+
+      <mat-radio-group [formControl]="smsPreferences" class="radio-group flex-column flex-between align-start">
+        <mat-radio-button [disabled]="!currentUser?.phone" value="true">
+          <p>{{"communicationPreferences.smsRadioFirstLabel" | translate}}</p>
+        </mat-radio-button>
+
+        <mat-radio-button value="false">
+          <p>{{"communicationPreferences.smsRadioSecondLabel" | translate}}</p>
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <div class="contact-data flex-column align-center justify-center">
+        <p>{{"communicationPreferences.phoneLabel" | translate}} {{currentUser?.phone_code}} {{currentUser?.phone}}</p>
+      </div>
+    </div>
+
+    <div class="email-block flex-column align-center">
+      <h2 class="sub-title-black text-uppercase">{{"communicationPreferences.emailLabel" | translate}}</h2>
+
+      <img alt="" class="divider" src="assets/images/divider.png">
+
+      <mat-radio-group [formControl]="emailPreferences" class="radio-group flex-column flex-between align-start">
+        <mat-radio-button [disabled]="!currentUser?.email" value="true">
+          <p>{{"communicationPreferences.emailRadioFirstLabel" | translate}}</p>
+        </mat-radio-button>
+
+        <mat-radio-button value="false">
+          <p>{{"communicationPreferences.emailRadioSecondLabel" | translate}}</p>
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <div class="contact-data flex-column align-center justify-center">
+        <p>{{"communicationPreferences.emailAddressLabel" | translate}} {{currentUser?.email}}</p>
+      </div>
+    </div>
+  </form>
+
+  <button (click)="onValidate()"
+          class="gradient-button text-uppercase">{{"communicationPreferences.validateLabel" | translate}}</button>
+</div>

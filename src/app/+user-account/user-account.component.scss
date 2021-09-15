@@ -1,0 +1,55 @@
+@import "flexbox";
+@import "variables";
+@import "text-styles";
+
+.user-wrapper {
+  padding: 48px 0 0;
+
+  nsp-user-account-menu {
+    width: 319px;
+  }
+
+  .user-account {
+    width: 100%;
+    column-gap: 52px;
+    border-bottom: $border-grey;
+    padding-bottom: 72px;
+    margin-bottom: 35px;
+    @media (max-width: 450px) {
+      padding: 0px 10px;
+      column-gap: 0;
+      padding-bottom: 24px;
+    }
+  }
+
+  .bottom-blocks {
+    width: 100%;
+
+    p {
+      padding-top: 61px;
+
+      @media (max-width: 1024px) {
+        padding-top: 24px;
+      }
+    }
+  }
+}
+
+nsp-discovery-offer-block,
+nsp-top-rated-mediums,
+nsp-horoscope-request,
+nsp-offer-disclaimer,
+nsp-reusable-personal-goals {
+  width: 100%;
+  padding-top: 10px;
+
+  @media (max-width: 1024px) {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  nsp-user-account-menu {
+    display: none;
+  }
+}

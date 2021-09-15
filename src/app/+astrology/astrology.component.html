@@ -1,0 +1,66 @@
+<main class="astrology-wrapper flex-column flex-center">
+  <div class="inside-wrapper-new">
+
+    <div *ngIf="isMainPage"
+         class="flex-column flex-center">
+      <h1 class="text-uppercase light-green-title">
+        {{'astrology.headerTextLabel' | translate}}
+      </h1>
+
+      <img class="divider" src="./assets/images/divider.png">
+    </div>
+
+    <router-outlet></router-outlet>
+
+    <div class="psycho-tests">
+
+      <div class="flex-column flex-center">
+        <h1 class="light-green-title text-uppercase">
+          {{'psychoTest.allPsychoTestsLabel' | translate}}
+        </h1>
+
+        <img class="divider" src="./assets/images/divider.png">
+      </div>
+
+      <nsp-astro-sections-carousel [witchSectionTestShow]="false">
+      </nsp-astro-sections-carousel>
+    </div>
+  </div>
+
+  <nsp-answer-call></nsp-answer-call>
+
+  <div class="inside-wrapper-new">
+    <nsp-consultation-offer-block></nsp-consultation-offer-block>
+
+    <div class="top-rated-mediums flex-column">
+      <div class="flex-column flex-center">
+        <h1 class="light-green-sub-title text-uppercase">
+          {{ "horoscope.topRatedTextLabel" | translate}}
+        </h1>
+
+        <img class="divider" src="./assets/images/divider.png">
+      </div>
+
+      <nsp-top-rated-mediums></nsp-top-rated-mediums>
+    </div>
+
+    <!--  carousel with astra sections-->
+    <div class="astro-sections-wrapper flex-column">
+      <div class="flex-column flex-center">
+        <h1 class="light-green-sub-title text-uppercase">
+          {{ "horoscope.topRatedTextLabel" | translate}}
+        </h1>
+
+        <img class="divider" src="./assets/images/divider.png">
+      </div>
+
+      <nsp-astro-sections-carousel></nsp-astro-sections-carousel>
+    </div>
+
+    <!--    Block with advertisement-->
+    <!--    <nsp-horoscope-request></nsp-horoscope-request>-->
+    <nsp-offer-disclaimer></nsp-offer-disclaimer>
+
+    <nsp-reusable-personal-goals></nsp-reusable-personal-goals>
+  </div>
+</main>

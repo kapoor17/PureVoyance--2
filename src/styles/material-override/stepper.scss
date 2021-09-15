@@ -1,0 +1,55 @@
+.mat-horizontal-stepper-header-container {
+  margin-top: 32px;
+  padding: 0 17px;
+
+  .mat-horizontal-stepper-header {
+    padding: 15px;
+
+    .mat-step-icon {
+      background-color: #CCB566;
+      opacity: 0.5;
+      width: 48px;
+      height: 48px;
+
+      .mat-icon {
+        visibility: hidden;
+
+        &:before {
+          visibility: visible;
+          content: 'done';
+        }
+      }
+    }
+  }
+}
+
+.mat-step-header:hover {
+  background-color: transparent !important;
+}
+
+.mat-step-header.cdk-program-focused, .cdk-mouse-focused, .cdk-focused {
+  background-color: transparent;
+}
+
+.mat-step-header-ripple {
+  display: none !important;
+
+}
+
+.mat-horizontal-content-container {
+  padding: 0 0 32px 0 !important;
+}
+
+.mat-stepper-horizontal-line {
+  border-top-width: 2px !important;
+  width: 60%;
+  border-color: #CCB566;
+}
+
+.mat-step-icon-selected {
+  opacity: 1 !important;
+}
+
+.mat-step-header .mat-step-icon-selected {
+  opacity: 1;
+}

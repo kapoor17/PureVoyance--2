@@ -1,0 +1,45 @@
+<nsp-common-dialog-header (cancel)="cancel()"
+                          [title]="'recharge.finishFailHeaderLabel' | translate">
+</nsp-common-dialog-header>
+
+<div class="recharge-wrapper"
+     mat-dialog-content>
+  <div class="content-message">
+
+    <div class="main-title">
+      {{'recharge.finishFailSubheaderLabel' | translate}}
+    </div>
+
+    <div class="checkmark">
+      <mat-icon [svgIcon]="'error-cross'"></mat-icon>
+    </div>
+
+    <div [innerHTML]="'recharge.finishFailContentLabel' | translate"
+         class="content">
+    </div>
+
+    <div class="actions">
+      <button (click)="confirm()"
+              class="confirm-button"
+              mat-button>
+        {{'recharge.finishFailButtonLabel' | translate}}
+      </button>
+    </div>
+
+    <div class="support-question">
+      {{'recharge.finishFailQuestionLabel' | translate}}
+    </div>
+
+    <div class="support-disclaimer">
+      {{'recharge.finishFailDisclaimerLabel' | translate}}
+    </div>
+
+    <div class="support-phone-number">
+      01 86 86 86 86
+    </div>
+
+    <div class="support-credits">
+      {{'recharge.finishFailCreditsLabel' | translate}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+<div class="detailed-horoscope-wrapper flex-column flex-center">
+  <div class="detailed-horoscope-header">
+
+    <h1 class="text-uppercase light-green-title">
+      {{horoscope?.title}}
+    </h1>
+
+    <img class="yellow-line"
+         src="./assets/icons/header/yellow-line-icon.svg">
+
+    <p class="text-uppercase">
+      {{'detailedHoroscope.textAboutYourLabel' | translate}} {{selectedPeriod?.name | translate}}
+    </p>
+
+    <div *ngIf="!!selectedPeriod"
+         class="date light-green-sub-title">
+      <ng-container [ngSwitch]="selectedPeriod.value">
+        <ng-container *ngSwitchCase="periodTypes.Today">
+          {{date | date:'fullDate'}}
+        </ng-container>
+
+        <ng-container *ngSwitchCase="periodTypes.Tomorrow">
+          {{nextDay | date:'fullDate'}}
+        </ng-container>
+
+        <ng-container *ngSwitchCase="periodTypes.AfterTomorrow">
+          {{afterTomorrowDay | date:'fullDate'}}
+        </ng-container>
+
+        <ng-container *ngSwitchCase="periodTypes.Week">
+          {{firstDay | date:'fullDate'}} - {{lastDay | date: 'fullDate'}}
+        </ng-container>
+
+        <ng-container *ngSwitchCase="periodTypes.Month">
+          {{currentMonth}}
+        </ng-container>
+
+        <ng-container *ngSwitchCase="periodTypes.Year">
+          {{currentYear}}
+        </ng-container>
+      </ng-container>
+    </div>
+
+    <img [src]="horoscope?.picture" alt=""
+         class="sign-horoscope">
+  </div>
+
+
+  <div class="buttons-days">
+    <button (click)="selectPeriod(item)"
+            *ngFor="let item of periods; let i = index"
+            [class.active]="selectedPeriod.value === item.value"
+            class="white-button">
+      {{item.name | translate}}
+    </button>
+  </div>
+
+  <div class="text-block">
+    <div *ngFor="let content of data?.contents"
+         class="content-block">
+      <div class="result-of-horoscope-text d-flex">
+        <h2 class="text-uppercase content-title">
+          {{content.title}}
+        </h2>
+
+        <nsp-rating-stars [rate]="content.rating">
+        </nsp-rating-stars>
+      </div>
+
+      <ng-container *ngIf="!!content.text">
+        <div>
+          <p class="section-text">
+            {{content.text}}
+          </p>
+        </div>
+      </ng-container>
+
+      <div *ngFor="let section of content.sections">
+        <div class="section-title">
+          {{section.title}}
+        </div>
+
+        <p class="section-text">
+          {{section.text}}
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="buttons-days flex-between side-padding">
+  <button (click)="selectPeriod(item)"
+          *ngFor="let item of periods; let i = index"
+          [class.active]="selectedPeriod.value === item.value"
+          class="white-button">
+    {{item.name | translate}}
+  </button>
+</div>

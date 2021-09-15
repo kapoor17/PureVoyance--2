@@ -1,0 +1,88 @@
+.content {
+  justify-content: center;
+  background: white;
+  width: 100%;
+
+  .register-block {
+    position: absolute;
+    width: 162px;
+    left: 117px;
+    top: 600px;
+    @media (max-width: 1680px) {
+      left: 40px;
+    }
+    @media (max-width: 1600px) {
+      transform: scale(0.7);
+    }
+    @media (max-width: 1280px) {
+      display: none;
+    }
+  }
+
+  .offer-block {
+    position: absolute;
+    width: 174px;
+    right: 100px;
+    top: 730px;
+    @media (max-width: 1680px) {
+      right: 35px;
+    }
+    @media (max-width: 1600px) {
+      transform: scale(0.7);
+    }
+    @media (max-width: 1280px) {
+      display: none;
+    }
+  }
+
+  &.back-office {
+    min-height: 100vh;
+  }
+
+  &:not(.back-office) {
+    background: url("./../assets/images/background-golden.png");
+  }
+
+  .go-to-top-button {
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    right: 10px;
+    color: #777E90;
+    border: 2px solid #777E90;
+    outline: none;
+    z-index: 1024;
+
+    i {
+      padding-top: 10px;
+    }
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .go-top {
+    margin-top: 30px;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+}
+
+nsp-sub-header {
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.ng-sidebar {
+  min-width: 100%;
+  width: 100%;
+
+  @media (min-width: 1025px) {
+    display: none;
+  }
+}

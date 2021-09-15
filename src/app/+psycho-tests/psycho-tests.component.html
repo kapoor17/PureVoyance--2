@@ -1,0 +1,49 @@
+<main class="psycho-test-wrapper flex-column align-center">
+  <div class="inside-wrapper-new">
+
+    <router-outlet></router-outlet>
+
+    <div class="title flex-column align-center">
+      <h1 class="light-green-title">
+        {{'psychoTest.testListTextLabel' | translate}}
+      </h1>
+
+      <img alt=""
+           class="divider"
+           src="assets/images/divider.png">
+    </div>
+
+    <nsp-astro-sections-carousel></nsp-astro-sections-carousel>
+  </div>
+
+  <div class="inside-wrapper-new bottom-blocks flex-column flex-between">
+    <div class="title flex-column align-center">
+      <h1 class="text-uppercase h1">
+        {{'psychics.topRatedLabel' | translate}}
+      </h1>
+
+      <img alt=""
+           class="divider"
+           src="assets/images/divider.png">
+    </div>
+
+    <nsp-top-rated-mediums></nsp-top-rated-mediums>
+
+    <div class="offer">
+      <nsp-discovery-offer-block></nsp-discovery-offer-block>
+    </div>
+
+    <!--    <nsp-horoscope-request></nsp-horoscope-request>-->
+    <nsp-offer-disclaimer></nsp-offer-disclaimer>
+
+    <!--    <div class="title flex-column align-center">-->
+    <!--      <h1 class="text-uppercase h1">{{'psychics.mostViewedLabel' | translate}}</h1>-->
+
+    <!--      <img alt="" src="assets/images/divider.png">-->
+    <!--    </div>-->
+
+    <!--    <nsp-top-rated-mediums></nsp-top-rated-mediums>-->
+
+    <nsp-reusable-personal-goals></nsp-reusable-personal-goals>
+  </div>
+</main>

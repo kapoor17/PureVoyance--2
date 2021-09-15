@@ -1,0 +1,39 @@
+@import 'variables';
+
+.consultations-container {
+  padding: 0 24px;
+
+  .filter-wrapper {
+    padding-left: 24px;
+    padding-top: 24px;
+
+    ::ng-deep .mat-form-field-infix {
+      padding-top: 8px;
+    }
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+
+    .mat-elevation-z8 {
+      box-shadow: none;
+      margin: 0 !important;
+      min-width: 100%;
+    }
+
+    .mat-table {
+      width: max-content;
+      min-width: 100%;
+      min-height: 300px;
+    }
+
+    &::-webkit-scrollbar {
+      background: $border-color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $green-active;
+    }
+  }
+}
+

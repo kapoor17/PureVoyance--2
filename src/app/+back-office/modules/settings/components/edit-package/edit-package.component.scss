@@ -1,0 +1,69 @@
+@import 'variables';
+
+.actions {
+  flex-direction: row-reverse;
+  display: flex;
+  justify-content: center;
+
+  .mat-button-base {
+    width: 106px;
+    height: 48px;
+    font-size: 25px;
+    line-height: 29px;
+    font-weight: 500;
+    border-radius: 0;
+    border: none;
+  }
+
+  .confirm-button {
+    background: $golden-gradient;
+    color: $white;
+
+    &:hover {
+      background: $golder-hover;
+    }
+
+    &:disabled {
+      background: $grey;
+    }
+  }
+
+  .cancel-button {
+    color: $button-black;
+    background-color: $grey-alternative;
+
+    &:hover {
+      background: $grey;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 16px;
+
+  .content-message {
+    width: 60%;
+
+    .input-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: $grey;
+      text-transform: uppercase;
+      padding: 0;
+      margin: 10px 0 5px 0;
+    }
+
+    .input-form {
+      border: $border-grey;
+      width: 100%;
+      margin-bottom: 12px;
+
+      &.invalid {
+        border: $border-red;
+      }
+    }
+  }
+}

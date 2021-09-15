@@ -1,0 +1,93 @@
+@import "flexbox";
+@import "variables";
+@import "text-styles";
+
+.preferences-wrapper {
+  width: 704px;
+  @media (max-width: 450px) {
+    width: 99%;
+    box-sizing: border-box;
+  }
+
+  .sms-block,
+  .email-block {
+    margin-top: 50px;
+
+    h2 {
+      font-size: 25px;
+      line-height: 29px;
+      font-weight: normal;
+    }
+  }
+
+  img {
+    padding-bottom: 13px;
+  }
+
+  .radio-group {
+    padding: 27px 0 37px;
+    @media (max-width: 450px) {
+      width: 79%;
+      row-gap: 2px;
+    }
+
+    mat-radio-button {
+      @media (max-width: 450px) {
+        width: 100%;
+      }
+
+      p {
+        @media (max-width: 450px) {
+          margin-bottom: 0;
+          white-space: break-spaces;
+        }
+      }
+    }
+  }
+
+  .contact-data {
+    width: 440px;
+    padding: 30px 0 25px;
+    border: $skin-border;
+    background: $third-skin-background;
+    @media (max-width: 450px) {
+      width: 80%;
+
+      p {
+        text-align: center;
+        margin: 0;
+      }
+    }
+  }
+
+  button {
+    width: 471px;
+    margin-top: 65px;
+    @media (max-width: 450px) {
+      width: 80%;
+    }
+  }
+}
+
+p {
+  @media (max-width: 450px) {
+    font-size: 16px;
+  }
+}
+
+.title {
+  @media (max-width: 450px) {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0 0 25px;
+    margin-top: -22px;
+  }
+}
+
+a:link {
+  color: $black;
+}
+
+a:visited {
+  color: $black;
+}

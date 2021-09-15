@@ -1,0 +1,343 @@
+@import "variables";
+@import "text-styles";
+
+header.header-wrapper {
+  .contacts p {
+    margin: 0;
+  }
+
+  background: $linear-gradient-background;
+
+  @media (max-width: 1024px) {
+    height: 52px;
+  }
+
+  @media (min-width: 1024px) {
+    height: 100px;
+  }
+
+  .inside-wrapper-new {
+    height: inherit;
+    box-sizing: border-box;
+    padding: 0px 25px;
+    @media (max-width: 450px) {
+      padding: 0 10px;
+    }
+
+    .burger {
+      display: none;
+      padding-left: 10px;
+
+      @media (max-width: 1024px) {
+        display: inherit;
+        fill: $darker-gold;
+      }
+
+      @media (max-width: 650px) {
+        width: 27px;
+        height: 16px;
+      }
+    }
+
+    .left-side-wrapper {
+      column-gap: 15px;
+
+      .left-side-image-logo {
+        max-width: 345px;
+        height: 57px;
+        cursor: pointer;
+        border-inline: none;
+        @media (max-width: 1280px) {
+          transform: scale(0.8);
+        }
+        @media (max-width: 1024px) {
+          display: none;
+        }
+      }
+
+      .left-side-logo {
+        display: none;
+
+        @media (max-width: 1024px) {
+          width: 54.26px;
+          height: 30px;
+          display: block;
+          fill: $white;
+        }
+        @media (max-width: 650px) {
+          width: 34px;
+          height: 26px;
+        }
+      }
+    }
+
+    .language-select {
+      @media (min-width: 1024px) {
+        padding-right: 10px;
+      }
+    }
+
+    .language-select button {
+      min-width: 0 !important;
+      @media (max-width: 320px) {
+        padding: 0 5px;
+      }
+    }
+
+    .language-select.no-login button {
+      @media (max-width: 1024px) {
+        padding-right: 0 !important;
+      }
+    }
+
+    .right-side-wrapper {
+      .text-button {
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+        line-height: 19px;
+        @media (max-width: 1024px) {
+          padding-left: 0 !important;
+        }
+      }
+
+      .sign-up-button {
+        margin: 0 10px;
+        border: 1px solid $dark-gold;
+        padding: 12px 25px;
+        background: $white;
+        color: $gold;
+        border-radius: 0;
+        @media (max-width: 1024px) {
+          font-size: 12px !important;
+          padding: 5px 10px;
+          margin: 0;
+          padding-left: 10px !important;
+          margin-right: 5px;
+        }
+      }
+
+      .sign-in-button {
+        margin: 0 10px;
+        padding: 0 13px;
+        color: $white;
+        line-height: 16px;
+        border-left: 1px solid $white;
+        border-right: 1px solid $white;
+        border-radius: 0;
+        @media (max-width: 1024px) {
+          display: none;
+        }
+      }
+
+      .sign-in-icon {
+        color: $white;
+        border-left: 1px solid $white;
+        border-right: 1px solid $white;
+        margin-left: 10px;
+        width: 40px;
+        padding-left: 6px;
+        @media (min-width: 1024px) {
+          display: none;
+        }
+      }
+
+      .profile-wrapper {
+        column-gap: 12px;
+        padding: 2px 12px 2px 4px;
+        border: none;
+        border-right: 1px solid white;
+
+        .trolley {
+          fill: $white;
+        }
+
+        span {
+          color: $white;
+          font-weight: bold;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        .profile-icon {
+          width: 32px;
+          height: 32px;
+          margin-right: 12px;
+        }
+
+        span {
+          font-size: 14px;
+          line-height: 16px;
+          font-weight: bold;
+          color: $white;
+          margin-right: 4px;
+        }
+
+        @media (max-width: 1024px) {
+          display: none;
+        }
+      }
+
+      .phone-wrapper {
+        background: $background-gold;
+        padding: 6px 22px 5px 16.38px;
+        justify-content: space-around;
+
+        .contacts {
+          text-align: center;
+          line-height: 10px;
+
+          p {
+            color: $white;
+          }
+
+          .phone-number {
+            text-decoration: none;
+            font-weight: bold;
+            color: $white;
+            font-size: 22px;
+            border-inline: none;
+          }
+        }
+
+        @media (max-width: 1024px) {
+          display: none;
+        }
+      }
+
+      .tablet-profile {
+        display: none;
+        column-gap: 5px;
+        font-weight: 500;
+        @media (max-width: 1024px) {
+          padding-right: 12px;
+          @include paragraph-black;
+          display: flex;
+          fill: $white;
+          color: $white;
+          font-size: 13px;
+          border-right: 1px solid $white;
+        }
+      }
+
+      .profile-icon {
+        display: none;
+        @media (max-width: 1024px) {
+          display: block;
+          fill: $dark-gold;
+          padding-left: 5px;
+        }
+      }
+
+      .my-profile-border-left {
+        border-left: 1px solid $white;
+        padding-left: 5px;
+      }
+
+      @media (max-width: 1024px) {
+        padding: 20px;
+      }
+
+      @media (max-width: 375px) {
+        padding: 15px;
+      }
+
+      @media (max-width: 320px) {
+        padding: 0;
+        transform: scale(0.9);
+      }
+    }
+  }
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  color: $dark-blue;
+  margin-bottom: 5px;
+  padding: 0;
+  height: 32px;
+}
+
+.payment-info {
+  font-size: 14px;
+  padding: 0;
+  height: 16px;
+
+  .payment-text {
+    font-weight: 500;
+    color: $link-color;
+    margin: 0;
+  }
+
+  .payment-amount {
+    font-weight: 700;
+    margin: 0 3px;
+  }
+}
+
+.list-wrapper {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+  width: max-content;
+
+  .list-item {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border-bottom: $light-border-grey;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+    color: $link-color;
+
+    .list-icon {
+      margin-right: 8px;
+      width: 17px;
+      height: 17px;
+      fill: $black;
+    }
+
+    .communication-icon {
+      width: 17px;
+      height: 17px;
+    }
+  }
+}
+
+.last-list-item {
+  border-bottom: none !important;
+}
+
+.euro-sign {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  width: 12px;
+  height: 18px;
+  color: $black;
+}
+
+.mat-menu-panel {
+  min-width: max-content;
+  min-height: max-content;
+  background: #ece7e1;
+}
+
+@media (max-width: 1280px) {
+  .inside-wrapper-new {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (max-width: 345px) {
+  .right-side-wrapper {
+    transform: scale(0.7);
+  }
+}

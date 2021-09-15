@@ -1,0 +1,283 @@
+<main class="profile-wrapper flex-column flex-between">
+  <div class="inside-wrapper-new profile-block d-flex">
+    <div class="left-side-block">
+      <div class="mobile-block flex-column">
+        <div class="mobile-header flex-between align-center">
+          <div class="left-side-mobile flex-column">
+            <nsp-rating-stars></nsp-rating-stars>
+
+            <p>{{"psychics.clientsLabel" | translate}}<b> 95%</b></p>
+          </div>
+
+          <div class="right-side-mobile flex-column">
+            <div class="icons-mobile d-flex">
+              <img (click)="callWindow()"
+                   alt=""
+                   src="assets/icons/psychics/phone-white.png">
+              <img alt=""
+                   src="assets/icons/psychics/bell.png">
+              <img alt=""
+                   src="assets/icons/psychics/diary.png">
+            </div>
+
+            <p>{{"psychics.consultationsLabel" | translate}}<b> 12 000</b></p>
+          </div>
+        </div>
+
+        <div class="mobile-body flex-column align-center">
+          <h1 class="light-green-title">{{psychic?.name}}</h1>
+
+          <img alt="" class="divider" src="assets/images/divider.png">
+
+          <p class="paragraph-black text-uppercase">{{psychic?.presentation_type}}</p>
+
+          <p class="skills">{{psychic?.skills}}</p>
+
+          <nsp-online-status [status]="psychic?.status">
+          </nsp-online-status>
+
+          <div class="avatar-mobile">
+            <img [src]="psychic?.image" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="left-header d-flex">
+        <div class="avatar d-flex justify-center align-center">
+          <div class="ring d-flex align-center justify-center">
+            <img [src]="psychic?.image || './assets/images/no-avatar.png'"
+                 alt="photo of medium"
+                 class="medium-image">
+          </div>
+        </div>
+
+        <div (click)="callWindow()"
+             class="small-circle">
+          <img alt=""
+               src="assets/icons/psychics/phone-white.png">
+        </div>
+
+        <div class="small-circle">
+          <img alt=""
+               src="assets/icons/psychics/bell.png">
+        </div>
+
+        <div class="small-circle">
+          <img alt=""
+               src="assets/icons/psychics/diary.png">
+        </div>
+      </div>
+
+      <div class="left-main flex-column align-center">
+        <div class="title flex-column align-center">
+          <div class="psychic-name-and-rate d-flex">
+            <span>{{psychic?.name}}</span>
+
+            <nsp-rating-stars [rate]="psychic?.rate">
+            </nsp-rating-stars>
+          </div>
+
+          <img alt=""
+               class="divider"
+               src="assets/images/divider.png">
+
+          <p class="description">
+            {{psychic?.presentation_type}}
+          </p>
+
+          <div class="status-block">
+            <div class="status">
+              <nsp-online-status [status]="psychic?.status">
+              </nsp-online-status>
+            </div>
+
+            <div class="status">
+              <img alt=""
+                   src="assets/icons/psychics/Chat%20.png">
+              <p>{{"psychics.consultationsLabel" | translate}}<b> 12 000</b></p>
+            </div>
+
+            <div class="status">
+              <img alt=""
+                   src="assets/icons/psychics/satisfy%20.png">
+              <p>{{"psychics.clientsLabel" | translate}}<b> 95%</b></p>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="!!psychic?.subtitle" class="quote d-flex justify-center">
+          <mat-icon svgIcon="grey-comas"></mat-icon>
+
+          <p class="paragraph-black">
+            {{psychic?.subtitle}}
+          </p>
+
+          <mat-icon class="rotated" svgIcon="grey-comas"></mat-icon>
+        </div>
+
+        <h2 class="light-green-sub-title text-uppercase">
+          {{psychic?.skills | join}}
+        </h2>
+
+        <div class="button-group-mobile flex-column align-center">
+          <button class="text-uppercase btn-gold"
+                  mat-button>{{"psychics.smsLabel" | translate}}</button>
+
+          <p class="price-mobile">
+            <span>{{(settingsApiService.getDiscoveryOfferSettings() | async)?.data?.price}}€/min </span>
+            <s>{{"psychics.insteadLabel" | translate}} {{psychic?.price}}€/min</s>
+          </p>
+
+          <p class="offer-mobile">
+            {{"psychics.offerLabel" | translate}}
+          </p>
+
+          <button (click)="startConsultation()"
+                  class="text-uppercase btn-green" mat-button>{{"mySeers.freeAppointmentLabel" | translate}}</button>
+        </div>
+
+        <p
+          class="presentation-medium-title-mobile text-uppercase">{{"psychics.presentationLabel" | translate}} {{psychic?.name}}</p>
+
+        <p *ngIf="!!psychic?.presentation"
+           class="paragraph-black quote-second">
+          {{psychic?.presentation}}
+        </p>
+
+        <p class="price">
+          <span>{{(settingsApiService.getDiscoveryOfferSettings() | async)?.data?.price}}€/min </span>
+          <s>{{"psychics.insteadLabel" | translate}} {{psychic?.price}}€/min</s>
+        </p>
+
+        <p class="offer">
+          {{"psychics.offerLabel" | translate}}
+        </p>
+
+        <div class="button-group">
+          <button class="text-uppercase btn-gold"
+                  mat-button>{{"psychics.smsLabel" | translate}}</button>
+
+          <button (click)="startConsultation()"
+                  class="text-uppercase btn-green" mat-button>{{"mySeers.freeAppointmentLabel" | translate}}</button>
+        </div>
+
+        <div class="write-review flex-between align-center">
+          <p class="text-uppercase">{{"psychics.donnezLabel" | translate}}
+            <span>{{"psychics.surLabel" | translate}} {{psychic?.name}}</span>
+          </p>
+
+          <div class="empty-stars d-flex">
+            <div #star
+                 (click)="onStarClick(i)"
+                 *ngFor="let star of stars; let i = index"
+                 class="star d-flex justify-center align-center">
+              <img [src]="star.img"
+                   alt="">
+            </div>
+          </div>
+        </div>
+
+        <div class="make-an-appointment flex-column align-center">
+          <h1 class="h1 text-uppercase">{{"profile.appointmentLabel" | translate}} {{psychic?.name}}</h1>
+
+          <img alt="" class="divider" src="assets/images/divider.png">
+
+          <p class="paragraph-black">{{"profile.contactTextLabel" | translate}}</p>
+
+          <a class="light-green-title" href="tel: 01 86 86 86 86">01 86 86 86 86</a>
+
+          <p>({{"profile.surchargetCallLable" | translate}})</p>
+        </div>
+
+        <div class="calendar">
+          <div class="calendar-header d-flex align-center">
+            <img alt=""
+                 src="assets/icons/psychics/calendar-icon.png">
+
+            <span class="text-uppercase">{{"psychics.planningLabel" | translate}}</span>
+          </div>
+
+          <div [ngClass]="isMoreInfo?'opened':'closed'"
+               class="calendar-body flex-column align-center">
+            <p class="paragraph-black">{{"psychics.dateConsultationLabel" | translate}}</p>
+
+            <div *ngFor="let slot of psychic?.schedules, let index = index"
+                 [ngClass]="openedSlot === index?'opened':'!opened'"
+                 class="day-slot">
+              <div class="day-slot-header d-flex flex-between">
+                <div>
+                  <img alt=""
+                       src="assets/icons/psychics/Star-icon-multi.png">
+
+                  <p class="paragraph-black">{{slot.start}}</p>
+                </div>
+
+                <button (click)="onSlotClick(index)"
+                        mat-button>
+                  <img [ngClass]="openedSlot === index?'rotated':'!rotated'"
+                       alt=""
+                       src="assets/icons/psychics/dropdown.png">
+                </button>
+              </div>
+
+              <div *ngIf="openedSlot===index"
+                   class="day-slot-body d-flex">
+                <div *ngFor="let timeSlot of timeOfStartList"
+                     class="time-slot d-flex justify-center align-center">
+                  <div *ngIf="psychic?.schedules">{{timeSlot}}</div>
+                </div>
+                <p *ngIf="timeOfStartList.length === 0"
+                   class="paragraph-black">{{"psychics.noSlotsLabel" | translate}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="calendar-footer d-flex justify-center">
+            <button (click)="onMoreAvailabilityClick()"
+                    *ngIf="psychic?.schedules.length>scheduleLengthDefault"
+                    mat-button>{{"psychics.afficherLabel" | translate}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-side flex-column">
+      <div class="comments">
+        <nsp-customer-reviews-carousel></nsp-customer-reviews-carousel>
+      </div>
+
+      <nsp-need-help></nsp-need-help>
+    </div>
+  </div>
+
+  <div class="inside-wrapper-new">
+    <nsp-discovery-offer-block></nsp-discovery-offer-block>
+  </div>
+
+  <div class="inside-wrapper-new bottom-mediums-blocks flex-column align-center">
+    <div class="flex-column flex-center">
+      <h1 class="text-uppercase h1">{{"psychics.topRatedLabel" | translate}}</h1>
+
+      <img alt=""
+           class="divider"
+           src="assets/images/divider.png">
+
+      <nsp-top-rated-mediums></nsp-top-rated-mediums>
+    </div>
+
+    <div class="flex-column flex-center">
+      <h1 class="text-uppercase h1">{{"psychics.mostViewedLabel" | translate}}</h1>
+
+      <img alt=""
+           class="divider"
+           src="assets/images/divider.png">
+
+      <nsp-top-rated-mediums></nsp-top-rated-mediums>
+    </div>
+
+    <nsp-horoscope-request></nsp-horoscope-request>
+
+    <nsp-offer-disclaimer></nsp-offer-disclaimer>
+
+    <nsp-reusable-personal-goals></nsp-reusable-personal-goals>
+  </div>
+</main>

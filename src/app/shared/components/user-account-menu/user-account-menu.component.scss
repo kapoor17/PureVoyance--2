@@ -1,0 +1,235 @@
+@import "flexbox";
+@import "variables";
+@import "text-styles";
+
+.router-list {
+  width: 100%;
+  row-gap: 15px;
+  background-color: $light-skin-background;
+  padding: 20px 20px;
+
+  .close-button {
+    display: none;
+  }
+
+  .head {
+    display: none;
+  }
+
+  .paragraph-black {
+    font-weight: 500;
+  }
+
+  .top-up {
+    button {
+      font-family: Lato, sans-serif;
+      font-weight: bold;
+      font-size: 11.067px;
+      color: $white;
+      background-color: $darker-gold;
+      border-radius: 0;
+    }
+  }
+
+  .link-wrapper {
+    border-bottom: 1px solid $darker-gold;
+    padding: 0 10px 16px;
+
+    div {
+      column-gap: 15px;
+    }
+
+    a {
+      color: $black;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      column-gap: 22px;
+      text-decoration: none;
+      font-family: Roboto, sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 16px;
+      cursor: pointer;
+
+      .arrow {
+        width: 7px;
+        height: 17px;
+      }
+
+      mat-icon {
+        fill: $darker-gold;
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    a.active {
+      color: $blue-green;
+
+      mat-icon {
+        fill: $darker-gold;
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    a.active > img {
+      fill: $blue-green;
+    }
+  }
+
+  .footer-list {
+    display: none;
+  }
+}
+
+.sun {
+  position: relative;
+
+  .moon {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    transform: scale(0.3);
+  }
+}
+
+@media (max-width: 1024px) {
+  .router-list {
+    background: $white;
+    padding: 0;
+    padding-bottom: 25px;
+    min-height: 100%;
+
+    .close-button {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 12px;
+    }
+
+    .head {
+      display: flex;
+      width: 100%;
+      margin-top: 50px;
+
+      div {
+        justify-content: flex-end;
+      }
+
+      .block-with-logo {
+        .logo {
+          width: 70px;
+          height: 70px;
+        }
+
+        .text-head-burger {
+          font-family: $font-lato;
+          font-size: 20px;
+          line-height: 25px;
+
+          &.name {
+            font-weight: normal;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    .top-up {
+      p {
+        font-family: $font-lato;
+        font-size: 19.7561px;
+        line-height: 24px;
+        font-style: normal;
+        font-weight: normal;
+        color: $psychics-black;
+
+        &.gold-text {
+          color: #ccb566;
+        }
+      }
+    }
+
+    .link-wrapper {
+      margin: 0 25px;
+      padding: 0 9.44px 16px;
+
+      a {
+        @include paragraph-black;
+
+        div {
+          align-items: center;
+
+          mat-icon {
+            width: 30px;
+            height: 40px;
+          }
+        }
+      }
+
+      .arrow {
+        display: none;
+      }
+    }
+
+    .footer-list {
+      display: flex;
+
+      h2 {
+        color: $golden;
+        font-weight: 500;
+      }
+
+      .support-information {
+        font-size: 12px;
+        line-height: 14px;
+        font-family: $font-main;
+        color: $just-another-black;
+        width: 65%;
+        text-align: center;
+        padding: 9px 0 16px;
+      }
+
+      .call-support {
+        border: 1px solid #d3d3d3;
+        padding: 16px;
+        column-gap: 12px;
+
+        .phone {
+          fill: $callback-green;
+          width: 27.82px;
+          height: 28.47px;
+        }
+
+        div {
+          .paragraph-black {
+            color: $help-black;
+            text-decoration: none;
+          }
+
+          .light-green-title {
+            color: $callback-green;
+            text-decoration: none;
+            font-size: 16px;
+            line-height: 19px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .call-support {
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+
+    .light-green-title {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}

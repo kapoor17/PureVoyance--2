@@ -1,0 +1,23 @@
+<div class="user-wrapper inside-wrapper-new flex-column justify-center">
+  <div class="user-account d-flex justify-center">
+    <nsp-user-account-menu></nsp-user-account-menu>
+
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="bottom-blocks flex-column align-center">
+    <nsp-discovery-offer-block></nsp-discovery-offer-block>
+
+    <p class="h1 text-uppercase">{{"psychics.topRatedLabel" | translate}}</p>
+
+    <img alt="" class="divider" src="assets/images/divider.png">
+
+    <nsp-top-rated-mediums></nsp-top-rated-mediums>
+
+    <!--    <nsp-horoscope-request></nsp-horoscope-request>-->
+
+    <nsp-offer-disclaimer></nsp-offer-disclaimer>
+
+    <nsp-reusable-personal-goals></nsp-reusable-personal-goals>
+  </div>
+</div>

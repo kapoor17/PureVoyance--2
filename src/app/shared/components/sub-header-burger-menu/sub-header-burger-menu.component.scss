@@ -1,0 +1,192 @@
+@import "variables";
+@import "text-styles";
+@import "flexbox";
+
+.burger-menu-wrapper {
+  background: $linear-gradient-background;
+  min-height: 100%;
+  width: 100%;
+  color: $white;
+  padding-top: 20px;
+
+  .text-head-burger {
+    font-family: $font-lato;
+    font-size: 20px;
+    line-height: 25px;
+
+    &.name {
+      font-weight: normal;
+      font-size: 16px;
+    }
+  }
+
+  .header {
+    width: 100%;
+  }
+
+  div {
+    .close-button {
+      fill: $white;
+    }
+  }
+
+  .content {
+    background: transparent;
+    max-width: 768px;
+    width: 100%;
+
+    .menu-item {
+      .mat-icon {
+        width: 18px;
+        height: 18px;
+      }
+
+      .menu-content {
+        display: flex;
+        align-items: center;
+
+        .router-item {
+          margin-left: 80px;
+        }
+      }
+    }
+
+    .router-item {
+      @include paragraph-black;
+      font-family: $font-lato;
+      font-style: normal;
+      font-weight: bold;
+      color: $white;
+    }
+
+    .head {
+      padding-bottom: 36px;
+
+      .logo {
+        width: 75px;
+        height: 75px;
+        padding: 0 0 16px;
+      }
+    }
+
+    .burger-menu {
+      .burger {
+        fill: $darker-gold;
+      }
+    }
+
+    ul {
+      width: 100%;
+      list-style: none;
+      padding: 0 30px;
+
+      li {
+        width: 100%;
+        border-bottom: 1px solid $darker-gold;
+        padding: 10.25px 0 10px;
+
+        .icon-page {
+          width: 30px;
+          height: 40px;
+        }
+
+        a {
+          text-decoration: none;
+          color: $white;
+        }
+
+        .active {
+          background-image: $linear-gradient-background;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        &:last-of-type {
+          border-bottom: none;
+        }
+      }
+
+      .mat-button {
+        padding: 0;
+        min-width: 22px;
+      }
+    }
+
+    .consultations {
+      padding: 46px 0 56px;
+      width: 100%;
+
+      .consultations-title {
+        color: $white;
+        font-weight: normal;
+        padding-bottom: 22px;
+      }
+
+      .blocks {
+        width: 100%;
+
+        .gold-back {
+          padding: 5px;
+          background: $darker-gold;
+          width: 57px;
+          height: 64px;
+          border-radius: 50%;
+        }
+
+        .white-back {
+          padding: 5px;
+          background: $white;
+          width: 57px;
+          height: 64px;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .auth {
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 40px;
+
+      .sign-up-button {
+        // min-height: 70px;
+        //min-width: 60%;
+        padding: 12px 25px;
+        background: $white;
+        color: $gold;
+        border-radius: 0;
+        padding: 15px 15px;
+        margin-bottom: 25px;
+      }
+
+      .sign-in-button {
+        //min-height: 70px;
+        //min-width: 60%;
+        padding: 12px 25px;
+        background: $gold;
+        color: $white;
+        border-radius: 0;
+        padding: 15px 57.5px;
+      }
+
+      .text-button {
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+  }
+}
+
+.rotated {
+  transform: rotate(90deg);
+}
+
+.opened {
+  height: max-content;
+  flex-direction: column;
+}
+
+.resized-icon {
+  font-size: 33px;
+}

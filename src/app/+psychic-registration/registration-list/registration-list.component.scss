@@ -1,0 +1,49 @@
+@import "flexbox";
+@import "text-styles";
+@import "variables";
+
+.registration-wrapper {
+  padding: 48px 0 0;
+
+  .instructions-block {
+    padding-top: 48px;
+    width: 100%;
+
+    .step {
+      width: 30%;
+      text-align: center;
+
+      h3 {
+        margin-top: 35px;
+      }
+
+      span {
+        color: $gold;
+      }
+
+      p {
+        margin-top: 42px;
+        font-size: 15px;
+        line-height: 19px;
+      }
+    }
+
+    .line {
+      width: 3px;
+      height: 70%;
+      background: linear-gradient(0deg, #FFFFFF 0%, #56BCC2 50.45%, #FFFFFF 100%);
+    }
+  }
+
+  button {
+    margin-top: 75px;
+    width: 378px;
+  }
+
+  .underline {
+    margin-top: 51px;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(90deg, #FFFFFF 0%, #56BCC2 50.45%, #FFFFFF 100%);
+  }
+}

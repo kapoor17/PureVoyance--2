@@ -1,0 +1,14 @@
+<div class="offer-side-block">
+  <div class="title">
+    {{'psychics.pureDiscoveryOfferLabel' | translate}}
+  </div>
+  <div class="divider"></div>
+  <div class="description">
+    <span [innerHTML]="(settingsApiService.getDiscoveryOfferSettings() | async)?.data?.price | price: true"></span>
+    <sup>*</sup>
+  </div>
+  <button (click)="submit()"
+          class="action-button">
+    {{'psychics.discoveryOfferButtonLabel' | translate}}
+  </button>
+</div>

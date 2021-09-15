@@ -1,0 +1,119 @@
+<div class="pro-status-wrapper d-flex justify-center">
+  <div class="inside-wrapper-new flex-column align-center">
+    <h1 class="light-green-title text-uppercase">{{"proStatus.titleLabel" | translate}}</h1>
+
+    <img alt="" class="divider" src="assets/images/divider.png">
+
+    <img alt="" src="assets/images/sign-up%20as%20psychic/third.png">
+
+    <p class="light-green-sub-title text-uppercase">{{"proStatus.statusLabel" | translate}}</p>
+
+    <img alt="" class="divider" src="assets/images/divider.png">
+
+    <div [formGroup]="statusForm" class="flex-column align-center">
+      <mat-radio-group class="d-flex" formControlName="currentStatus">
+        <mat-radio-button value="self-employee">{{"proStatus.selfEmployeeLabel" | translate}}</mat-radio-button>
+        <mat-radio-button value="society">{{"proStatus.societyLaBel" | translate}}</mat-radio-button>
+        <mat-radio-button value="other">{{"proStatus.otherLabel" | translate}}</mat-radio-button>
+      </mat-radio-group>
+
+      <p class="light-green-sub-title text-uppercase">{{"proStatus.infoLabel" | translate}}</p>
+
+      <img alt="" class="divider" src="assets/images/divider.png">
+
+      <div class="taxes d-flex flex-between">
+        <div class="taxes-disclaimers flex-column">
+          <p class="paragraph-black">{{"proStatus.dateLabel" | translate}}</p>
+
+          <p class="paragraph-black">{{"proStatus.reasonLabel" | translate}}</p>
+
+          <p class="paragraph-black">{{"proStatus.numberLabel" | translate}}</p>
+        </div>
+
+        <div class="taxes-inputs flex-column">
+          <mat-form-field appearance="fill" class="input-smaller">
+            <input formControlName="date" matInput placeholder="jj/mm/aa">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="input-smaller">
+            <input formControlName="reason" matInput placeholder='{{"proStatus.placeholderFirstLabel" | translate }}'>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="input-smaller">
+            <input formControlName="numberOfRegistration" matInput placeholder="N°">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <p class="light-green-sub-title text-uppercase">{{"proStatus.taxLabel" | translate }}</p>
+
+      <img alt="" class="divider" src="assets/images/divider.png">
+
+      <div class="radio-button-group flex-column">
+        <mat-checkbox formControlName="firstTax" value="true">{{"proStatus.taxSecondLabel" | translate }}</mat-checkbox>
+
+        <mat-radio-group class="d-flex" formControlName="secondTax">
+          <mat-radio-button [value]="true">{{"proStatus.yesLabel" | translate }}</mat-radio-button>
+          <mat-radio-button [value]="false">{{"proStatus.noLabel" | translate }}</mat-radio-button>
+        </mat-radio-group>
+
+        <mat-form-field appearance="fill" class="input-bigger">
+          <input formControlName="taxNumber" matInput placeholder='{{"proStatus.placeholderSecondLabel" | translate }}'
+                 type="number">
+        </mat-form-field>
+      </div>
+
+      <p class="light-green-sub-title text-uppercase">{{"proStatus.vouchersLabel" | translate }}</p>
+
+      <img alt="" class="divider" src="assets/images/divider.png">
+
+      <div class="download-group d-flex flex-center">
+        <div class="paragraphs flex-column">
+          <p class="paragraph-black text-uppercase">{{"proStatus.kbisLabel" | translate }}</p>
+          <p class="paragraph-black text-uppercase">{{"proStatus.identityLabel" | translate }}</p>
+        </div>
+
+        <div class="buttons flex-column">
+          <label for="document-first">
+            <input id="document-first" type="file">
+
+            <div class="download-button d-flex align-center justify-center">
+              <img alt="" src="assets/icons/psychic-registration/Download.png">
+
+              {{"proStatus.uploadLabel" | translate | uppercase}}
+            </div>
+          </label>
+
+          <label for="document-second">
+            <input id="document-second" type="file">
+
+            <div class="download-button d-flex align-center justify-center">
+              <img alt="" src="assets/icons/psychic-registration/Download.png">
+
+              {{"proStatus.uploadLabel" | translate | uppercase }}
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="bottom-info flex-column align-center">
+        <p class="paragraph-black text-uppercase">{{"proStatus.requiredLabel" | translate }}</p>
+
+        <mat-checkbox formControlName="accept" value="true">
+          {{"proStatus.textBottomFirstLabel" | translate }}<br>
+
+          {{"proStatus.textBottomSecondLabel" | translate }}<br>
+
+          {{"proStatus.textBottomThirdLabel" | translate }}
+        </mat-checkbox>
+      </div>
+
+      <button class="gradient-button text-uppercase validate" mat-button
+              routerLink="/psychic-registration/completion">{{"proStatus.validateLabel" | translate }}</button>
+
+      <div class="line"></div>
+    </div>
+
+    <nsp-reusable-registration-component></nsp-reusable-registration-component>
+  </div>
+</div>

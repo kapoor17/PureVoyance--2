@@ -1,0 +1,173 @@
+@import "text-styles";
+@import "auth";
+@import "variables";
+
+.psychic-profile-wrapper {
+  padding: 44px 0 0;
+
+  .upload-image {
+    padding: 32px 0 26px;
+
+    .profile-image {
+      position: relative;
+      width: 186px;
+      height: 186px;
+      border-radius: 50%;
+      border: 2px solid $gold-text-color;
+      background: $profile-image-background;
+
+      .avatar-text {
+        font-size: 21.9px;
+        line-height: 26px;
+        color: $charcoal;
+        text-align: center;
+      }
+
+      .camera {
+        position: absolute;
+        bottom: 18px;
+        right: -2px;
+      }
+
+      #avatar {
+        opacity: 0;
+        user-select: none;
+        outline: none;
+      }
+
+      .avatar-photo {
+        width: 186px;
+        height: 186px;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .user-name {
+    @include paragraph-black;
+    max-width: 560px;
+    font-size: 16px;
+    color: $charcoal;
+  }
+
+  .user-name-registration {
+    margin: 30px 0 56.75px;
+
+    .input-user-name {
+      width: 306px;
+      height: 42px;
+    }
+
+    ::ng-deep .mat-form-field-label-wrapper {
+      text-align: center;
+      margin-top: 6px;
+    }
+  }
+
+  .description-text {
+    padding: 31px 0 23px;
+    max-width: 557px;
+  }
+
+  .area-form {
+    width: 640px;
+    margin-bottom: 64px;
+
+    textarea {
+      height: 156px;
+    }
+  }
+
+  .information-about {
+
+    .languages-text {
+      @include paragraph-black;
+      color: $gold-text-color;
+      padding: 23px 0 7px;
+      font-weight: bold;
+    }
+
+    ::ng-deep .mat-checkbox-inner-container {
+      background: $profile-image-background;
+    }
+
+    ::ng-deep .mat-checkbox-label {
+      padding-right: 8px;
+      font-family: $font-lato;
+      font-size: 17.997px;
+      line-height: 22px;
+      color: $black;
+    }
+
+    ::ng-deep .mat-checkbox .mat-checkbox-layout .mat-checkbox-inner-container {
+      margin-top: 2px;
+    }
+
+    .others-input {
+      width: 195px;
+      height: 41px;
+      padding-top: 11px;
+      box-sizing: border-box;
+    }
+  }
+
+  .estimated-availability {
+    @include paragraph-black;
+    font-weight: bold;
+    padding: 36px 0 15px;
+  }
+
+  .work-time {
+    padding: 0 0 71.23px;
+
+    .select-form {
+      margin-top: 5px;
+      width: 156px;
+      height: 42px;
+      padding: 5px;
+
+      ::ng-deep.mat-select-arrow {
+        content: none;
+        background: no-repeat 100% 115% url("~src/assets/icons/psychic-registration/arrow-select-icon.svg");
+        margin-bottom: -5px;
+      }
+
+      ::ng-deep .mat-select-trigger {
+        padding-top: 21px;
+      }
+
+      ::ng-deep .mat-select-value {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 20px;
+        line-height: 24px;
+        color: $placeholder-color;
+      }
+    }
+  }
+
+  .footer-field {
+
+    h2, mat-checkbox {
+      color: $black;
+    }
+
+    mat-checkbox {
+      padding: 22.86px 0 94.14px;
+    }
+
+    .buttons {
+      justify-content: flex-start;
+      width: 100%;
+      column-gap: 150px;
+      padding-bottom: 78px;
+
+      button {
+        margin: 0;
+        padding: 15px 101px;
+      }
+    }
+  }
+}

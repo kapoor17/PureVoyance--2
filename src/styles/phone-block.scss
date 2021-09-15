@@ -1,0 +1,45 @@
+.phone-block {
+  width: max-content;
+  margin-top: 28px;
+  border: $border-grey;
+  padding: 20px 40px;
+  display: flex;
+  column-gap: 12px;
+
+  @media (max-width: 450px) {
+    padding: 8px 24px 11px 24px;
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  img {
+    width: 50px;
+    height: 55px;
+    @media (max-width: 450px) {
+      width: 31.25px;
+      height: 31.25px;
+    }
+  }
+
+  .phone {
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      margin: 0;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 32px;
+      text-align: center;
+    }
+
+    .text-uppercase {
+      font-size: 31px;
+      line-height: 35px;
+      font-weight: normal;
+      color: $text-green;
+    }
+  }
+}

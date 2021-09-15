@@ -1,0 +1,243 @@
+<header class="header-wrapper d-flex justify-center align-center">
+  <div class="inside-wrapper-new d-flex flex-between align-center">
+
+    <div class="left-side-wrapper flex-center">
+      <mat-icon (click)="toggleSidebar(true)"
+                class="burger"
+                svgIcon="burger-menu">
+      </mat-icon>
+
+      <img class="left-side-image-logo"
+           routerLink="/psychics"
+           src="./assets/images/header/logo-image.png">
+      <mat-icon class="left-side-logo"
+                routerLink="/psychics"
+                svgIcon="second-logo"></mat-icon>
+    </div>
+
+    <div class="right-side-wrapper d-flex justify-center align-center">
+      <button (click)="onSignUpButton()"
+              *ngIf="!authService.isAuthenticated"
+              class="flexible-center sign-up-button text-uppercase text-button"
+              mat-button>
+        {{ "header.freeRegistrationLabel" | translate}}
+      </button>
+
+      <button (click)="onSignInButton()"
+              *ngIf="!authService.isAuthenticated"
+              class="sign-in-button text-button text-uppercase"
+              mat-button>
+        {{ "header.loginLabel" | translate }}
+      </button>
+
+      <mat-icon (click)="onSignInButton()"
+                *ngIf="!authService.isAuthenticated"
+                class="sign-in-icon">
+        login
+      </mat-icon>
+
+      <div *ngIf="authService.isAuthenticated"
+           [matMenuTriggerFor]="profileMenu"
+           class="profile-wrapper d-flex">
+        <mat-icon class="trolley"
+                  svgIcon="trolley"></mat-icon>
+
+        <div class="d-flex align-center">
+          <span>{{currentUser?.total_credits}}.00</span>
+
+          <span>{{"recharge.creditsLabel" | translate}}</span>
+        </div>
+
+        <mat-menu #profileMenu="matMenu"
+                  backdropClass="user-panel-class"
+                  class="user-popover-wrapper">
+          <h2 class="user-name"
+              mat-menu-item>
+            {{(userService?.user$ | async)?.name}}
+          </h2>
+
+          <div class="payment-info d-flex align-center"
+               mat-menu-item>
+            <span class="payment-text">
+              {{'header.creditsLabel' | translate}}
+            </span>
+
+            <span class="payment-amount">{{currentUser?.total_credits}}.00</span>
+
+            <mat-icon class="euro-sign">
+              euro_symbol
+            </mat-icon>
+          </div>
+
+          <ul class="list-wrapper">
+            <li (click)="onRecharger()"
+                class="list-item"
+                mat-menu-item>
+
+              <mat-icon class="list-icon"
+                        svgIcon="recharge"></mat-icon>
+
+              <span class="list-title">
+                {{'header.rechargeLabel' | translate}}
+              </span>
+            </li>
+
+            <li [routerLink]="['/account/profile']"
+                class="list-item"
+                mat-menu-item>
+
+              <mat-icon class="list-icon"
+                        svgIcon="profile"></mat-icon>
+
+              <span class="list-title">
+                {{'header.profileLabel' | translate}}
+              </span>
+            </li>
+
+            <li [routerLink]="['/account/my-psychics']"
+                class="list-item"
+                mat-menu-item>
+
+              <mat-icon class="list-icon"
+                        svgIcon="heart"></mat-icon>
+
+              <span class="list-title">
+                {{'header.psychicsLabel' | translate}}
+              </span>
+            </li>
+
+            <li [routerLink]="['/account/consultations']"
+                class="list-item"
+                mat-menu-item>
+
+              <mat-icon class="list-icon"
+                        svgIcon="communications"></mat-icon>
+
+              <span class="list-title">Consultations</span>
+            </li>
+
+            <li [routerLink]="['/account/invoices']"
+                class="list-item"
+                mat-menu-item>
+
+              <mat-icon class="list-icon"
+                        svgIcon="factures"></mat-icon>
+
+              <span class="list-title">
+                {{'header.invoicesLabel' | translate}}
+              </span>
+            </li>
+
+            <li [routerLink]="['/account/appointments']"
+                class="list-item"
+                mat-menu-item>
+
+              <mat-icon class="list-icon"
+                        svgIcon="appointments"></mat-icon>
+
+              <span class="list-title">
+                {{'appointments.appointmentsLabel' | translate}}
+              </span>
+            </li>
+
+            <li [routerLink]="['/account/comments']"
+                class="list-item"
+                mat-menu-item>
+
+              <mat-icon class="list-icon"
+                        svgIcon="comment"></mat-icon>
+
+              <span class="list-title">
+                {{'comments.commentsLabel' | translate}}
+              </span>
+            </li>
+
+            <li [routerLink]="['/account/payments']"
+                class="list-item"
+                mat-menu-item>
+
+              <mat-icon class="list-icon"
+                        svgIcon="payments"></mat-icon>
+
+              <span class="list-title">
+                {{'payments.paymentsLabel' | translate}}
+              </span>
+            </li>
+
+            <li [routerLink]="['/account/communication-preferences']"
+                class="list-item"
+                mat-menu-item>
+              <!--              <i class="material-icons mail">mail</i>-->
+              <mat-icon class="list-icon mail"
+                        svgIcon="letter"></mat-icon>
+
+              <span class="list-title">
+                {{'userAccount.preferencesLabel' | translate}}
+              </span>
+            </li>
+
+            <li (click)="onLogout()"
+                class="list-item last-list-item"
+                mat-menu-item>
+
+              <mat-icon class="list-icon"
+                        svgIcon="log-out"></mat-icon>
+
+              <span class="list-title">
+                {{'header.logoutLabel' | translate}}
+              </span>
+            </li>
+          </ul>
+        </mat-menu>
+      </div>
+
+
+      <div *ngIf="authService.isAuthenticated"
+           class="flex-center tablet-profile">
+        <mat-icon class="trolley"
+                  svgIcon="trolley"></mat-icon>
+
+        <span>{{currentUser?.total_credits}}.00</span>
+
+        <span>{{"recharge.creditsLabel" | translate}}</span>
+      </div>
+
+      <div [ngClass]="!authService.isAuthenticated ? 'no-login' : '' "
+           class="language-select">
+        <button [matMenuTriggerFor]="menu"
+                mat-button>
+          <img [src]="currentLanguage?.languageImage">
+        </button>
+
+        <mat-menu #menu="matMenu">
+          <button (click)="changeLanguage(language.languageCode)"
+                  *ngFor="let language of languages"
+                  mat-menu-item>
+            <img [src]="language.languageImage">
+          </button>
+        </mat-menu>
+      </div>
+
+      <div class="phone-wrapper d-flex align-center">
+        <img class="phone-image"
+             src="./assets/icons/header/header-phone-icon.svg">
+
+        <div class="contacts">
+          <p class="paragraph-black text-uppercase">
+            {{ "header.helpLabel" | translate}}
+          </p>
+
+          <a class="phone-number light-green-sub-title"
+             href="tel:01 86 86 86 86">01 86 86 86 86</a>
+        </div>
+      </div>
+
+      <a (click)="toggleSidebar(false)" class="my-profile-border-left">
+        <mat-icon *ngIf="authService.isAuthenticated"
+                  class="profile-icon"
+                  svgIcon="profile">
+        </mat-icon>
+      </a>
+    </div>
+  </div>
+</header>

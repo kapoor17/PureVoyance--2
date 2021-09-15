@@ -1,0 +1,105 @@
+<mat-card class="credits-container mat-elevation-z0">
+  <div class="filter-wrapper">
+    <mat-form-field *ngIf="!!dataSource.length || !!searchControl.value"
+                    appearance="outline"
+                    class="input-form">
+      <mat-label>{{'general.searchLabel'| translate}}</mat-label>
+      <input [formControl]="searchControl"
+             matInput
+             type="text">
+    </mat-form-field>
+  </div>
+
+  <mat-table (matSortChange)="sortingEvent($event)"
+             [dataSource]="dataSource"
+             matSort>
+    <div *matNoDataRow>
+      <div class="table-no-data">
+        {{'users.credits.noDataLabel' | translate}}
+      </div>
+    </div>
+
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.credits.date' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.date || 'n/a'}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.credits.type' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.type?.name || 'n/a'}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="payment">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.credits.payment' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.payment || 'n/a'}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="invoice">
+      <mat-header-cell *matHeaderCellDef>
+        {{'users.credits.invoiceNumber' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <a *ngIf="!!element.invoice"
+           [routerLink]="['/back-office', 'invoices', element.invoice.id]">
+          {{element.invoice.number || 'n/a'}}
+        </a>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="amount">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.credits.amount' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.amount || 'n/a'}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="basicAmount">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.credits.basicAmount' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.basic_amount || 'n/a'}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="bonusAmount">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.credits.bonusAmount' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.bonus_amount || 'n/a'}}
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator (page)="paginatorEvent($event)"
+                 *ngIf="!!dataSource.length"
+                 [length]="total"
+                 [pageIndex]="page - 1"
+                 [pageSizeOptions]="paginatorPageSizeOptions"
+                 [pageSize]="pageSize">
+  </mat-paginator>
+</mat-card>

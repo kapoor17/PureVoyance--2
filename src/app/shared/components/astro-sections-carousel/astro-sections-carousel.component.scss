@@ -1,0 +1,127 @@
+@import "variables";
+@import "text-styles";
+
+//second-carousel
+.astro-sections-carousel {
+  padding: 51px 0 0;
+
+  .slider-wrapper {
+    flex-wrap: wrap;
+    column-gap: 66px;
+    align-items: baseline;
+
+    .slide-wrapper {
+      width: 20%;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .section-img {
+      width: 260px;
+      height: 355px;
+    }
+
+    .section-text {
+      padding-top: 29px;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 24px;
+      margin: 0;
+      color: $black;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 1669px) {
+  .section-text {
+    width: 44%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .astro-sections-carousel {
+    .slider-wrapper {
+      height: max-content;
+      align-items: stretch;
+
+      .slide-wrapper {
+        width: 35%;
+        padding-bottom: 28px;
+
+        .section-img {
+          border: $border-grey;
+        }
+
+        .section-text {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .astro-sections-carousel {
+    padding: 10px 0 0;
+
+    .slide-wrapper {
+      transform: scale(0.9);
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .slider-wrapper {
+    column-gap: 49px !important;
+
+    .slide-wrapper {
+      width: 45%;
+      padding-bottom: 88px;
+    }
+
+    ::ng-deep .carousel-slide-content {
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width: 620px) {
+  .astro-sections-carousel {
+    padding: 0;
+
+    .slider-wrapper {
+      column-gap: 30px !important;
+
+      .slide-wrapper {
+        transform: scale(0.7);
+
+        .section-text {
+          width: 175%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  .slider-wrapper {
+    column-gap: 22px !important;
+
+    .slide-wrapper {
+      transform: scale(0.5) !important;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .slider-wrapper {
+    column-gap: 20px !important;
+
+    .slide-wrapper {
+      transform: scale(0.45) !important;
+    }
+  }
+}

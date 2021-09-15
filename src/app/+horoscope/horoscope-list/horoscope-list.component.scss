@@ -1,0 +1,129 @@
+@import 'variables';
+@import "text-styles";
+
+.horoscope-signs-wrapper {
+  justify-content: flex-start;
+  width: 99%;
+
+  h1 {
+    text-align: center;
+    margin: 0;
+  }
+
+  .subtitle {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+  }
+
+  p {
+    margin: 0;
+    padding-bottom: 32px;
+    color: $black;
+    text-align: center;
+    font-size: 16px;
+    line-height: 20px;
+
+    &:last-of-type {
+      padding-bottom: 24px;
+    }
+
+    span {
+      font-weight: 500;
+    }
+  }
+
+  .flex-center {
+    .horoscope-signs {
+      flex-wrap: wrap;
+      display: flex;
+      justify-content: flex-start;
+      row-gap: 20px;
+      column-gap: 40px;
+
+      @media (max-width: 1011px) {
+        margin-bottom: 10px;
+        justify-content: center;
+      }
+
+      &:last-of-type {
+        padding-bottom: 0;
+      }
+
+      > div {
+        width: 100vw;
+        height: 100vh;
+        max-width: 108px;
+        max-height: 151px;
+        cursor: pointer;
+        @media (max-width: 599px) {
+          margin-bottom: 10px;
+        }
+
+        > img {
+          height: 108px;
+          padding-bottom: 15px;
+        }
+
+        > p {
+          @include paragraph-black;
+          font-size: 20px;
+          line-height: 23px;
+          color: $dim-gray;
+          margin: 0;
+        }
+      }
+    }
+
+    a {
+      @include paragraph-black;
+      padding: 45px 0 49px;
+      font-size: 17px;
+      line-height: 22px;
+      text-align: center;
+      color: $text-green;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .horoscope-signs {
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .horoscope-signs-wrapper {
+
+    .subtitle {
+      @include paragraph-black;
+      font-size: 16px;
+    }
+
+    .text-about-page {
+      font-size: 16px;
+    }
+
+    .flex-center {
+      .header-main-wrapper {
+        .horoscope-signs {
+          img {
+            width: 80px;
+            height: 80px;
+          }
+
+          p {
+            color: $dim-gray;
+            font-size: 16px;
+            line-height: 20px;
+          }
+        }
+      }
+
+      a {
+        padding: 10px 0 20px;
+      }
+    }
+  }
+}

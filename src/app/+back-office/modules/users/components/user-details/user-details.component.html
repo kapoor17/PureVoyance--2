@@ -1,0 +1,60 @@
+<div class="back-office-section-wrapper">
+  <div class="header">
+    <a [routerLink]="['../../users']"
+       class="text-uppercase">
+      {{'users.backLinkLabel' | translate}}
+    </a>
+
+    <div class="actions">
+      <button [matMenuTriggerFor]="menu" mat-stroked-button>{{'users.actionsLabel' | translate}}</button>
+      <mat-menu #menu="matMenu" class="actions-menu">
+        <button [routerLink]="['../edit-user', userId]"
+                class="transparent-button"
+                mat-menu-item>
+          {{'userProfile.editButtonLabel' | translate}}
+        </button>
+
+        <button (click)="activate()"
+                *ngIf="!activated"
+                class="activate"
+                mat-menu-item>
+          {{'userProfile.activateButtonLabel' | translate}}
+        </button>
+
+        <button (click)="deactivate()"
+                *ngIf="activated"
+                class="deactivate"
+                mat-menu-item>
+          {{'userProfile.deactivateButtonLabel' | translate}}
+        </button>
+
+        <button (click)="openFreeCredits()"
+                mat-menu-item>
+          {{'freeCredits.freeCreditsLabel' | translate}}
+        </button>
+
+        <button mat-menu-item>
+          {{'users.callBookLabel' | translate}}
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+
+  <nsp-user-main-info [refreshTrigger$]="refreshMainInfoTrigger$"></nsp-user-main-info>
+
+  <nav mat-tab-nav-bar>
+    <a #rla="routerLinkActive"
+       (click)="activeLink = link.link"
+       *ngFor="let link of links"
+       [active]="activeLink === link.link"
+       [routerLink]="[link.link]"
+       mat-tab-link
+       routerLinkActive>
+      <span>
+        {{'users.tabs.' + link.name | translate}}
+      </span>
+    </a>
+  </nav>
+
+  <router-outlet></router-outlet>
+</div>

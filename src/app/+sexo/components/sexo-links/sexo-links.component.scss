@@ -1,0 +1,148 @@
+@import "variables";
+@import "text-styles";
+@import "flexbox";
+
+.sexual-horoscope {
+  width: 100%;
+
+  .sexo-sub-title {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      font-size: 16px;
+      line-height: 19px;
+      margin: 0;
+    }
+  }
+
+  p {
+    padding: 10px 0 38px;
+
+  }
+
+  .change-tests {
+    width: 100%;
+    column-gap: 32px;
+    align-items: flex-start;
+    display: flex;
+
+    @media (max-width: 1280px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  .select-block {
+    padding-bottom: 12px;
+
+    .dark-button {
+      max-width: 379px;
+      text-decoration: none;
+      text-transform: uppercase;
+      margin-top: 0;
+      @media (max-width: 450px) {
+        width: 100%;
+      }
+    }
+
+    div {
+      padding-bottom: 25px;
+
+      img {
+        width: 379px;
+        height: 329px;
+        object-fit: cover;
+
+        &.daily {
+          content: url("~src/assets/images/sexo/dsh.png");
+        }
+
+        &.weekly {
+          content: url("~src/assets/images/sexo/sw.png");
+        }
+
+        &.seventh-heaven {
+          content: url("~src/assets/images/sexo/sp.png");
+        }
+
+        @media (max-width: 1024px) {
+          width: 369px;
+          height: 224px;
+        }
+
+        @media (max-width: 450px) {
+          width: 100%;
+
+          &.daily {
+            content: url("~src/assets/images/sexo/dsh-mobile-image.png");
+          }
+
+          &.weekly {
+            content: url("~src/assets/images/sexo/sw-mobile-image.png");
+          }
+
+          &.seventh-heaven {
+            content: url("~src/assets/images/sexo/sp-mobile-image.png");
+          }
+        }
+      }
+
+      h2 {
+        margin: 0;
+        padding: 27px 0 19px;
+        color: $black;
+        line-height: 28px;
+
+        @media (max-width: 600px) {
+          font-size: 19.182px;
+          line-height: 22px;
+          padding: 17px 0 10px;
+        }
+      }
+
+      p {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        height: 40px;
+      }
+
+      .grey-line {
+        width: 100%;
+        padding: 0;
+        border: $light-border-grey;
+      }
+
+      .golden {
+        color: $golden;
+
+        @media (max-width: 600px) {
+          padding: 6px 0 11px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 450px) {
+    padding: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .choose-your-sexual-horoscope {
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .choose-your-sexual-horoscope {
+    width: 100%;
+  }
+}

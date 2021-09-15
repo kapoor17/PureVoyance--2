@@ -1,0 +1,27 @@
+<nsp-common-dialog-header
+  (cancel)="close()"
+  [title]="'events.diffTitleLabel' | translate">
+</nsp-common-dialog-header>
+
+<div class="content"
+     mat-dialog-content>
+  <div class="content-message">
+
+    <td-ngx-text-diff
+      [left]="oldValue"
+      [right]="newValue"
+      [synchronizeScrolling]="true"
+      toolbarClass="diff-toolbar">
+    </td-ngx-text-diff>
+  </div>
+</div>
+
+<div class="actions"
+     mat-dialog-actions>
+
+  <button (click)="close()"
+          class="confirm-button"
+          mat-stroked-button>
+    {{ 'general.closeLabel' | translate}}
+  </button>
+</div>

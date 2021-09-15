@@ -1,0 +1,132 @@
+<section class="psychic-main-info">
+  <mat-card class="psychic-main-info-card mat-elevation-z0">
+
+    <div class="column">
+      <div class="psychic-main-info-card-row">
+        <div class="label">
+          {{'psychics.columns.nameLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data?.name || 'n/a'}}
+        </div>
+      </div>
+
+      <div class="psychic-main-info-card-row">
+        <div class="label">
+          {{'psychics.columns.skillsLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data?.skills | join}}
+        </div>
+      </div>
+
+      <div class="psychic-main-info-card-row">
+        <div class="label">
+          {{'psychics.columns.descriptionLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data?.description || 'n/a'}}
+        </div>
+      </div>
+
+      <div class="psychic-main-info-card-row">
+        <div class="label">
+          {{'psychics.columns.marketLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data?.market || 'n/a'}}
+        </div>
+      </div>
+
+      <div class="psychic-main-info-card-row">
+        <div class="label">
+          {{'psychics.columns.isOnlineLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          <mat-slide-toggle [checked]="data?.online_status"
+                            [disabled]="true"
+                            class="example-margin">
+          </mat-slide-toggle>
+        </div>
+      </div>
+
+      <div class="psychic-main-info-card-row">
+        <div class="label">
+          {{'psychics.columns.priceLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data?.price || 'n/a'}}
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="psychic-main-info-card-row">
+        <div class="label">
+          {{'psychics.columns.rateLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data?.rate || 'n/a'}}
+        </div>
+      </div>
+
+      <div class="psychic-main-info-card-row">
+        <div class="label">
+          {{'psychics.columns.minCallTimeLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data?.min_call_time || 'n/a'}}
+        </div>
+      </div>
+
+      <div class="psychic-main-info-card-row">
+        <div class="label">
+          {{'psychics.columns.commissionRatesLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data?.commission || 'n/a'}}
+        </div>
+      </div>
+
+      <div class="psychic-main-info-card-row">
+        <div class="label">
+          {{'psychics.columns.totalCommissionValueLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data?.total_commission || 'n/a'}}
+        </div>
+      </div>
+
+      <div class="psychic-main-info-card-row">
+        <div class="label">
+          {{'psychics.columns.totalIncomeAmountExcludingVatLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data?.total_income_amount || 'n/a'}}
+        </div>
+      </div>
+
+      <div class="psychic-main-info-card-row">
+        <div class="label">
+          {{'psychics.columns.totalIncomeAmountIncludingVatLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data?.total_income_mount || 'n/a'}}
+        </div>
+      </div>
+    </div>
+
+  </mat-card>
+</section>

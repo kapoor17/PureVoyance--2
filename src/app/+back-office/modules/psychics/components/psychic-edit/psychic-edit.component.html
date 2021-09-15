@@ -1,0 +1,82 @@
+<div class="sign-up-container">
+
+  <a [routerLink]="['../../../psychics']"
+     class="text-uppercase d-flex">
+    {{'psychics.backLinkLabel' | translate}}
+  </a>
+
+  <div class="flex-column flex-center">
+    <h1 class="text-uppercase h1 m-0">{{'psychics.columns.updatePsychicLabel' | translate}}    </h1>
+
+    <img class="divider" src="./assets/images/divider.png">
+  </div>
+
+
+  <div class="form-container">
+
+    <form (ngSubmit)="update()"
+          *ngIf="psychicForm" [formGroup]="psychicForm"
+          class="stepper-container flex-column flex-center">
+      <div class="sign-up-fields flex-center flex-column">
+
+        <p class="input-title">{{'psychics.columns.descriptionLabel' | translate }}</p>
+
+        <mat-form-field class="input-form">
+          <input [placeholder]="'psychics.columns.descriptionLabel' | translate | titlecase "
+                 class="input-field"
+                 formControlName="description"
+                 matInput
+                 type="text">
+
+          <mat-error>{{'validationService.required' | translate}}</mat-error>
+        </mat-form-field>
+
+
+        <p class="input-title">
+          {{"psychics.columns.commissionLabel"| translate}}
+        </p>
+
+        <mat-form-field class="input-form">
+          <input [placeholder]="'psychics.columns.commissionLabel' | translate | titlecase"
+                 class="input-field"
+                 formControlName="commission"
+                 matInput
+                 type="text">
+
+          <mat-error>{{'validationService.required' | translate}}</mat-error>
+        </mat-form-field>
+
+        <p class="input-title">
+          {{'psychics.columns.priceLabel'| translate}}
+        </p>
+
+        <mat-form-field class="input-form">
+          <input [placeholder]="'psychics.columns.priceLabel'| translate | titlecase"
+                 formControlName="price"
+                 matInput
+                 type="text">
+          <mat-error>{{'validationService.required' | translate}}</mat-error>
+        </mat-form-field>
+
+        <p class="input-title">
+          {{"psychics.columns.oldPriceLabel"| translate }}
+        </p>
+
+        <mat-form-field class="input-form">
+          <input [placeholder]="'psychics.columns.oldPriceLabel' | translate | titlecase"
+                 class="input-field"
+                 formControlName="old_price"
+                 matInput
+                 type="text">
+          <mat-error>{{'horoscope.timeOfBirthErrorLabel' | translate}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <button [disabled]="psychicForm.invalid"
+              class="button"
+              mat-button>
+        {{ 'signUp.updateButtonLabel' | translate}}
+      </button>
+    </form>
+  </div>
+</div>

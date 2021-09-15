@@ -1,0 +1,196 @@
+@import "text-styles";
+@import "variables";
+
+.head-online-reading {
+  column-gap: 24px;
+  padding-bottom: 50px;
+
+  @media (max-width: 768px) {
+    padding-bottom: 20px;
+  }
+
+  p {
+    color: $black;
+    text-align: center;
+    font-weight: 300;
+    width: 70%;
+    @media (max-width: 768px) {
+      width: 95%;
+    }
+
+    span {
+      font-weight: 500;
+    }
+  }
+}
+
+.choose-your-card {
+  text-align: center;
+
+  h1 {
+    padding-bottom: 33px;
+  }
+
+  .choose-blocks {
+    padding-bottom: 75px;
+
+    @media (max-width: 699px) {
+      flex-direction: column;
+    }
+
+    .radio-select {
+      background: $white;
+      border: $border-white;
+      align-items: center;
+      padding: 12px 11px 31px;
+      width: 32%;
+      box-sizing: border-box;
+
+      &.active {
+        box-shadow: 0 0 10px $one-more-gold;
+      }
+
+      @media (max-width: 700px) {
+        margin-bottom: 10px;
+        width: 90%;
+      }
+
+      div {
+        h3 {
+          color: $black;
+          padding: 29px 0 23px;
+          border-bottom: 1px solid #cfcfcf;
+
+          &.active {
+            font-weight: bold;
+            color: $gold;
+          }
+        }
+
+        p {
+          @include paragraph-black;
+          padding: 29px 22px 49px;
+        }
+      }
+    }
+  }
+}
+
+.choose-your-sign {
+  padding-bottom: 30px;
+
+  .dark-button {
+    max-width: 332px;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 56px;
+
+    &.disabled {
+      background: linear-gradient(
+          180deg,
+          #02bec0 -4.2%,
+          #066365 45.34%,
+          #0b2325 98.07%
+      ) !important;
+      pointer-events: none;
+    }
+  }
+
+  p {
+    color: $black;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  .first-name-sign {
+    width: 45%;
+    max-width: 392px;
+    column-gap: 24px;
+    padding: 20px 0 20px;
+    @media (max-width: 599px) {
+      flex-direction: column;
+    }
+
+    .input-form {
+      border: $border-silver;
+      width: 100%;
+      margin-bottom: 27px;
+      background: $white-smoke;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      ::ng-deep .mat-form-field-hide-placeholder .mat-select-placeholder,
+      mat-placeholder {
+        @include paragraph-black;
+        margin: 0;
+        display: inline;
+        color: $psychics-black;
+      }
+    }
+  }
+
+  .inspiration {
+    width: 45%;
+    max-width: 392px;
+    padding: 18px 57px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .choose-your-card {
+    .choose-blocks {
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 20px;
+      column-gap: 40px;
+      padding-bottom: 24px;
+    }
+  }
+
+  .choose-your-sign {
+    .first-name-sign {
+      min-width: 50%;
+    }
+
+    .inspiration {
+      min-width: 50%;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .flex-column {
+    h1 {
+      text-align: left;
+      font-size: 19.182px;
+      line-height: 22px;
+    }
+
+    img {
+      width: 90%;
+      padding-bottom: 10px;
+    }
+
+    p {
+      font-size: 15.5248px;
+      line-height: 18px;
+      text-align: center;
+    }
+  }
+
+  mat-card {
+    width: 100%;
+  }
+
+  .choose-your-sign {
+    .first-name-sign {
+      min-width: 100%;
+    }
+
+    .inspiration {
+      min-width: 100%;
+    }
+  }
+}

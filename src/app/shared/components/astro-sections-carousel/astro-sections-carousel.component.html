@@ -1,0 +1,63 @@
+<div class="astro-sections-carousel">
+  <mat-carousel *ngIf="witchSectionTestShow"
+                [autoplay]="false"
+                [hideArrows]="arrows"
+                [hideIndicators]="true"
+                [interval]="6000"
+                [loop]="true"
+                [maintainAspectRatio]="false"
+                [slideHeight]="slideHeight"
+                [slides]="slidesToShow"
+                [useKeyboard]="true"
+                [useMouseWheel]="false"
+                color="accent"
+                timings="250ms ease-in">
+    <mat-carousel-slide #matCarouselSlide
+                        *ngFor="let section of firstSection; let i = index"
+                        [hideOverlay]="true"
+                        overlayColor="#00000040">
+      <div class="slider-wrapper flex-center">
+        <div (click)="openAstroTest(i)" *ngFor="let item of section"
+
+             [queryParams]="{'title': astroSection.sectionFirst[i].text.split(' ').join('_')}"
+             [routerLink]="['/psycho-tests']"
+             class="slide-wrapper flex-column align-center">
+          <img [src]="item.img" class="section-img">
+
+          <p class="section-text light-green-sub-title text-uppercase">{{ item.text | translate }}</p>
+        </div>
+      </div>
+    </mat-carousel-slide>
+  </mat-carousel>
+
+  <mat-carousel *ngIf="!witchSectionTestShow"
+                [autoplay]="false"
+                [hideArrows]="arrows"
+                [hideIndicators]="true"
+                [interval]="6000"
+                [loop]="true"
+                [maintainAspectRatio]="false"
+                [slideHeight]="slideHeight"
+                [slides]="slidesToShow"
+                [useKeyboard]="true"
+                [useMouseWheel]="false"
+                color="accent"
+                timings="250ms ease-in">
+    <mat-carousel-slide #matCarouselSlide
+                        *ngFor="let section of secondSection; let i = index"
+                        [hideOverlay]="true"
+                        overlayColor="#00000040">
+      <div class="slider-wrapper flex-center">
+        <div (click)="openSecondAstroTest(i)" *ngFor="let item of section"
+             [queryParams]="{'title': astroSection.sectionSecond[i].text.split(' ').join('_')}"
+             [routerLink]="['/psycho-tests']"
+             class="slide-wrapper flex-column align-center">
+          <img [src]="item.img" class="section-img">
+
+
+          <p class="section-text light-green-sub-title text-uppercase">{{ item.text | translate }}</p>
+        </div>
+      </div>
+    </mat-carousel-slide>
+  </mat-carousel>
+</div>

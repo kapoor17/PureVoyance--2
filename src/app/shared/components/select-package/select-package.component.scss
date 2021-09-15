@@ -1,0 +1,213 @@
+@import 'variables';
+@import "material-override/pagination";
+
+.recharge-wrapper {
+  .content-message {
+    .main-title {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 24px;
+      text-transform: uppercase;
+      color: $golden;
+      padding-bottom: 22px;
+      padding-top: 12px;
+      text-align: center;
+    }
+  }
+
+  .packages-block {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    padding-bottom: 16px;
+    margin-top: 10px;
+
+    .package-item {
+      background: $white;
+      display: flex;
+      justify-content: center;
+      position: relative;
+
+      .privilege-circle {
+        background: url("~src/assets/images/physics/privilege-offer-circle.png");
+        width: 71px;
+        height: 71px;
+        border-radius: 50%;
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 11px;
+        text-transform: uppercase;
+        flex-direction: column;
+        position: absolute;
+        right: 50px;
+        z-index: 1000;
+        top: -20px;
+
+        .offer {
+          font-size: 16px;
+        }
+      }
+
+      .outer-circle {
+        border-radius: 50%;
+        box-shadow: 0px 0px 15px rgb(0 0 0 / 25%);
+        width: 234px;
+        height: 234px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .inner-circle {
+          width: 263px;
+          height: 263px;
+          position: absolute;
+
+          &.special {
+            left: -17px;
+            bottom: -18px;
+          }
+        }
+
+        .amount {
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 24px;
+          text-align: center;
+          text-transform: uppercase;
+          color: $dark-blue;
+          margin-top: 10px;
+        }
+
+        .credits {
+          font-weight: bold;
+          font-size: 48px;
+          line-height: 56px;
+          text-align: center;
+          color: $golden-recharge;
+
+          .plus {
+            color: $green-active;
+          }
+        }
+
+        .offers {
+          font-size: 21px;
+          line-height: 24px;
+          text-align: center;
+          text-transform: uppercase;
+          color: $dark-blue;
+        }
+
+        .action {
+          margin-top: 4px;
+
+          .mat-button-base {
+            background: $green-gradient;
+            width: 100px;
+            height: 40px;
+            color: $white-alternative;
+            font-size: 14px;
+            line-height: 16px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+
+            &.special {
+              background: $golder-gradient-alternative;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.actions {
+  flex-direction: row-reverse;
+  display: flex;
+  justify-content: center;
+}
+
+::ng-deep .custom-dialog {
+  .mat-dialog-content {
+    max-height: unset;
+  }
+}
+
+@media (max-width: 650px) {
+  .recharge-wrapper {
+    .content-message {
+      .main-title {
+        font-size: 16px;
+        line-height: 16px;
+      }
+    }
+
+    .packages-block {
+      .package-item {
+        .privilege-circle {
+          background-size: contain;
+          width: 45px;
+          height: 45px;
+          font-size: 7px;
+          right: 0 !important;
+          top: -24px !important;
+
+          .offer {
+            font-size: 9px;
+            line-height: 9px;
+          }
+        }
+
+        .outer-circle {
+          width: 120px !important;
+          height: 120px !important;
+
+          .inner-circle {
+            width: 140px !important;
+            height: 140px !important;
+
+            &.special {
+              left: -11px;
+              bottom: -11px;
+            }
+          }
+
+          .amount {
+            font-size: 11px;
+            line-height: 11px;
+            max-width: 80px;
+          }
+
+          .credits {
+            font-size: 24px;
+            line-height: 28px;
+          }
+
+          .offers {
+            font-size: 12px;
+            line-height: 12px;
+          }
+
+          .action {
+            margin-top: 2px;
+
+            .mat-button-base {
+              width: 50px;
+              height: 20px;
+              font-size: 10px;
+              min-width: 50px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<div class="status">
+  <mat-icon [class.busy]="status === 'onConsultation'"
+            [class.offline]="status === 'nonAvailable'"
+            [class.online]="status === 'available'"
+            [svgIcon]="'circle'">
+  </mat-icon>
+  <p>
+    <ng-container *ngIf="status === 'nonAvailable'">
+      {{'psychics.nonAvailableLabel' | translate}}
+    </ng-container>
+
+    <ng-container *ngIf="status === 'available'">
+      {{'psychics.availableLabel' | translate}}
+    </ng-container>
+
+    <ng-container *ngIf="status === 'onConsultation'">
+      {{'psychics.onConsultationLabel' | translate}}
+    </ng-container>
+  </p>
+</div>

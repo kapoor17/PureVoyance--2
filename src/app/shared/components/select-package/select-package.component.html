@@ -1,0 +1,65 @@
+<div class="recharge-wrapper"
+     mat-dialog-content>
+  <div class="content-message">
+
+    <div class="main-title">
+      {{'recharge.headerSecondTextLabel' | translate: {maxValue: highestBonus} }}
+    </div>
+
+    <div class="packages-block">
+      <div *ngFor="let package of rechargeService.packages | paginate: {itemsPerPage: 4, currentPage: page}"
+           class="package-item">
+        <div *ngIf="package.extra_amount > 0"
+             class="privilege-circle">
+
+          <div class="offer">
+            {{'recharge.offerLabel' | translate}}
+          </div>
+          <div>
+            {{'recharge.privilegeLabel' | translate}}
+          </div>
+        </div>
+
+        <div class="outer-circle">
+          <img [class.special]="package.extra_amount > 0"
+               [src]="package.extra_amount > 0 ? './assets/images/recharge/special-circle.png' : './assets/images/recharge/regular-circle.png'"
+               class="inner-circle"/>
+
+          <div class="amount">
+            {{'recharge.headBlockTestLabel' | translate}} {{ (package.amount + package.extra_amount) | integerPart}}&euro;
+          </div>
+
+          <div class="credits">
+            <span class="plus">+</span>{{ ((package.credits - package.amount) + (package.extra_credits -
+            package.extra_amount)) | integerPart}}&euro;
+          </div>
+
+          <div class="offers">
+            {{'recharge.offersLabel' | translate}}
+          </div>
+
+          <div class="action">
+            <button (click)="select(package)"
+                    [class.special]="package.extra_amount > 0"
+                    mat-button>
+              {{'recharge.rechargeButtonLabel' | translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="rechargeService.totalPackages > 6"
+     class="actions"
+     mat-dialog-actions>
+  <pagination-controls (pageChange)="paginatorEvent($event)"
+                       [autoHide]="true"
+                       [directionLinks]="true"
+                       class="my-pagination"
+                       nextLabel=""
+                       previousLabel="">
+  </pagination-controls>
+</div>

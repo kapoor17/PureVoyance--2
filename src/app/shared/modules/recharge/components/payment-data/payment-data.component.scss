@@ -1,0 +1,419 @@
+@import 'variables';
+@import "material-override/pagination";
+
+.recharge-wrapper {
+  width: 500px;
+  overflow-y: auto !important;
+  max-height: 80vh !important;
+
+  .content-message {
+    .main-title, .second-title {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 24px;
+      text-transform: uppercase;
+      color: $dark-blue;
+      padding-bottom: 12px;
+      padding-top: 12px;
+      text-align: center;
+    }
+
+    .main-title {
+      padding-top: 0;
+    }
+
+    .second-title {
+      color: $golden;
+    }
+  }
+
+  .payment-details {
+    display: flex;
+    flex-direction: column;
+    padding-top: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .head-block {
+      &:not(.discovery) {
+        height: 356px;
+        background: linear-gradient(180deg, #ffffff 0%, #ffffff 20%, #00A8AA 20%, #0B2628 100%);
+      }
+
+      &.discovery {
+        border-bottom: 2px solid $recharge-divider;
+        padding-bottom: 30px;
+
+        .top {
+          .package-item {
+            .outer-circle {
+              width: 234px;
+              height: 234px;
+
+              .inner-circle {
+                width: 263px;
+                height: 263px;
+                left: -14px;
+                top: -14px;
+
+                &.special {
+                  left: -17px;
+                  bottom: -18px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .top {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .package-item {
+          background: $white;
+          display: flex;
+          justify-content: center;
+          position: relative;
+          border-radius: 50%;
+
+          .privilege-circle {
+            background: url("~src/assets/images/physics/privilege-offer-circle.png");
+            width: 71px;
+            height: 71px;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 11px;
+            text-transform: uppercase;
+            flex-direction: column;
+            position: absolute;
+            right: 50px;
+            z-index: 1000;
+            top: -20px;
+
+            .offer {
+              font-size: 16px;
+            }
+          }
+
+          .outer-circle {
+            border-radius: 50%;
+            box-shadow: 0px 0px 15px rgb(0 0 0 / 25%);
+            width: 184px;
+            height: 184px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            .inner-circle {
+              width: 206px;
+              height: 206px;
+              position: absolute;
+              top: -11px;
+              left: -11px;
+            }
+
+            .amount {
+              font-weight: bold;
+              font-size: 16px;
+              line-height: 24px;
+              text-align: center;
+              text-transform: uppercase;
+              color: $dark-blue;
+              margin-top: 10px;
+            }
+
+            .credits {
+              font-weight: bold;
+              font-size: 48px;
+              line-height: 56px;
+              text-align: center;
+              color: $golden-recharge;
+
+              .plus {
+                color: $green-active;
+              }
+            }
+
+            .offers {
+              font-size: 21px;
+              line-height: 24px;
+              text-align: center;
+              text-transform: uppercase;
+              color: $dark-blue;
+            }
+          }
+        }
+      }
+
+      .middle {
+        font-family: $font-main;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 28px;
+        color: $white;
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 4px;
+      }
+
+      .bottom {
+        display: flex;
+        margin-top: 8px;
+
+        .side {
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+
+          &:first-child {
+            border-right: 2px solid $divider-gold;
+          }
+
+          .icon {
+            display: flex;
+            justify-content: center;
+          }
+
+          .title, .description {
+            font-family: $font-main;
+            font-size: 15px;
+            line-height: 18px;
+            text-align: center;
+            color: $white;
+            margin-top: 10px;
+          }
+
+          .title {
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+
+    .middle-header {
+      font-family: $font-lato;
+      font-weight: bold;
+      font-size: 21px;
+      line-height: 25px;
+      text-align: center;
+      color: $can-we-stop-adding-golden-colors;
+      margin-top: 14px;
+      margin-bottom: 20px;
+    }
+
+    .card-selector {
+      .card-selector-panel {
+        background: $card-select-background;
+        border: $border-grey;
+
+        ::ng-deep {
+          .mat-content {
+            align-items: center;
+          }
+
+          .mat-expansion-panel-header-title {
+            font-weight: bold;
+            font-size: 21px;
+            line-height: 25px;
+            color: $psychics-black;
+            width: 35%;
+          }
+
+          .mat-expansion-indicator {
+            &:after {
+              border-width: 0 4px 4px 0;
+              padding: 5px;
+              margin-bottom: 6px;
+              color: black;
+            }
+          }
+        }
+      }
+
+      .card-icon {
+        border: $card-border;
+        box-sizing: border-box;
+        border-radius: 3px;
+
+        &:not(:first-child) {
+          margin-left: 8px;
+        }
+      }
+    }
+
+    .payment-form {
+      margin-top: 16px;
+
+      .row {
+        width: 100%;
+        display: flex;
+
+        &:not(:first-child) {
+          margin-top: 12px;
+        }
+
+        .expiration, .cvv {
+          width: 48%;
+        }
+
+        .cvv {
+          margin-left: 4%;
+        }
+      }
+
+      &-input {
+        display: flex;
+        height: 40px;
+        width: 100%;
+        align-items: center;
+        border: $border-grey;
+
+        .separator {
+          width: 2px;
+          background: $border-color;
+          height: 60%;
+          margin-right: 24px;
+        }
+
+        .label {
+          justify-content: center;
+          display: flex;
+          align-items: center;
+          padding-right: 12px;
+          padding-left: 12px;
+        }
+
+        .value {
+          width: 100%;
+          border: none;
+
+          &.month {
+            width: 50%;
+          }
+        }
+      }
+    }
+
+    .payment-disclaimer {
+      margin-top: 16px;
+      margin-bottom: 16px;
+
+      .adult-warning {
+        font-family: $font-main;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        color: $dark-blue;
+      }
+
+      .disclaimer-row {
+        width: 100%;
+
+        &:not(:first-child) {
+          margin-top: 16px;
+        }
+
+        &-checkbox {
+          ::ng-deep .mat-checkbox-layout {
+            white-space: normal;
+
+            .mat-checkbox-inner-container {
+              margin-top: 4px;
+            }
+
+            .mat-checkbox-frame {
+              border-color: $checkbox-border;
+            }
+
+            .mat-checkbox-label {
+              font-weight: normal;
+              font-size: 16px;
+              line-height: 20px;
+              color: $dark-blue;
+            }
+          }
+        }
+      }
+    }
+
+    .price-block {
+      display: flex;
+      justify-content: center;
+      margin-top: 16px;
+
+      &-badge {
+        background-color: $can-we-stop-adding-golden-colors;
+        border: 1px solid $another-useless-color;
+        box-sizing: border-box;
+        border-radius: 30px;
+        width: 200px;
+        height: 48px;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 24px;
+        text-align: center;
+        color: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .confirmation-button {
+      margin-top: 28px;
+      background-color: $just-another-green;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 52px;
+      width: 100%;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 20px;
+      text-align: center;
+      color: $white-alternative;
+      border: none;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      &:disabled {
+        background-color: $grey;
+      }
+    }
+
+    .footer {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+      font-size: 12px;
+      line-height: 20px;
+      color: $link-color;
+
+      .ssl-container {
+        display: flex;
+        align-items: center;
+
+        img {
+          margin-right: 12px;
+        }
+      }
+    }
+  }
+}
+
+::ng-deep .custom-dialog {
+  .mat-dialog-content {
+    max-height: unset;
+  }
+}

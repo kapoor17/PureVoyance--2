@@ -1,0 +1,96 @@
+::ng-deep {
+  .my-pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .ngx-pagination {
+      a, button {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 36px;
+        color: $gold;
+        background: transparent;
+      }
+
+      li {
+        &:not(.small-screen) {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        &:not(:first-child) {
+          margin-left: 10px;
+        }
+
+        &.current {
+          outline: 1px solid $border-color !important;
+        }
+
+        &:not(.pagination-previous), &:not(.pagination-next) {
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 24px;
+          line-height: 36px;
+          color: $gold;
+          background: transparent;
+          padding-top: 0;
+          padding-bottom: 0;
+          line-height: 36px;
+          box-sizing: border-box;
+          width: 32px;
+        }
+      }
+
+      .disabled {
+        color: #777E91;
+      }
+
+      .pagination-previous, .pagination-next {
+        height: 36px;
+        width: 36px !important;
+        padding-bottom: 0;
+        padding-top: 0;
+        position: relative;
+
+        &::before {
+          width: 36px;
+          height: 36px;
+          position: absolute;
+          background-size: contain !important;
+          margin: 0;
+          left: 0;
+          content: '' !important;
+          pointer-events: none;
+          cursor: pointer;
+        }
+      }
+
+      .pagination-previous {
+        margin-right: 6px;
+
+        &::before {
+          background: url('/assets/icons/pagination/arrow-left.png');
+        }
+      }
+
+      .pagination-next {
+        margin-left: 16px !important;
+
+        &::before {
+          background: url('/assets/icons/pagination/arrow-right.png');
+        }
+      }
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      padding: 0;
+    }
+  }
+}

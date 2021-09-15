@@ -1,0 +1,83 @@
+<div class="back-office-section-wrapper">
+  <h1 class="h1 text-uppercase">
+    {{'eventLogs.eventLogsLabel' | translate}}
+  </h1>
+
+  <mat-card class="mat-elevation-z0">
+    <div class="table-wrapper">
+      <mat-table [dataSource]="dataSource">
+        <div *matNoDataRow>
+          <div class="table-no-data">
+            {{'invoices.noDataLabel' | translate}}
+          </div>
+        </div>
+
+        <ng-container matColumnDef="message">
+          <mat-header-cell *matHeaderCellDef>
+            {{'events.messageLabel' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{(element.message | titlecase) || 'n/a'}}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+          <mat-header-cell *matHeaderCellDef>
+            {{'events.dateLabel' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{element.date || 'n/a'}}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="subjectType">
+          <mat-header-cell *matHeaderCellDef>
+            {{'events.subjectTypeLabel' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{element.subject_type || 'n/a'}}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="causerType">
+          <mat-header-cell *matHeaderCellDef>
+            {{'events.causerTypeLabel' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <a *ngIf="!!element.causer_id; else systemEvent"
+               [routerLink]="['/back-office', element.causerLink, element.causer_id]"
+               mat-stroked-button>
+              {{element.causer_type || 'n/a'}}
+            </a>
+
+            <ng-template #systemEvent>
+              {{'events.systemLabel' | translate}}
+            </ng-template>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="showDiff">
+          <mat-header-cell *matHeaderCellDef>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button (click)="showDiff(element)"
+                    mat-stroked-button>
+              {{'events.showDiffLabel' | translate}}
+            </button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+      <mat-paginator (page)="paginatorEvent($event)"
+                     *ngIf="!!dataSource.length"
+                     [length]="total"
+                     [pageIndex]="page - 1"
+                     [pageSizeOptions]="paginatorPageSizeOptions"
+                     [pageSize]="pageSize">
+      </mat-paginator>
+    </div>
+  </mat-card>
+</div>

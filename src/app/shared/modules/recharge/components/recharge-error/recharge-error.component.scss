@@ -1,0 +1,106 @@
+@import 'variables';
+@import "material-override/pagination";
+
+.recharge-wrapper {
+  width: 500px;
+
+  .content-message {
+    .main-title {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 24px;
+      text-transform: uppercase;
+      color: $golden;
+      padding-bottom: 22px;
+      padding-top: 12px;
+      text-align: center;
+    }
+  }
+
+  .checkmark {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+
+    ::ng-deep .mat-icon {
+      width: 78px;
+      line-height: 78px;
+      height: 78px;
+    }
+  }
+
+  .content {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    color: $dark-blue;
+  }
+
+  .actions {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 32px;
+
+    .confirm-button {
+      width: 100%;
+      height: 52px;
+      background: $just-another-green;
+      color: $white;
+      font-family: $font-main;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
+
+  .support-question {
+    padding-top: 23px;
+    padding-bottom: 15px;
+    border-top: 2px solid $just-in-case-if-we-need-another-grey-color;
+    color: $gold;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .support-disclaimer {
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: black;
+    padding-bottom: 21px;
+  }
+
+  .support-phone-number {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 47px;
+    text-align: center;
+    color: $help-black;
+    padding-bottom: 10px;
+  }
+
+  .support-credits {
+    font-size: 21px;
+    line-height: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $gold;
+  }
+}
+
+::ng-deep .custom-dialog {
+  .mat-dialog-content {
+    max-height: unset;
+  }
+}

@@ -1,0 +1,72 @@
+@import "text-styles";
+@import "variables";
+
+.answer-wrapper {
+  width: 100%;
+  background: $skin-background;
+  padding: 33px;
+  box-sizing: border-box;
+
+  mat-icon {
+    fill: $callback-green;
+    width: 18%;
+    // height: 40%;
+  }
+
+  .middle-text {
+    p {
+      color: $black;
+    }
+
+    .text-call {
+      font-size: 21px;
+      line-height: 25px;
+      padding: 4px 0 11px;
+    }
+
+    .call-number {
+      text-decoration: none;
+      color: $one-more-gold;
+      font-size: 36px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .answer-wrapper {
+    padding: 12px;
+
+    mat-icon {
+      fill: $callback-green;
+      width: 20%;
+      height: 48%;
+    }
+
+    .middle-text {
+      .light-green-sub-title {
+        font-size: 16px;
+        line-height: 19px;
+      }
+
+      p {
+        color: $black;
+      }
+
+      .text-call {
+        font-size: 14px;
+        line-height: 16px;
+        padding: 2px 0 8px;
+      }
+
+      .call-number {
+        line-height: 8px;
+      }
+    }
+
+    .green-button {
+      font-size: 14px;
+      line-height: 17px;
+      padding: 8px 7px;
+    }
+  }
+}

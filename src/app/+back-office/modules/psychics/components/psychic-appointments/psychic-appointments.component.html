@@ -1,0 +1,82 @@
+<section class="appointments-container">
+  <div class="filter-wrapper">
+    <mat-form-field *ngIf="!!dataSource.length || !!searchControl.value"
+                    appearance="outline"
+                    class="input-form">
+      <mat-label>{{'general.searchLabel'| translate}}</mat-label>
+      <input [formControl]="searchControl"
+             matInput
+             type="text">
+    </mat-form-field>
+  </div>
+
+  <mat-card class="mat-elevation-z0">
+    <div class="table-wrapper">
+      <mat-table (matSortChange)="sortingEvent($event)"
+                 [dataSource]="dataSource"
+                 matSort>
+        <div *matNoDataRow>
+          <div class="table-no-data">
+            {{'psychics.appointments.noDataLabel' | translate}}
+          </div>
+        </div>
+
+        <ng-container matColumnDef="start">
+          <mat-header-cell *matHeaderCellDef
+                           mat-sort-header>
+            {{'users.appointments.start' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{element.start || 'n/a'}}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="end">
+          <mat-header-cell *matHeaderCellDef
+                           mat-sort-header>
+            {{'users.appointments.end' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{element.end || 'n/a'}}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="customer">
+          <mat-header-cell *matHeaderCellDef
+                           mat-sort-header>
+            {{'users.appointments.customer' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <a *ngIf="!!element.user"
+               [routerLink]="['/back-office', 'users', element.user.id]">
+              {{element.user.name || 'n/a'}}
+            </a>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="media">
+          <mat-header-cell *matHeaderCellDef
+                           mat-sort-header>
+            {{'users.appointments.media' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{element.media || 'n/a'}}
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+
+    <div class="footer-table-wrapper">
+      <mat-paginator (page)="paginatorEvent($event)"
+                     *ngIf="!!dataSource.length"
+                     [length]="total"
+                     [pageIndex]="page - 1"
+                     [pageSizeOptions]="paginatorPageSizeOptions"
+                     [pageSize]="pageSize">
+      </mat-paginator>
+    </div>
+  </mat-card>
+</section>

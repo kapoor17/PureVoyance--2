@@ -1,0 +1,85 @@
+@import "variables";
+@import "text-styles";
+@import "auth";
+
+.sign-up-psychic-wrapper {
+  padding: 42px 0 0;
+
+  p {
+    color: $black;
+    font-weight: normal;
+    padding-bottom: 40px;
+  }
+
+  .take-your-gender {
+    padding-bottom: 27px;
+
+    .choose-gender {
+      column-gap: 87.4px;
+
+      mat-radio-button {
+        padding-left: 12px;
+
+        ::ng-deep .mat-radio-label-content {
+          font-family: $font-lato;
+          font-size: 18px;
+          line-height: 22px;
+          color: $black;
+          padding-left: 9.6px;
+        }
+      }
+    }
+  }
+
+  .line-between {
+    height: 3px;
+    width: 100%;
+  }
+
+  .general-information {
+    padding: 38px 0 0;
+    @include auth-dialog;
+    width: 306px;
+
+    .input-form {
+      border: 1px solid #A1A1A1;
+      background: #F8F8F8;
+      margin-bottom: 25px;
+    }
+  }
+
+  .identifiers {
+    padding: 30px 0;
+  }
+
+  .confirm-registration {
+    max-width: 378px;
+    padding-bottom: 43px;
+
+    .required-fields {
+      @include paragraph-black;
+      font-weight: 500;
+      padding: 16.5px 0 22.13px;
+    }
+
+    .checkbox-text {
+      @include paragraph-black;
+      font-size: 16px;
+      line-height: 19px;
+      padding-bottom: 22px;
+    }
+
+    button {
+      min-width: 100%;
+      font-size: 19px;
+      padding: 13.5px 0;
+    }
+
+    .information-text {
+      padding: 43px 0 0;
+      @include paragraph-black;
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+}

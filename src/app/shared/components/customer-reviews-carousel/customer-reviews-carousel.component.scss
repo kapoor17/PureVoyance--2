@@ -1,0 +1,99 @@
+@import "variables";
+@import "text-styles";
+
+.customer-reviews {
+  justify-content: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+
+  .title {
+    padding: 8px;
+  }
+
+  h1 {
+    color: $black;
+    font-size: 21px;
+    line-height: 25px;
+    text-align: center;
+    margin: 0;
+
+    @media (max-width: 599px) {
+      font-size: 20px;
+      width: 100%;
+    }
+  }
+
+  img {
+    padding: 9px 0;
+    width: 100%;
+  }
+
+  // carousel by review
+  .slider-wrapper {
+    .slide-wrapper {
+      max-height: 215px;
+      max-width: 238px;
+      margin: 0;
+      padding: 9px;
+      border-radius: 16px;
+      @media (max-width: 1024px) {
+        max-width: 800px;
+      }
+
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+
+    .view-about .date-comment {
+      @include paragraph-black;
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    .view-about {
+      color: $black;
+      padding: 5px 0 10px;
+    }
+
+    .date-comment {
+      color: $hex;
+      margin: 0;
+    }
+
+    .rating-comment {
+      font-size: 16px;
+      line-height: 19px;
+      color: $background-gold;
+    }
+  }
+
+  ::ng-deep .carousel-indicators {
+    button:first-of-type, button:last-of-type {
+      left: 0 !important;
+      right: 0 !important;
+    }
+
+    .mat-mini-fab {
+      width: 20px;
+      height: 20px;
+      background-color: $white;
+      border: $just-another-border;
+      box-shadow: none;
+      margin: 0;
+      margin-right: 12px;
+
+      &.mat-button-disabled {
+        background-color: $gold;
+      }
+    }
+  }
+}
+
+.yellow-line {
+  @media (max-width: 1024px) {
+    transform: scale(0.5);
+  }
+}

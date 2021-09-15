@@ -1,0 +1,37 @@
+<ng-container [ngSwitch]="currentStep">
+  <div>
+    <nsp-common-dialog-header (cancel)="cancel()"
+                              [title]="'recharge.headerFirstTextLabel' | translate">
+    </nsp-common-dialog-header>
+    <nsp-select-package (close)="cancel()"
+                        (handled)="stepDone(rechargeSteps.SelectPackage)"
+                        *ngSwitchCase="rechargeSteps.SelectPackage">
+    </nsp-select-package>
+  </div>
+
+  <nsp-confirm-package (close)="cancel()"
+                       (goBack)="goBack(rechargeSteps.ConfirmPackage)"
+                       (handled)="stepDone(rechargeSteps.ConfirmPackage)"
+                       *ngSwitchCase="rechargeSteps.ConfirmPackage">
+  </nsp-confirm-package>
+
+  <nsp-payment-data (close)="cancel()"
+                    (goBack)="goBack(rechargeSteps.EnterPayment)"
+                    (handled)="stepDone(rechargeSteps.EnterPayment)"
+                    *ngSwitchCase="rechargeSteps.EnterPayment"
+                    [isDiscovery]="data?.isDiscovery">
+  </nsp-payment-data>
+
+  <ng-container *ngSwitchCase="rechargeSteps.Finish">
+    <nsp-recharge-finish (close)="cancel()"
+                         (handled)="stepDone(rechargeSteps.Finish)"
+                         *ngIf="rechargeService.rechargeSuccessful">
+    </nsp-recharge-finish>
+
+    <nsp-recharge-error (close)="cancel()"
+                        (handled)="stepDone(rechargeSteps.Finish)"
+                        *ngIf="!rechargeService.rechargeSuccessful">
+    </nsp-recharge-error>
+  </ng-container>
+
+</ng-container>

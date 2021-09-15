@@ -1,0 +1,15 @@
+<div class="free-credits-wrapper flex-column align-center">
+  <nsp-common-dialog-header (cancel)="onClose()"
+                            [title]="'freeCredits.freeCreditsLabel' | translate">
+
+  </nsp-common-dialog-header>
+
+  <div [formGroup]="freeCreditsForm" class="free-credits-content d-flex justify-center">
+    <mat-form-field appearance="fill">
+      <mat-label>{{"freeCredits.freeCreditAmountLabel" | translate}}</mat-label>
+      <input formControlName="creditsAmount" matInput min="0" type="number">
+    </mat-form-field>
+  </div>
+
+  <button (click)="onConfirm()" mat-button>{{"freeCredits.confirmLabel" | translate}}</button>
+</div>

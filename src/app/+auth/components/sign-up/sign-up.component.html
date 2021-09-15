@@ -1,0 +1,221 @@
+<div class="sign-up-container">
+  <form (ngSubmit)="onSignUp()"
+        [formGroup]="mainInfo"
+        class="form-container">
+    <div class="flex-column flex-center step-header">
+      <nsp-common-dialog-header (cancel)="onClose()" [title]="title"></nsp-common-dialog-header>
+
+      <p class="step-sub-title text-uppercase light-green-title m-0">
+        {{'signUp.freeRegistrationSecondPartLabel'| translate}}
+      </p>
+    </div>
+    <div class="stepper-container">
+      <div class="sign-up-fields flex-column">
+        <p class="input-title">
+          {{'signUp.yourLabel'| translate}} {{"signUp.firstNameLabel"| translate}}
+        </p>
+
+        <mat-form-field class="input-form">
+          <input class="input-field"
+                 formControlName="firstName"
+                 matInput
+                 placeholder="{{'signUp.enterLabel'| translate}} {{'signUp.firstNameLabel'| translate}}"
+                 type="text">
+
+          <mat-error>{{'validationService.required' | translate}}</mat-error>
+        </mat-form-field>
+
+
+        <p class="input-title">
+          {{'signUp.yourLabel'| translate}} {{"signUp.birthDateLabel"| translate}}
+        </p>
+
+        <mat-form-field class="input-form">
+          <input (focus)="picker.open()"
+                 [matDatepicker]="picker"
+                 [max]="startDate"
+                 formControlName="birthDate"
+                 matInput
+                 placeholder="{{'signUp.enterLabel'| translate}} {{'signUp.birthDateLabel'| translate}}"
+                 type="text">
+          <mat-datepicker-toggle [for]="picker"
+                                 matSuffix>
+          </mat-datepicker-toggle>
+
+          <mat-datepicker #picker></mat-datepicker>
+
+          <mat-error>{{'validationService.dateOfBirth' | translate}}</mat-error>
+        </mat-form-field>
+
+        <p class="input-title">
+          {{'signUp.yourLabel'| translate}} E-mail
+        </p>
+
+        <mat-form-field class="input-form">
+          <input formControlName="email"
+                 matInput
+                 placeholder="{{'signUp.enterLabel'| translate}} E-mail"
+                 type="email">
+
+          <mat-error>{{'validationService.emailIncorrect' | translate}}</mat-error>
+        </mat-form-field>
+
+        <ng-container [formGroup]="mainInfo.get('passwords')">
+
+          <p class="input-title">
+            {{'signUp.yourLabel'| translate}} {{"signUp.passwordLabel"| translate}}
+          </p>
+
+          <mat-form-field class="input-form">
+            <input (click)="isEnteringPassword=true"
+                   (focusout)="isEnteringPassword=false"
+                   [type]="showPassword ? 'text' : 'password'"
+                   formControlName="password"
+                   matInput
+                   placeholder="{{'signUp.enterLabel'| translate}} {{'signUp.passwordLabel'| translate}}"
+                   type="password">
+
+            <button (click)="togglePasswordVisibility()"
+                    [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="!showPassword"
+                    mat-icon-button
+                    matSuffix>
+              <img alt="show password"
+                   src="assets/images/sign-up/show-password.svg">
+            </button>
+
+            <mat-error *ngIf="!isEnteringPassword">{{'validationService.password' | translate}}</mat-error>
+          </mat-form-field>
+
+          <p class="input-title">
+            {{'general.confirmationLabel'| translate }} {{'signUp.yourLabel'| translate}} {{"signUp.passwordLabel"| translate}}
+          </p>
+
+          <mat-form-field class="input-form">
+            <input (click)="isEnteringPassword=true"
+                   (focusout)="isEnteringPassword=false"
+                   [type]="showPassword ? 'text' : 'password'"
+                   formControlName="password_confirmation"
+                   matInput
+                   placeholder="{{'signUp.enterLabel'| translate}} {{'signUp.passwordLabel'| translate}}"
+                   type="password">
+
+            <button (click)="togglePasswordVisibility()"
+                    [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="!showPassword"
+                    mat-icon-button
+                    matSuffix>
+              <img alt="show password"
+                   src="assets/images/sign-up/show-password.svg">
+            </button>
+
+            <mat-error *ngIf="!isEnteringPassword">
+              {{'validationService.passwordsAreNotEqualLabel' | translate}}
+            </mat-error>
+          </mat-form-field>
+
+        </ng-container>
+
+        <p class="input-title">
+          {{"signUp.cellphoneLabel"| translate}}
+        </p>
+
+        <div *ngFor="let item of phonesArray.controls" [formGroup]="phonesArray"
+             class="phone-input d-flex">
+          <div [formGroup]="item" class="d-flex w-100">
+            <mat-select class="phone-code-select"
+                        formControlName="phone_code">
+              <mat-select-trigger>
+                <div *ngIf="!!selectedCountry"
+                     class="phone-code-trigger">
+                  <img [src]="countryOptionsArray[item.value.phone_code]?.flag"
+                       class="flag-image">
+
+                  <span class="phone-code">
+                      {{countryOptionsArray[item.value.phone_code]?.phoneCode}}
+                    </span>
+                </div>
+              </mat-select-trigger>
+
+              <mat-option *ngFor="let phoneCode of countryOptions"
+                          [value]="phoneCode?.phoneCode">
+                <img [src]="phoneCode?.flag"
+                     class="flag-image">
+
+                <span class="phone-code">
+                    {{phoneCode?.phoneCode}}
+                  </span>
+              </mat-option>
+            </mat-select>
+
+            <mat-form-field class="input-form enter-phone-field">
+              <input
+                formControlName="phone"
+                matInput
+                pattern="[0-9]*"
+                placeholder="{{'signUp.enterLabel'| translate}} {{'signUp.phoneLabel'| translate}}">
+              <mat-error>{{'validationService.phone' | translate}}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="d-flex button-group">
+          <button  class="add" mat-button>+</button>
+          <!-- <button (click)="addPhone()" class="add" mat-button>+</button> -->
+
+          <!-- <button (click)="removePhone()" class="remove" mat-button>-</button> -->
+          <button  class="remove" mat-button>-</button>
+        </div>
+
+        <p>{{'signUp.codeParagraph'| translate}}</p>
+
+        <div class="sms-code-container"
+             id=smsContainer>
+          <div *ngIf="!buttonClicked">
+            <button (click)="getCode()"
+                    [disabled]="mainInfo.invalid"
+                    [ngStyle]="{'opacity': mainInfo.invalid ? '0.5' : '1', 'color': '#FCFCFD'}"
+                    class="button sms-button"
+                    mat-button>
+              {{'signUp.codeButton'| translate}}
+            </button>
+          </div>
+
+          <div *ngIf="buttonClicked"
+               class="sms-field">
+            <p class="input-title">{{'signUp.enterCodeLabel'| translate}}</p>
+
+            <mat-form-field class="input-form">
+              <input matInput
+                     placeholder="{{'signUp.enterCodeLabel'| translate}}">
+            </mat-form-field>
+
+            <button class="simple-button"
+                    mat-button>{{'signUp.newCodeButton'| translate}}</button>
+          </div>
+        </div>
+
+        <mat-checkbox>
+          <p class="checkbox-text">{{'signUp.confirmAgeParagraph'| translate}}</p>
+        </mat-checkbox>
+
+        <mat-checkbox formControlName="newsletter">
+          <p class="checkbox-text">{{'signUp.newsLetterAgreementParagraph'| translate}}</p>
+        </mat-checkbox>
+
+        <button [disabled]="mainInfo.invalid"
+                [ngStyle]="{'opacity': mainInfo.invalid ? '0.5' : '1',  'color': '#FCFCFD'}"
+                class="button"
+                mat-button>
+          {{'signUp.registryButton'| translate}}
+        </button>
+      </div>
+
+      <h2>{{'signUp.memberLabel'| translate}}</h2>
+
+      <button (click)="openSignIn()"
+              class="go-to-sign-in-button"
+              mat-button>{{'signUp.logInButton'| translate}}</button>
+    </div>
+  </form>
+</div>

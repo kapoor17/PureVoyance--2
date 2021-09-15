@@ -1,0 +1,69 @@
+@import 'variables';
+
+.actions {
+  flex-direction: row-reverse;
+  display: flex;
+  justify-content: center;
+
+  .mat-button-base {
+    width: 106px;
+    height: 48px;
+    font-size: 25px;
+    line-height: 29px;
+    font-weight: 500;
+    border-radius: 0;
+    border: none;
+  }
+
+  .confirm-button {
+    background: $golden-gradient;
+    color: $white;
+
+    &:hover {
+      background: $golder-hover;
+    }
+
+    &:disabled {
+      background: $grey;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content-message {
+    width: 80%;
+    margin-top: 16px;
+
+    ::ng-deep .diff-toolbar {
+      .td-checkbox-container {
+        font-family: $font-main;
+        font-size: 14px;
+        color: $dark-blue;
+      }
+
+      .checkmark {
+        top: 5px;
+      }
+
+      .td-btn-group-toggle {
+        button {
+          background-color: $green;
+
+          &.active {
+            background-color: $green-alternative;
+          }
+        }
+      }
+    }
+  }
+}
+
+::ng-deep .custom-dialog {
+  .mat-dialog-content {
+    max-height: unset;
+  }
+}

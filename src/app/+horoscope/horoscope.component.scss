@@ -1,0 +1,132 @@
+@import "text-styles";
+@import "variables";
+
+.horoscope-wrapper {
+  padding-top: 48px;
+
+  .header-wrapper {
+    column-gap: 32px;
+    align-items: flex-start;
+    padding-bottom: 40px;
+
+    .medium-and-reviews {
+      width: 300px;
+      min-width: 300px;
+      background: #FBFBFB;
+      border: 1px solid #E8E8E8;
+      padding: 14px 8px 10px;
+
+      .mediums {
+        h1 {
+          color: $black;
+          font-size: 21px;
+          line-height: 25px;
+          margin: 0;
+        }
+
+        img {
+          padding: 9px 0;
+          width: 100%;
+        }
+
+        ::ng-deep .mediums-wrapper {
+
+          > div {
+            width: 100%;
+          }
+
+          .card-header {
+            img {
+              display: none;
+            }
+          }
+
+          .right-section {
+            p {
+              width: min-content;
+            }
+          }
+
+          .psychic-card:before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .tablet-reviews-and-mediums {
+    display: none;
+  }
+
+  .astro-sections-wrapper, .top-rated-mediums {
+    width: 100%;
+    padding: 67px 0 0;
+
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-size: 32px;
+      line-height: 37px;
+      color: $black;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .horoscope-wrapper {
+    padding: 24px 0 0;
+    overflow: hidden;
+
+    .header-wrapper {
+      flex-direction: column;
+
+      .medium-and-reviews {
+        display: none;
+      }
+    }
+
+    .tablet-reviews-and-mediums {
+      display: flex;
+      padding-bottom: 31px;
+
+      .mediums, .reviews {
+        width: 100%;
+
+        nsp-psychics-about {
+          ::ng-deep pagination-controls {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .astro-sections-wrapper, .top-rated-mediums {
+      padding: 20px 0 0;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .tablet-reviews-and-mediums, .astro-sections-wrapper, .top-rated-mediums {
+    h1 {
+      text-align: center;
+      font-size: 19.3481px !important;
+      line-height: 23px !important;
+      color: $black !important;
+    }
+  }
+  .tablet-reviews-and-mediums {
+    .mediums {
+      display: none;
+    }
+  }
+
+  .top-rated-mediums {
+    padding: 20px 0 0;
+  }
+
+  .astro-sections-wrapper {
+    padding: 0 !important;
+  }
+}

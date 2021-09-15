@@ -1,0 +1,33 @@
+@import 'variables';
+
+.header {
+  padding: 20px;
+  justify-content: space-between;
+  display: flex;
+
+  .mat-button-base {
+    &:not(:first-child) {
+      margin-left: 8px;
+    }
+  }
+
+  .activate {
+    background-color: $green;
+    color: $white;
+  }
+
+  .deactivate {
+    background-color: $dark-red;
+    color: $white;
+  }
+
+  a {
+    text-decoration: none;
+    color: $dark-blue;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

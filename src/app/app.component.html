@@ -1,0 +1,44 @@
+<ng-sidebar-container *ngIf="initialized">
+  <ng-sidebar #sidebar *ngIf="hamburgerService.accountMenu === true"
+              [opened]="hamburgerService.opened$ | async">
+    <nsp-sub-header-burger-menu></nsp-sub-header-burger-menu>
+  </ng-sidebar>
+
+  <ng-sidebar #sidebar *ngIf="hamburgerService.accountMenu === false"
+              [opened]="hamburgerService.opened$ | async" position="end">
+    <nsp-user-account-menu></nsp-user-account-menu>
+  </ng-sidebar>
+
+  <div ng-sidebar-content>
+    <nsp-spinner></nsp-spinner>
+    <nsp-header *ngIf="!isBackOffice && !isBurgerMenu"></nsp-header>
+    <nsp-sub-header *ngIf="!isBackOffice"></nsp-sub-header>
+
+    <div [class.back-office]="isBackOffice" class="content">
+      <nsp-register-side-block *ngIf="!authService.isAuthenticated && !isBackOffice"
+                               class="register-block">
+      </nsp-register-side-block>
+
+      <router-outlet>
+        <ng-go-top-button [acceleration]="2"
+                          [animate]="true"
+                          [classNames]="'go-to-top-button'"
+                          [scrollDistance]="300"
+                          [speed]="50">
+          <i class="material-icons"> arrow_upward </i>
+          <p class="go-top">{{'app.topOfPageLabel' | translate}}</p>
+        </ng-go-top-button>
+      </router-outlet>
+
+      <nsp-offer-side-block *ngIf="(userService.showDiscoverOffer$ | async) && !isBackOffice"
+                            class="offer-block">
+      </nsp-offer-side-block>
+    </div>
+
+    <nsp-footer *ngIf="!isBackOffice && !isBurgerMenu">
+    </nsp-footer>
+
+    <nsp-sub-footer *ngIf="!isBackOffice && !isBurgerMenu">
+    </nsp-sub-footer>
+  </div>
+</ng-sidebar-container>

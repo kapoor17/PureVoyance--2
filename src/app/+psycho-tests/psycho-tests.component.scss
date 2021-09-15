@@ -1,0 +1,45 @@
+@import "text-styles";
+@import "variables";
+@import "flexbox";
+
+.psycho-test-wrapper {
+  padding: 48px 0 0;
+  @media (max-width: 1024px) {
+    padding-top: 29px;
+    overflow-x: hidden;
+  }
+  @media (max-width: 450px) {
+    padding-top: 0;
+  }
+
+  .title {
+    width: 100%;
+
+    h1 {
+      margin-top: 61px;
+      @media (max-width: 1024px) {
+        margin-top: 19px;
+      }
+    }
+
+    img {
+      max-width: 509px;
+    }
+  }
+
+  .offer {
+    width: 100%;
+    padding: 48px 0 24px 0;
+
+    @media (max-width: 768px) {
+      padding: 0 0 24px 0;
+    }
+  }
+}
+
+nsp-discovery-offer-block,
+nsp-reusable-personal-goals,
+nsp-horoscope-request,
+nsp-top-rated-mediums {
+  width: 100%;
+}

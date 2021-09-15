@@ -1,0 +1,66 @@
+<div class="before-dialog-wrapper">
+  <nsp-common-dialog-header (cancel)="onClose()"
+                            [title]="'consultations.connectionConsultationLabel'">
+  </nsp-common-dialog-header>
+
+  <div class="head-psychic-block flex-center">
+    <img [src]="data.psychic.image">
+
+    <div class="name-and-rate flex-column">
+      <h3 class="light-green-sub-title">
+        {{data.psychic.name}}
+      </h3>
+
+      <nsp-rating-stars [rate]="data.psychic.rate"
+                        class="rating-start">
+      </nsp-rating-stars>
+    </div>
+  </div>
+
+  <div *ngIf="startPhoneCall"
+       class="before-consultation">
+    <div class="phone-numbers">
+      <p class="input-title">{{'consultations.consultationFormTextLabel' | translate}}</p>
+
+      <mat-form-field appearance="fill"
+                      class="input-form select-form flex-column flex-center m-0">
+        <mat-select>
+          <mat-option *ngFor="let phone of currentUser.phones" [value]="phone?.phone_code + phone?.phone">
+            +{{phone?.phone_code}} {{phone?.phone}}
+          </mat-option>
+        </mat-select>
+
+      </mat-form-field>
+    </div>
+
+    <p class="text-add-number m-0">
+      {{'consultations.consultationOfferAddNumberTextLabel' | translate}}
+    </p>
+
+    <div class="flex-center flex-column">
+      <button (click)="onClose()" class="text-bold" mat-button
+              routerLink="../account/profile">
+        {{'consultations.consultationOfferAddNumberButtonLabel' | translate}}
+      </button>
+
+      <button (click)="startCall()"
+              [disabled]="phoneNumber.invalid"
+              class="dark-button">
+        {{'consultations.consultationStartButtonLabel' | translate}}
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="!startPhoneCall"
+       class="on-consultation flex-column flex-center">
+    <img src="/assets/icons/consultations/on-consultation-call-icon.svg">
+
+    <p class="m-0 text-bold current-text">
+      {{'consultations.currentConsultationLabel' | translate}}
+    </p>
+
+    <p class="m-0 input-title">
+      {{'consultations.onConsultationMassageLabel' | translate}}
+    </p>
+  </div>
+</div>

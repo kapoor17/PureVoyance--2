@@ -1,0 +1,145 @@
+@import 'variables';
+@import 'text-styles';
+@import 'flexbox';
+
+.last-comments {
+  padding-top: 85px;
+  @media (max-width: 1024px) {
+    padding-top: 0;
+  }
+
+  h1 {
+    margin-bottom: 10px;
+    @media (max-width: 1024px) {
+      margin: 0;
+    }
+  }
+
+  .desktop-titles {
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .last-comments-content {
+    margin-top: 35px;
+    padding: 40px 20px 40px 20px;
+    background-color: $skin-background;
+    column-gap: 58px;
+    border: $skin-border;
+
+    @media (max-width: 1024px) {
+      margin-top: 0;
+    }
+
+    .commas {
+      width: 73px;
+      height: 61px;
+      @media (max-width: 1024px) {
+        display: none;
+      }
+    }
+
+    .text-of-comments {
+      .mobile-title {
+        display: none;
+        @media (max-width: 1024px) {
+          display: flex;
+
+          h1 {
+            display: flex;
+          }
+
+          .divider {
+            margin-bottom: 24px;
+            width: 90%;
+          }
+        }
+      }
+
+      .displayed-comment {
+        padding-bottom: 28px;
+
+        .gold {
+          color: #E0A80D;
+          font-family: Roboto, sans-serif;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 24px;
+          line-height: 20px;
+        }
+      }
+
+      .displayed-comment:last-child {
+        padding: 0;
+      }
+
+      .date {
+        color: $grey;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+    @media (max-width: 450px) {
+      width: 100%;
+      padding: 20px 10px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .last-comments {
+    padding-top: 0;
+    width: 100%;
+
+    h1 {
+      font-size: 16px !important;
+      line-height: 19px !important;
+    }
+
+    img {
+      width: 60%;
+    }
+
+    .last-comments-content {
+      width: 100%;
+      padding: 20px 16px;
+
+      .text-of-comments {
+        width: 100%;
+
+        .displayed-comment {
+          margin-left: 15px;
+
+          .comment-text {
+            @media (max-width: 450px) {
+              margin: 0 0 11px;
+            }
+          }
+
+          .gold {
+            font-size: 14px;
+            line-height: 16px;
+            @media (max-width: 450px) {
+              margin-bottom: 10px;
+            }
+          }
+
+          .paragraph-black, .date {
+            font-size: 12px;
+            line-height: 14px;
+          }
+        }
+      }
+    }
+  }
+}

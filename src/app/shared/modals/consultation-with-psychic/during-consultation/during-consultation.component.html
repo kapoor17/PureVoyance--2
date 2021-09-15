@@ -1,0 +1,82 @@
+<div class="consultation-wrapper">
+  <nsp-common-dialog-header (cancel)="cancel()"
+                            [title]="'consultations.connectionConsultationLabel' | translate">
+  </nsp-common-dialog-header>
+
+  <div class="scroll-container">
+    <div class="head-psychic-block flex-center">
+      <img [src]="data.psychic.image">
+
+      <div class="name-and-rate flex-column">
+        <h3 class="light-green-sub-title">
+          {{data.psychic.name}}
+        </h3>
+
+        <nsp-rating-stars [rate]="data.psychic.rate"
+                          class="rating-start">
+        </nsp-rating-stars>
+      </div>
+    </div>
+
+    <div class="middle-block">
+      <div class="flex-center">
+        <img alt=""
+             height="48"
+             src="assets/images/recharge/gift.png"
+             width="48"/>
+      </div>
+      <div [innerHTML]="'recharge.leaveReviewLabel' | translate: { remaining: '09m 57s' }"
+           class="review">
+      </div>
+
+      <!--      <div [innerHTML]="'recharge.descriptionLabel' | translate"-->
+      <!--           class="description">-->
+      <!--      </div>-->
+    </div>
+
+    <nsp-select-package (close)="cancel()"
+                        (handled)="packageSelected()">
+    </nsp-select-package>
+
+    <div class="send-photos">
+      <div class="header">
+        {{'recharge.photoHeaderLabel' | translate}}
+      </div>
+
+      <div class="divider">
+        <img height="5"
+             src="./assets/images/divider.png"
+             width="450">
+      </div>
+
+      <div class="select-photo">
+        {{'recharge.selectPhotoLabel' | translate}}
+      </div>
+
+      <div class="select-photo-input">
+        <mat-icon>photo_camera</mat-icon>
+
+        <div class="file-type">
+          {{'recharge.fileTypeLabel' | translate}}
+        </div>
+
+        <button (click)="uploadFile()"
+                class="upload-button"
+                mat-stroked-button>
+          {{'recharge.uploadImageLabel' | translate}}
+        </button>
+
+        <input #fileInput
+               (change)="fileChange($event)"
+               class="hidden-input"
+               hidden
+               type="file">
+
+        <div *ngIf="!!uploadedFileName"
+             class="file-name">
+          {{uploadedFileName}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

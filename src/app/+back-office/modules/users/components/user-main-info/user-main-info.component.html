@@ -1,0 +1,188 @@
+<section class="user-main-info">
+  <mat-card *ngIf="!!data"
+            class="user-main-info-card mat-elevation-z0">
+
+    <div class="column">
+
+      <div class="user-main-info-card-row">
+        <div class="label">
+          {{'configurableTable.userIdLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data.uid}}
+        </div>
+      </div>
+
+      <div class="user-main-info-card-row">
+        <div class="label">
+          {{'users.columns.fullNameLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{(data.name || '') + ' ' + (data.lastname || '')}}
+        </div>
+      </div>
+
+      <div class="user-main-info-card-row">
+        <div class="label">
+          {{'users.columns.roleLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{roles | join}}
+        </div>
+      </div>
+
+      <div class="user-main-info-card-row">
+        <div class="label">
+          {{'users.columns.emailLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data.email || 'n/a'}}
+        </div>
+      </div>
+
+      <div class="user-main-info-card-row">
+        <div class="label">
+          {{'users.columns.verifiedLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          <mat-slide-toggle [checked]="data.verified"
+                            [disabled]="true">
+          </mat-slide-toggle>
+        </div>
+      </div>
+
+      <div class="user-main-info-card-row">
+        <div class="label">
+          {{'users.columns.newsletterLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          <mat-slide-toggle [checked]="data.newsletter"
+                            [disabled]="true">
+          </mat-slide-toggle>
+        </div>
+      </div>
+
+      <div class="user-main-info-card-row">
+        <div class="label">
+          {{'users.columns.hasDiscoveryOfferLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          <mat-slide-toggle [checked]="false"
+                            [disabled]="true">
+          </mat-slide-toggle>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="user-main-info-card-row">
+        <div class="label">
+          {{'users.columns.countryLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data.country?.name || 'n/a'}}
+        </div>
+      </div>
+
+      <div class="user-main-info-card-row">
+        <div class="label">
+          {{'users.columns.cityLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data.city || 'n/a'}}
+        </div>
+      </div>
+
+      <div class="user-main-info-card-row">
+        <div class="label">
+          {{'users.columns.numberLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data.number || 'n/a'}}
+        </div>
+      </div>
+
+      <div class="user-main-info-card-row">
+        <div class="label">
+          {{'users.columns.zipCodeLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data.zipcode || 'n/a'}}
+        </div>
+      </div>
+
+      <div class="user-main-info-card-row">
+        <div class="label">
+          {{'users.columns.placeOfBirthLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data.birth_place || 'n/a'}}
+        </div>
+      </div>
+
+      <div class="user-main-info-card-row">
+        <div class="label">
+          {{'users.columns.dateOfBirthLabel' | translate}}:
+        </div>
+
+        <div class="value">
+          {{data.birthday || 'n/a'}}
+        </div>
+      </div>
+
+      <div class="user-main-info-card-row">
+        <div class="label">
+          UID:
+        </div>
+
+        <div class="value">
+          {{data.uid || 'n/a'}}
+        </div>
+      </div>
+
+    </div>
+  </mat-card>
+
+  <div class="credits-container">
+    <div class="block credits">
+      <div class="title">
+        {{'users.creditsLabel' | translate}}:
+      </div>
+      <div class="value">
+        2250€ <span class="title">{{'users.ofWhichLabel' | translate}}</span>
+
+        55€ <span class="title">{{'users.freeLabel' | translate}}</span>
+      </div>
+    </div>
+
+    <div class="block spent">
+      <div class="title">
+        {{'users.annualSpentLabel' | translate}}:
+      </div>
+      <div class="value">
+        530€
+      </div>
+    </div>
+
+    <div class="block free">
+      <div class="title">
+        {{'users.freeCreditsUsedLabel' | translate}}:
+      </div>
+      <div class="value">
+        200€
+      </div>
+    </div>
+  </div>
+</section>

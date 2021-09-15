@@ -1,0 +1,71 @@
+@import "variables";
+@import "flexbox";
+@import "text-styles";
+@import "auth";
+
+* {
+  box-sizing: border-box;
+}
+
+.login-dialog-wrapper {
+  padding: 15px 17.5px;
+
+  .sign-in-container {
+    @include auth-dialog;
+
+    .inner-container {
+      .golden-line {
+        width: 100%;
+        height: 1px;
+        background-color: $gold-text-color;
+        margin: 14px 0 32px 0;
+      }
+
+      .gold-title {
+        font-family: Roboto, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 16px;
+        color: $gold-text-color;
+      }
+
+      .gold-button {
+        width: 100%;
+        height: 48px;
+        margin: 32px 0 27px;
+        border-radius: 0;
+        color: $white;
+        background-color: $gold-text-color;
+      }
+    }
+
+    .gradient-button,
+    .simple-button {
+      width: 100%;
+      border-radius: 0;
+      margin: 15px 0;
+      height: 48px;
+    }
+
+    .gradient-button {
+      margin-bottom: 0;
+      color: $white;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .login-dialog-wrapper {
+    width: 95%;
+
+    .sign-in-container {
+      @include auth-dialog;
+      width: 100%;
+
+      .inner-container {
+        width: 95%;
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+<div class="favorite-psychics-wrapper flex-column">
+  <h1 class="text-uppercase">
+    {{"mySeers.mySeersLabel" | translate}}
+  </h1>
+  <img class="divider" src="./assets/images/divider.png">
+
+
+  <div *ngIf="!!dataSource.length; else noData"
+       class="favorite-psychics-content flex-column">
+    <p>
+      {{"mySeers.voyanceLabel" | translate}}
+    </p>
+
+    <div class="psychics">
+      <div *ngFor="let psychic of dataSource | paginate: {itemsPerPage: pageSize, currentPage: page, totalItems: total}"
+           class="psychic">
+
+        <div class="psychic-body flex-column align-center">
+          <div class="psychic-info d-flex">
+            <img [src]="psychic.image"
+                 alt="psychic-avatar">
+
+            <div class="psychic-status flex-column">
+              <h3 class="name">
+                {{psychic.name}}
+              </h3>
+
+              <div class="clients">
+                {{'mySeers.clientsLabel' | translate}}: {{psychic.clients_count}}
+              </div>
+            </div>
+          </div>
+
+          <div class="appointments flex-column">
+            <div class="last-appointment flex-column">
+              <p>{{"mySeers.lastAppointmentLabel" | translate}}</p>
+
+              <p class="last">
+                {{psychic.last_appointment}}
+              </p>
+            </div>
+
+            <div class="further-appointment flex-column">
+              <p>{{"mySeers.furtherAppointmentLabel" | translate}}</p>
+
+              <p class="further">
+                {{psychic.next_appointment}}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-group flex-between align-center">
+          <button class="text-uppercase gradient-button"
+                  mat-button>
+            {{"mySeers.freeAppointmentLabel" | translate}}
+          </button>
+
+          <div (click)="unlike(psychic.id)"
+               class="like justify-center align-center">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noData>
+    <div class="empty-list d-flex flex-column justify-center align-center">
+      <img alt=""
+           src="assets/icons/profile-about/heart-icon.svg">
+
+      <h3>{{"mySeers.noSeeresFoundLabel" | translate}}</h3>
+
+      <p>{{"mySeers.naAnySightedLabel" | translate}}</p>
+    </div>
+  </ng-template>
+
+  <pagination-controls (pageChange)="paginatorEvent($event)"
+                       *ngIf="total>6"
+                       [autoHide]="false"
+                       [directionLinks]="true"
+                       class="my-pagination"
+                       nextLabel=""
+                       previousLabel="">
+  </pagination-controls>
+</div>

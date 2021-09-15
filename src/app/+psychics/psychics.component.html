@@ -1,0 +1,84 @@
+<main class="psychics-wrapper flex-column justify-center align-center">
+
+  <div class="short-image-block d-flex justify-center">
+    <img (click)="submit()" *ngIf="!currentUser?.has_discovery_offer" alt=""
+         src="assets/images/physics/short-main-image.png">
+  </div>
+
+  <div class="inside-wrapper-new">
+    <div class="container main-image-block">
+      <img (click)="submit()" *ngIf="!currentUser?.has_discovery_offer"
+           alt="" src="assets/images/physics/main-image-2.png">
+    </div>
+
+    <div [formGroup]="filterForm"
+         [ngClass]="currentUser?.has_discovery_offer? 'is-discovery-offer' : ''" class="head-search-wrapper d-flex">
+      <div class="input-head-search">
+        <input [placeholder]="'psychics.inputHeadPlaceholderLabel' | translate | uppercase"
+               formControlName="search">
+
+        <img src="./assets/icons/psychics/search.png">
+      </div>
+
+      <mat-form-field class="input-head-search select-input">
+        <mat-label>
+          {{'psychics.byStatusLabel'| translate | uppercase }}
+        </mat-label>
+
+        <mat-select class="status-select"
+                    formControlName="status">
+          <mat-option [value]="null"></mat-option>
+          <mat-option *ngFor="let statusOption of psychicService.statuses"
+                      [value]="statusOption">
+            {{ ('psychics.' + statusOption + 'Label') | translate }}
+          </mat-option>
+        </mat-select>
+
+      </mat-form-field>
+
+      <mat-form-field class="input-head-search select-input">
+        <mat-label>
+          {{'psychics.byCategoryLabel'| translate | uppercase }}
+        </mat-label>
+
+        <mat-select class="status-select"
+                    formControlName="skillId">
+          <mat-option [value]="null"></mat-option>
+          <mat-option *ngFor="let skill of psychicService.skills"
+                      [value]="skill.id">
+            {{ skill.name }}
+          </mat-option>
+        </mat-select>
+
+      </mat-form-field>
+    </div>
+
+    <div class="title flex-column flex-center">
+      <h1 class="light-green-title text-uppercase">
+        {{ "horoscope.headerMainWrapperThirdLabel" | translate}}
+      </h1>
+
+      <img alt="" class="divider"
+           src="./assets/images/divider.png">
+
+      <p class="paragraph-black psychic-text">
+        {{ "horoscope.headerMainWrapperFourthPartLabel" | translate}}
+        <span [innerHTML]="(settingsApiService.getDiscoveryOfferSettings() | async)?.data?.price | price: true"></span>
+        {{ "general.perMinuteLabel" | translate}}
+      </p>
+    </div>
+
+    <nsp-psychics-about [filter$]="filterForm.valueChanges"
+                        [psychicsToShow]="12">
+    </nsp-psychics-about>
+
+    <nsp-latest-comments></nsp-latest-comments>
+
+    <!--    <nsp-horoscope-request></nsp-horoscope-request>-->
+
+    <nsp-offer-disclaimer></nsp-offer-disclaimer>
+
+    <nsp-reusable-personal-goals></nsp-reusable-personal-goals>
+  </div>
+
+</main>

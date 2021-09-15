@@ -1,0 +1,165 @@
+@import "text-styles";
+@import "variables";
+@import "phone-block";
+@import "flexbox";
+
+.personal-goals-wrapper {
+  width: 100%;
+  padding-bottom: 31px;
+  @media (max-width: 768px) {
+    padding-bottom: 0;
+    width: 98%;
+  }
+
+  .titles {
+    padding: 32px 0 14px 0;
+    border-bottom: $border-gold;
+    @media (max-width: 450px) {
+      padding: 0;
+    }
+
+    .paragraph-black {
+      font-size: 16px;
+      line-height: 21px;
+      color: $just-another-black;
+      @media (max-width: 450px) {
+        font-size: 11px;
+      }
+    }
+
+    .sub-title-black {
+      @media (max-width: 450px) {
+        text-align: center;
+        font-size: 18px;
+      }
+    }
+
+    h2 {
+      padding-top: 26px;
+
+      @media (max-width: 1024px) {
+        text-align: center;
+      }
+
+      @media (max-width: 450px) {
+        padding: 0;
+      }
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+
+  .callback-wrapper {
+    border-bottom: $border-gold;
+
+    .callback-block {
+      box-sizing: border-box;
+      width: 40%;
+      padding: 45px 33px 45px 46px;
+      border-right: $border-gold;
+      @media (max-width: 1024px) {
+        width: 100%;
+        border-right: 0;
+      }
+
+      @media (max-width: 450px) {
+        padding: 8px 45px;
+      }
+
+      h3 {
+        @media (max-width: 450px) {
+          line-height: 23px;
+        }
+      }
+
+      .callback-title {
+        @media (max-width: 450px) {
+          font-size: 19.3159px;
+          margin: 0;
+        }
+      }
+
+      .callback-disclaimer {
+        font-family: $font-lato;
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 29px;
+        text-align: center;
+        @media (max-width: 450px) {
+          font-size: 14px;
+        }
+      }
+
+      .phone-disclaimer {
+        color: $callback-green;
+        font-size: 30px;
+        line-height: 35px;
+        font-weight: normal;
+        @media (max-width: 450px) {
+          font-size: 20px;
+          line-height: 23px;
+        }
+      }
+
+      h2 {
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 42px;
+        text-align: center;
+        color: $gold;
+      }
+
+      h3 {
+        font-size: 36px;
+        font-weight: bold;
+        @media (max-width: 450px) {
+          font-size: 20px;
+        }
+      }
+
+      p {
+        text-align: center;
+        margin: 0;
+        font-size: 24px;
+        line-height: 29px;
+      }
+    }
+
+    .picture-block {
+      box-sizing: border-box;
+      width: 60%;
+      margin: 20px 0 20px 28px;
+      background-image: url("~src/assets/images/reusable-goals/voyance-image.png");
+      background-size: cover;
+      padding: 41px 0px;
+      justify-content: flex-end;
+      align-items: flex-end;
+      @media (max-width: 1024px) {
+        display: none;
+      }
+
+      button {
+        background-color: $just-another-green;
+        color: $white;
+        border-radius: 0;
+        width: 220px;
+        height: 56px;
+        font-size: 24px;
+        line-height: 30px;
+      }
+    }
+  }
+}
+
+.logo {
+  @media (max-width: 450px) {
+    transform: scale(0.7);
+  }
+}
+
+h2, h3 {
+  font-family: Roboto, sans-serif;
+  font-weight: normal;
+}

@@ -1,0 +1,50 @@
+<main class="sexo-wrapper flex-column align-center">
+  <div class="inside-wrapper-new">
+
+    <router-outlet></router-outlet>
+
+  </div>
+
+  <div class="inside-wrapper-new bottom-blocks flex-column align-center">
+    <p class="text-uppercase h1">
+      {{"sexo.psychoTestLabel" | translate}}
+    </p>
+
+    <img alt=""
+         class="divider"
+         src="assets/images/divider.png">
+
+    <nsp-astro-sections-carousel [witchSectionTestShow]="false">
+    </nsp-astro-sections-carousel>
+
+    <nsp-consultation-offer-block></nsp-consultation-offer-block>
+
+    <nsp-answer-call></nsp-answer-call>
+
+    <p class="text-uppercase h1">
+      {{"sexo.topRatedLabel" | translate}}
+    </p>
+
+    <img alt=""
+         class="divider"
+         src="assets/images/divider.png">
+
+    <nsp-top-rated-mediums></nsp-top-rated-mediums>
+
+    <p class="text-uppercase h1">
+      {{"sexo.astroTestLabel" | translate}}
+    </p>
+
+    <img alt=""
+         class="divider"
+         src="assets/images/divider.png">
+
+    <nsp-astro-sections-carousel></nsp-astro-sections-carousel>
+
+    <!--    <nsp-horoscope-request></nsp-horoscope-request>-->
+
+    <nsp-offer-disclaimer></nsp-offer-disclaimer>
+
+    <nsp-reusable-personal-goals></nsp-reusable-personal-goals>
+  </div>
+</main>

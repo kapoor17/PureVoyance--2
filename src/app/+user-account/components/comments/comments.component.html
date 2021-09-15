@@ -1,0 +1,95 @@
+<div class="comments-wrapper">
+  <div class="header">
+    <div class="titles">
+      <h1 class="text-uppercase">
+        {{"comments.commentsLabel" | translate}}
+      </h1>
+
+      <p>{{"comments.subTitleLabel" | translate}}</p>
+    </div>
+  </div>
+
+  <mat-card class="comments-content mat-elevation-z0">
+    <div #htmlTable
+         class="table-wrapper">
+      <mat-table [dataSource]="dataSource">
+        <div *matNoDataRow>
+          <div class="table-no-data">
+            {{'comments.noDataLabel' | translate}}
+          </div>
+        </div>
+
+        <ng-container matColumnDef="date">
+          <mat-header-cell *matHeaderCellDef>
+            {{'users.comments.date' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{element.date || 'n/a'}}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="rate">
+          <mat-header-cell *matHeaderCellDef>
+            {{'users.comments.rate' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <nsp-rating-stars [rate]="element.rate"></nsp-rating-stars>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef>
+            {{'users.comments.status' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{'comments.statuses.' + element.status | translate}}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="content">
+          <mat-header-cell *matHeaderCellDef>
+            {{'users.comments.content' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <div [matTooltipShowDelay]="500"
+                 [matTooltip]="element.content"
+                 class="truncated-cell">
+              {{element.content || 'n/a'}}
+            </div>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="highlight">
+          <mat-header-cell *matHeaderCellDef>
+            {{'users.comments.highlight' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-slide-toggle [checked]="element.high_light"
+                              [disabled]="true">
+            </mat-slide-toggle>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="psychic">
+          <mat-header-cell *matHeaderCellDef>
+            {{'users.comments.psychic' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{element.consultation.psychic.name || 'n/a'}}
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+      <mat-paginator (page)="paginatorEvent($event)"
+                     *ngIf="total > page * pageSize"
+                     [length]="total"
+                     [pageIndex]="page - 1"
+                     [pageSizeOptions]="paginatorPageSizeOptions"
+                     [pageSize]="pageSize">
+      </mat-paginator>
+    </div>
+  </mat-card>
+</div>

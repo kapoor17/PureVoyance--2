@@ -1,0 +1,197 @@
+<div class="back-office-section-wrapper">
+
+  <h1 class="text-uppercase h1">
+    {{'users.usersLabel' | translate}}
+
+    <button [routerLink]="['./create-user']"
+            color="primary"
+            mat-stroked-button>
+      {{'userProfile.createUserLabel' | translate}}
+    </button>
+  </h1>
+
+  <div class="filter-wrapper">
+    <mat-form-field *ngIf="!!dataSource.length || !!searchControl.value"
+                    appearance="outline"
+                    class="input-form">
+      <mat-label>{{'general.searchLabel'| translate}}</mat-label>
+      <input [formControl]="searchControl"
+             matInput
+             type="text">
+    </mat-form-field>
+  </div>
+
+  <mat-card class="mat-elevation-z0">
+    <form class="main-section">
+      <div class="table-wrapper">
+        <mat-table (matSortChange)="sortingEvent($event)"
+                   [dataSource]="dataSource"
+                   class="mat-elevation-z8"
+                   mat-table
+                   matSort>
+          <div *matNoDataRow>
+            <div class="table-no-data">
+              {{'users.noDataLabel' | translate}}
+            </div>
+          </div>
+
+          <!-- 	ID Column -->
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef
+                             mat-sort-header>
+              {{'configurableTable.userIdLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element.uid || 'n/a'}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- 	Name Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef
+                             mat-sort-header>
+              {{'users.columns.nameLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element.name || 'n/a'}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- 	Last Name Column -->
+          <ng-container matColumnDef="lastname">
+            <mat-header-cell *matHeaderCellDef
+                             mat-sort-header>
+              {{'users.columns.lastnameLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element.lastname || 'n/a'}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- 	Roles Column -->
+          <ng-container matColumnDef="role">
+            <mat-header-cell *matHeaderCellDef>
+              {{'users.columns.roleLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{(element.roleNames | join) || 'n/a'}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- 	Total Credits Column -->
+          <ng-container matColumnDef="totalCredits">
+            <mat-header-cell *matHeaderCellDef
+                             mat-sort-header>
+              {{'users.columns.totalCreditsLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element.total_credits || 'n/a'}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- 	Has Discovery Offer Column -->
+          <ng-container matColumnDef="hasDiscoveryOffer">
+            <mat-header-cell *matHeaderCellDef
+                             mat-sort-header>
+              {{'users.columns.hasDiscoveryOfferLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element.has_discovery_offer || 'n/a'}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- 	Verified Column -->
+          <ng-container matColumnDef="verified">
+            <mat-header-cell *matHeaderCellDef
+                             mat-sort-header>
+              {{'users.columns.verifiedLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element.verified || 'n/a'}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- 	Date Of Birth Column -->
+          <ng-container matColumnDef="dateOfBirth">
+            <mat-header-cell *matHeaderCellDef
+                             mat-sort-header>
+              {{'users.columns.dateOfBirthLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element.birthday || 'n/a'}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- 	Email Column -->
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef
+                             mat-sort-header>
+              {{'users.columns.emailLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element.email || 'n/a'}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- 	Newsletter Column -->
+          <ng-container matColumnDef="newsletter">
+            <mat-header-cell *matHeaderCellDef
+                             mat-sort-header>
+              {{'users.columns.newsletterLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <mat-slide-toggle [checked]="element.newsletter"
+                                [disabled]="true">
+              </mat-slide-toggle>
+            </mat-cell>
+          </ng-container>
+
+          <!-- Actions -->
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef>
+              {{'configurableTable.commentDetailsLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <div class="right-align-column">
+                <a [matTooltip]="'general.openDetailsLabel' | translate"
+                   [routerLink]="[ './', element.id ]"
+                   class="action-icon"
+                   type="button">
+                  <mat-icon>visibility</mat-icon>
+                </a>
+              </div>
+            </mat-cell>
+          </ng-container>
+
+          <!-- Edit -->
+          <ng-container matColumnDef="edit">
+            <mat-header-cell *matHeaderCellDef>
+              {{'configurableTable.editUserLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <div>
+                <a [matTooltip]="'configurableTable.editUserLabel' | translate"
+                   [routerLink]="['./edit-user', element.id]"
+                   class="action-icon"
+                   type="button">
+                  <mat-icon>edit</mat-icon>
+                </a>
+              </div>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+
+      <mat-paginator (page)="paginatorEvent($event)"
+                     *ngIf="!!dataSource.length"
+                     [length]="total"
+                     [pageIndex]="page - 1"
+                     [pageSizeOptions]="paginatorPageSizeOptions"
+                     [pageSize]="pageSize">
+      </mat-paginator>
+    </form>
+  </mat-card>
+</div>

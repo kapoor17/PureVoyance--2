@@ -1,0 +1,81 @@
+@import "src/styles/variables";
+
+.main-section {
+  display: flex;
+  column-gap: 48px;
+  width: 100%;
+
+  .extensions, .markets {
+    mat-cell, mat-header-cell {
+      height: 56px;
+      min-width: 20px;
+      padding: 0;
+    }
+
+    .table-footer-wrapper {
+      min-width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      .mat-button {
+        background: $green-active;
+
+        &:hover {
+          background: $dark-active;
+        }
+
+        &:not(:first-child) {
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+
+  .extensions {
+    width: 42%;
+  }
+
+  .markets {
+    width: 58%;
+
+    mat-select {
+      width: max-content;
+    }
+  }
+}
+
+.default-data {
+  padding-top: 24px;
+  width: 100%;
+
+  .default-data-content {
+    width: 100%;
+    display: flex;
+    column-gap: 3.58%;
+    flex-flow: wrap;
+    row-gap: 16px;
+
+    .default-data-block {
+      padding: 5px;
+      min-width: 30%;
+      min-height: 200px;
+      border: $border-grey;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    button {
+      width: 100%;
+      color: $white;
+      background: $green-active;
+
+      &:hover {
+        background: $dark-active;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,18 @@
+@import 'variables';
+
+.appointments-container {
+  padding: 0 24px;
+
+  .filter-wrapper {
+    padding-left: 24px;
+    padding-top: 24px;
+
+    ::ng-deep .mat-form-field-infix {
+      padding-top: 8px;
+    }
+  }
+
+  .mat-table {
+    min-height: 300px;
+  }
+}

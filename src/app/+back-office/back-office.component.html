@@ -1,0 +1,101 @@
+<mat-drawer-container class="w-100 background-transparent position-relative"
+                      hasBackdrop="false">
+
+  <mat-drawer class="drawer p-20 background-transparent"
+              mode="side"
+              opened>
+
+    <div class="language-select d-flex">
+      <button [matMenuTriggerFor]="menu"
+              mat-button>
+        <img [src]="currentLanguage?.languageImage">
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <button (click)="changeLanguage(language.languageCode)"
+                *ngFor="let language of languages"
+                mat-menu-item>
+          <img [src]="language.languageImage">
+        </button>
+      </mat-menu>
+    </div>
+
+    <div class="flex-column">
+      <button [routerLink]="['/psychics']"
+              class="text-left"
+              mat-button
+              routerLinkActive="active">
+        {{'subHeader.homeLabel' | translate}}
+      </button>
+
+      <button [routerLink]="['/back-office/users']"
+              class="text-left"
+              mat-button
+              routerLinkActive="active">
+        {{'subHeader.usersLabel' | translate}}
+      </button>
+
+      <button [routerLink]="['/back-office/psychics']"
+              class="text-left"
+              mat-button
+              routerLinkActive="active">
+        {{'subHeader.physicsLabel' | translate}}
+      </button>
+
+      <button [routerLink]="['/back-office/comments']"
+              class="text-left"
+              mat-button
+              routerLinkActive="active">
+        {{'subHeader.commentsLabel' | translate}}
+      </button>
+
+      <button [routerLink]="['/back-office/events']"
+              class="text-left"
+              mat-button
+              routerLinkActive="active">
+        {{'subHeader.eventsLogsLabel' | translate}}
+      </button>
+
+      <button [routerLink]="['/back-office/consultations']"
+              class="text-left"
+              mat-button
+              routerLinkActive="active">
+        {{'subHeader.consultationsLabel' | translate}}
+      </button>
+
+      <button [routerLink]="['/back-office/invoices']"
+              class="text-left"
+              mat-button
+              routerLinkActive="active">
+        {{'subHeader.invoicesLabel' | translate}}
+      </button>
+
+      <button [routerLink]="['/back-office/payments']"
+              class="text-left"
+              mat-button
+              routerLinkActive="active">
+        {{'subHeader.paymentsLabel' | translate}}
+      </button>
+
+      <button [routerLink]="['/back-office/settings']"
+              class="text-left"
+              mat-button
+              routerLinkActive="active">
+        {{'subHeader.settingsLabel' | translate}}
+      </button>
+
+      <a class="text-left"
+         href="https://back-purevoyance.dev-prom.pp.ua/api/documentation"
+         mat-button
+         rel="noopener noreferrer"
+         routerLinkActive="active"
+         target="_blank">
+        {{'subHeader.apiManagementLabel' | translate}}
+      </a>
+    </div>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

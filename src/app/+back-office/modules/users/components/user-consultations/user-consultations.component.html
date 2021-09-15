@@ -1,0 +1,118 @@
+<mat-card class="consultations-container mat-elevation-z0">
+  <div class="filter-wrapper">
+    <mat-form-field *ngIf="!!dataSource.length || !!searchControl.value"
+                    appearance="outline"
+                    class="input-form">
+      <mat-label>{{'general.searchLabel'| translate}}</mat-label>
+      <input [formControl]="searchControl"
+             matInput
+             type="text">
+    </mat-form-field>
+  </div>
+
+  <mat-table (matSortChange)="sortingEvent($event)"
+             [dataSource]="dataSource"
+             matSort>
+    <div *matNoDataRow>
+      <div class="table-no-data">
+        {{'users.consultations.noDataLabel' | translate}}
+      </div>
+    </div>
+
+    <ng-container matColumnDef="start">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.consultations.start' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.start || 'n/a'}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="end">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.consultations.end' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.end || 'n/a'}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="duration">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.consultations.duration' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.duration || 'n/a'}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="invoice">
+      <mat-header-cell *matHeaderCellDef>
+        {{'users.consultations.invoiceNumber' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <a *ngIf="!!element.invoice"
+           [routerLink]="['/back-office', 'invoices', element.invoice.id]">
+          {{element.invoice.number || 'n/a'}}
+        </a>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="psychic">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.consultations.psychic' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <a *ngIf="!!element.psychic"
+           [routerLink]="['/back-office', 'psychics', element.psychic.id]">
+          {{element.psychic.name || 'n/a'}}
+        </a>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.consultations.price' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.price || 'n/a'}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="media">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.consultations.media' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.media || 'n/a'}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="telcoEndStatus">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.consultations.telcoEndStatus' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.telco_end_status || 'n/a'}}
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator (page)="paginatorEvent($event)"
+                 *ngIf="!!dataSource.length"
+                 [length]="total"
+                 [pageIndex]="page - 1"
+                 [pageSizeOptions]="paginatorPageSizeOptions"
+                 [pageSize]="pageSize">
+  </mat-paginator>
+</mat-card>

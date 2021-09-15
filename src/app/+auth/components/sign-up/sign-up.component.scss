@@ -1,0 +1,369 @@
+@import 'variables';
+@import 'auth';
+@import "text-styles";
+
+* {
+  box-sizing: border-box;
+}
+
+.sign-up-container {
+  padding-top: 15px;
+  @include auth-dialog;
+  max-height: 84vh;
+
+  .form-container {
+    width: 100%;
+  }
+
+  .step-header {
+
+    .step-sub-title {
+      color: $black;
+      font-size: 24px;
+      line-height: 20px;
+      font-weight: normal;
+      padding-bottom: 32px;
+    }
+
+    .step-sub-header {
+      width: 100%;
+      padding: 0 32px;
+      margin-top: 32px;
+
+
+      .step-title {
+        line-height: 40px;
+      }
+    }
+  }
+
+  .stepper-container {
+    padding: 0 32px 32px;
+
+    .sign-up-fields {
+      align-items: flex-start;
+
+      .phone-input {
+        width: 100%;
+        position: relative;
+
+        div {
+          .phone-code-trigger {
+            padding-left: 4px;
+          }
+
+          .phone-code-select {
+            height: 50px;
+            width: 35%;
+            border: $border-grey;
+            border-right: none;
+            border-radius: 0;
+            padding: 0 10px;
+          }
+        }
+      }
+
+      .sms-code-container {
+        width: 100%;
+      }
+    }
+
+    .checkbox-text {
+      margin: 0;
+      white-space: initial;
+    }
+  }
+}
+
+.button {
+  margin: 5px 0 10px 0;
+  padding: 6px 0;
+}
+
+.go-to-sign-in-button {
+  width: 100%;
+  border: $light-border-grey;
+  border-radius: 0;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.avatar-container {
+  background: url("~src/assets/images/sign-up/payment.png") no-repeat;
+  background-size: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 448px;
+
+  .price-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 700;
+    margin-top: 30px;
+
+    .price {
+      display: flex;
+      padding: 10px 0;
+      align-items: flex-start;
+      background: $linear-gradient-background;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      .big-text {
+        display: flex;
+        align-items: center;
+
+        .euro-sign, .price-number {
+          font-size: 64px;
+          font-weight: 700;
+          margin: 0;
+          color: black;
+          fill: black;
+        }
+
+        .euro-sign {
+          width: 64px;
+          height: 64px;
+        }
+      }
+
+      .price-penny {
+        font-size: 32px;
+      }
+    }
+
+    .time {
+      font-size: 16px;
+    }
+  }
+
+  .satisfy-text {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .info-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 25px;
+
+    .satisfy-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .left-block {
+      border-right: $light-border-grey;
+    }
+
+    .green {
+      background-color: $green !important;
+    }
+
+    .info-icon {
+      display: flex;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: $pink;
+
+    }
+
+    .info-title {
+      font-size: 16px;
+      font-weight: 500;
+      margin: 10px 0;
+    }
+
+    .info-text {
+      text-align: center;
+      padding: 0 25px;
+    }
+  }
+
+  .payment-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+
+    .payment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin: 10px 0;
+
+      .payment-title {
+        font-family: $font-family;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 32px;
+      }
+
+      .payment-price {
+        display: flex;
+        justify-content: space-between;
+        width: 120px;
+        background: $dark-blue;
+        border-radius: 24px;
+        color: $white;
+        padding: 8px 16px;
+
+        .price {
+          font-family: $font-family;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 16px;
+          text-align: center;
+
+          margin: 0;
+        }
+      }
+    }
+
+    .row-inputs {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      margin-bottom: 5px;
+
+      .input-form {
+        width: 47%;
+      }
+
+      .expiration-date {
+        display: flex;
+        width: 50%;
+
+        .left-border {
+          border-radius: $border-radius;
+          border-right: none;
+        }
+
+        .right-border {
+          border-radius: $border-radius-inverse;
+          border-left: none;
+        }
+      }
+    }
+
+    .ssl-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+
+      .ssl-text {
+        font-family: $font-family;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: left;
+        color: $metal-grey;
+        margin-left: 10px;
+      }
+    }
+
+    .payment-field {
+      padding-left: 40px;
+      line-height: 24px;
+      font-size: 14px;
+    }
+
+    .card-field {
+      background: url("~src/assets/images/sign-up/credit-card.svg") no-repeat;
+
+    }
+
+    .date-field {
+      background: url("~src/assets/images/sign-up/calendar.svg") no-repeat;
+      border-right: 2px solid #E6E8EC;
+    }
+
+    .cvv-field {
+      background: url("~src/assets/images/sign-up/lock-icon.svg") no-repeat;
+    }
+  }
+}
+
+.text {
+  font-size: 14px;
+}
+
+::ng-deep {
+  .flag-image {
+    width: 22px;
+    height: 16px;
+    object-fit: cover;
+    line-height: 20px;
+    vertical-align: text-top;
+    margin-right: 4px;
+  }
+
+  .phone-code {
+    line-height: 20px;
+  }
+}
+
+
+@media (max-width: 650px) {
+  .sign-up-container {
+    width: 100%;
+
+    nsp-common-dialog-header {
+      width: 95%;
+    }
+
+    .stepper-container {
+
+      .sign-up-fields {
+
+        .phone-input {
+          width: 74%;
+
+          ::ng-deep .mat-select-arrow-wrapper {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .login-dialog-wrapper {
+      width: 100%;
+
+      .sign-up-container {
+        @include auth-dialog;
+        width: 100%;
+
+        .inner-container {
+          width: 95%;
+        }
+      }
+    }
+  }
+}
+
+.button-group {
+  padding: 3px 5px;
+
+  .add {
+    background-color: $green;
+    border-radius: 0;
+  }
+
+  .remove {
+    background-color: $dark-red;
+    margin-left: 12px;
+    border-radius: 0;
+  }
+}

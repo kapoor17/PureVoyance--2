@@ -1,0 +1,138 @@
+@import "variables";
+@import "text-styles";
+
+.test-wrapper {
+  .sub-title-text {
+    font-weight: 300;
+    color: $black;
+    margin: 0;
+    margin-top: 10px;
+    padding-bottom: 52px;
+  }
+
+  .ascendant-wrapper {
+    width: 100%;
+    column-gap: 40px;
+
+    img {
+      width: 509px;
+      height: 373px;
+      object-fit: cover;
+    }
+
+    .right-side {
+      width: 100%;
+      text-align: left;
+
+      p {
+        margin: 0;
+        padding-bottom: 5px;
+      }
+
+      mat-form-field {
+        min-height: 53px;
+      }
+    }
+
+    .input-form {
+      border: 2px solid #e6e8ec;
+      border-radius: 0;
+      width: 99%;
+      margin-bottom: 27px;
+    }
+
+    input[type="time"]::-webkit-calendar-picker-indicator {
+      background: #f8f8f8;
+    }
+
+    input {
+      font-size: 14px;
+      line-height: 17px;
+      font-family: "Poppins-Regular", serif;
+      background: $white-smoke;
+    }
+
+    .choose-sign {
+      p {
+        margin: 0;
+        padding-bottom: 5px;
+      }
+    }
+  }
+
+  button {
+    align-self: center;
+    margin: 15px 0px;
+    width: 100%;
+    max-width: 360px;
+    width: 360px;
+    background: linear-gradient(
+        180deg,
+        #02bec0 -4.2%,
+        #066365 45.34%,
+        #0b2325 98.07%
+    ) !important;
+
+    &:disabled {
+      background: $grey;
+    }
+  }
+
+  .ascendant-result {
+    .result-disclaimer {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 16px;
+
+      &-row {
+        padding-bottom: 8px;
+        display: flex;
+        flex-direction: row;
+
+        .title {
+          font-size: 20px;
+          line-height: 24px;
+          color: $dark-blue;
+          font-weight: bold;
+        }
+
+        .value {
+          font-size: 20px;
+          line-height: 24px;
+          color: $blue-green;
+          font-weight: bold;
+          margin-left: 8px;
+        }
+      }
+    }
+
+    .text-result {
+      p {
+        @include paragraph-black;
+        margin: 0;
+        padding-bottom: 12px;
+        font-size: 17px;
+        line-height: 24px;
+        color: $dark-blue;
+      }
+    }
+  }
+}
+
+.input-form {
+  border: 2px solid #e6e8ec;
+  border-radius: 0;
+  width: 100%;
+  background: $white-smoke;
+
+  ::ng-deep .mat-select-value-text,
+  ::ng-deep .mat-option-text,
+  ::ng-deep .mat-form-field-hide-placeholder .mat-select-placeholder {
+    @include paragraph-black;
+    margin: 0;
+    display: inline;
+    color: $link-color;
+  }
+}

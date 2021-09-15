@@ -1,0 +1,67 @@
+<div class="consultations-wrapper flex-column justify-center">
+  <h1 class="text-uppercase">
+    {{"detailedConsultation.consultationLabel" | translate}}
+  </h1>
+
+  <p *ngIf="dataSource.length" class="sub-title">
+    {{"detailedConsultation.subTitleLabel" | translate}}
+  </p>
+
+  <div class="consultations-content">
+    <div
+      *ngFor="let consultation of dataSource | paginate: {itemsPerPage: itemsPerPage, currentPage: page, totalItems: total}"
+      class="consultation-card flex-column">
+      <div class="medium-info d-flex">
+        <div class="photo">
+          <img [src]="consultation.psychic?.image"
+               alt="psychic-avatar">
+        </div>
+
+        <div class="status flex-column">
+          <h3>{{consultation.psychic?.name}}</h3>
+
+          <p>{{"detailedConsultation.discoveryOfferLabel" | translate}}</p>
+        </div>
+      </div>
+
+      <div class="date d-flex align-center">
+        <mat-icon aria-hidden="false">event</mat-icon>
+
+        <p>{{consultation.date}}</p>
+      </div>
+
+      <div class="button-group d-flex align-center justify-center">
+        <button (click)="showDetails(consultation)"
+                class="info align-center flex-center">
+          <mat-icon>info</mat-icon>
+        </button>
+
+        <button class="emoji align-center flex-center">
+          <mat-icon>tag_faces</mat-icon>
+        </button>
+
+        <button (click)="onCommentClick(consultation.id)"
+                class="message align-center flex-center">
+          <mat-icon>comment</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="!dataSource.length" class="empty-list flex-column align-center justify-center">
+      <mat-icon>comment</mat-icon>
+
+      <h3>{{"detailedConsultation.noDataLabel" | translate}}</h3>
+
+      <p>{{"detailedConsultation.noConsultationsLabel" | translate}}</p>
+    </div>
+  </div>
+
+  <pagination-controls (pageChange)="paginatorEvent($event)"
+                       *ngIf="total>itemsPerPage"
+                       [autoHide]="true"
+                       [directionLinks]="true"
+                       class="my-pagination"
+                       nextLabel=""
+                       previousLabel="">
+  </pagination-controls>
+</div>

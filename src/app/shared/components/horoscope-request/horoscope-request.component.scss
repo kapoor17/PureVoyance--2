@@ -1,0 +1,165 @@
+@import "text-styles";
+@import "variables";
+
+.horoscope-wrapper {
+  .email-block {
+    padding: 44px 69px;
+    border: $skin-border;
+    background: $skin-background;
+    margin-top: 28px;
+
+    @media (max-width: 1024px) {
+      padding: 20px 20px;
+      width: 91.5%;
+      margin-left: 10px;
+    }
+
+    @media (max-width: 930px) {
+      width: 93.5%;
+    }
+
+    @media (max-width: 768px) {
+      width: 99%;
+    }
+
+    @media (max-width: 450px) {
+      width: 115%;
+      margin-left: -30px;
+    }
+
+    @media (max-width: 375px) {
+      margin-left: -27.5px;
+    }
+
+    @media (max-width: 374px) {
+      display: none;
+    }
+
+    .email-block-header {
+      display: flex;
+      column-gap: 86px;
+      align-items: flex-start;
+      @media (max-width: 1024px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 33px;
+      }
+
+      .moon-titles {
+        display: flex;
+        column-gap: 14px;
+
+        h2,
+        p {
+          font-family: $font-main;
+        }
+
+        h2 {
+          color: $gold;
+          font-weight: 500;
+          //font-size: 30px;
+          line-height: 35px;
+          margin: 0;
+        }
+
+        p {
+          color: $yet-another-green;
+          font-weight: 500;
+          //font-size: 20.5px;
+          line-height: 24px;
+        }
+
+        img {
+          width: 69px;
+          height: 69px;
+        }
+      }
+
+      .form {
+        display: flex;
+        align-items: flex-start;
+        column-gap: 19px;
+
+        ::-webkit-input-placeholder {
+          text-align: center;
+        }
+
+        :-moz-placeholder {
+          /* Firefox 18- */
+          text-align: center;
+        }
+
+        ::-moz-placeholder {
+          /* Firefox 19+ */
+          text-align: center;
+        }
+
+        :-ms-input-placeholder {
+          text-align: center;
+        }
+
+        input {
+          width: 329px;
+          height: 46px;
+          display: flex;
+          justify-content: center;
+          padding: 0 3px;
+          @media (max-width: 1024px) {
+            width: 442px;
+          }
+
+          @media (max-width: 450px) {
+            width: 100%;
+          }
+        }
+
+        button {
+          background-color: $just-another-green;
+          color: $white;
+          width: 199px;
+          padding: 10px;
+          border-radius: 0;
+          font-family: $font-lato;
+          font-style: normal;
+          font-weight: bold;
+          //font-size: 18px;
+          line-height: 22px;
+          @media (max-width: 450px) {
+            width: 40%;
+          }
+        }
+      }
+    }
+
+    .checkbox-group {
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      mat-checkbox {
+        height: max-content;
+      }
+
+      p {
+        white-space: break-spaces;
+        font-family: $font-main;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 27px;
+        margin: 0;
+        color: $hex;
+        @media (max-width: 1024px) {
+          font-size: 14px;
+        }
+        @media (max-width: 930px) {
+          font-size: 11px;
+        }
+        @media (max-width: 768px) {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}

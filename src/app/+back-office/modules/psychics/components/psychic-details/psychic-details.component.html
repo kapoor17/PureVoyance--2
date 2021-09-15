@@ -1,0 +1,43 @@
+<div class="back-office-section-wrapper">
+  <div class="header">
+    <a [routerLink]="['../../psychics']"
+       class="text-uppercase">
+      {{'psychics.backLinkLabel' | translate}}
+    </a>
+
+    <div class="actions">
+
+      <button (click)="activate()"
+              *ngIf="!activated"
+              class="activate"
+              mat-stroked-button>
+        {{'userProfile.activateButtonLabel' | translate}}
+      </button>
+
+      <button (click)="deactivate()"
+              *ngIf="activated"
+              class="deactivate"
+              mat-stroked-button>
+        {{'userProfile.deactivateButtonLabel' | translate}}
+      </button>
+    </div>
+  </div>
+
+  <nsp-psychic-main-info></nsp-psychic-main-info>
+
+  <nav mat-tab-nav-bar>
+    <a #rla="routerLinkActive"
+       (click)="activeLink = link.link"
+       *ngFor="let link of links"
+       [active]="activeLink === link.link"
+       [routerLink]="[link.link]"
+       mat-tab-link
+       routerLinkActive>
+      <span>
+        {{'psychics.tabs.' + link.name + 'Label'| translate}}
+      </span>
+    </a>
+  </nav>
+
+  <router-outlet></router-outlet>
+</div>

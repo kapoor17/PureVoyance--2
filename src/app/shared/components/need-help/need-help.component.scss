@@ -1,0 +1,61 @@
+@import 'variables';
+
+.advertisement {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 22px;
+  background: url("~src/assets/images/advertisement.png ");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  @media (max-width: 1024px) {
+    display: none;
+  }
+
+  h1 {
+    color: $white;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  p {
+    color: $white;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21px;
+  }
+
+  .phone-block {
+    width: fit-content;
+    display: flex;
+    padding: 8px 16px;
+    background: $skin-background-secondary;
+    align-items: center;
+
+    .phone {
+      display: flex;
+      flex-direction: column;
+      margin-left: 8px;
+
+      .phone-itself {
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 29px;
+        text-align: center;
+        color: $help-black;
+      }
+
+      .phone-disclaimer {
+        font-size: 22px;
+        line-height: 26px;
+        text-align: center;
+        text-transform: uppercase;
+        color: $callback-green;
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<div class="horoscope-signs-wrapper flex-column">
+
+  <div class="flex-column flex-center">
+    <h1 class="light-green-title text-uppercase">
+      {{ "horoscope.headerMainWrapperFirstLabel" | translate}}
+    </h1>
+
+    <img class="yellow-line"
+         src="./assets/icons/header/yellow-line-icon.svg">
+  </div>
+
+  <p class="subtitle">
+    {{today | date: 'fullDate'}}
+    {{ "horoscope.headerMainWrapperSecondPartLabel" | translate}}
+  </p>
+
+  <p class="text-about-page">
+    {{"horoscope.headerMainWrapperThirdTextLabel" | translate}}
+    <span class="text-uppercase">
+      {{'horoscope.headerMainWrapperFourthTextLabel' | translate}}
+    </span>
+  </p>
+
+  <div class="flex-column flex-center">
+    <div class="header-main-wrapper">
+      <div class="horoscope-signs">
+        <div (click)="onHoroscopeClick(horoscope)"
+             *ngFor="let horoscope of horoscopeService.horoscopes; let i = index"
+             class="flex-center flex-column">
+          <img [src]="horoscope.picture">
+
+          <p class="text-uppercase">{{horoscope.title}}</p>
+        </div>
+      </div>
+    </div>
+
+    <a href="#">
+      {{ "horoscope.questionLabel" | translate}}
+      {{ (settingsApiService.getDiscoveryOfferSettings() | async)?.data?.price | price }}
+      / min
+    </a>
+  </div>
+</div>

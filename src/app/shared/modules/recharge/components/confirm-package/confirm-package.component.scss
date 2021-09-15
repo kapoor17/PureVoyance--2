@@ -1,0 +1,99 @@
+@import 'variables';
+@import "material-override/pagination";
+
+.recharge-wrapper {
+  .content-message {
+    .main-title {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 24px;
+      text-transform: uppercase;
+      color: $golden;
+      padding-bottom: 22px;
+      padding-top: 12px;
+      text-align: center;
+    }
+  }
+
+  .actions {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 0 20px;
+
+    .side-panel {
+      width: 25%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .mat-icon-button {
+      border: 1px solid $grey;
+
+      ::ng-deep .mat-icon {
+        width: 14px;
+        font-size: 14px;
+      }
+    }
+
+    .confirm-button {
+      width: 50%;
+      height: 48px;
+      padding: 16px 24px;
+      background: $green-gradient;
+      color: $white;
+      font-family: $font-main;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 16px;
+      text-align: center;
+    }
+  }
+
+  .package-details {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+
+    .row {
+      padding: 8px;
+      border-bottom: 1px solid $busy;
+      display: flex;
+      justify-content: space-between;
+
+      .label {
+        font-family: $font-main;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        color: $dark-blue;
+        width: 30%;
+      }
+
+      .value {
+        font-family: $font-main;
+        font-size: 16px;
+        line-height: 24px;
+        color: $dark-blue;
+        font-weight: 500;
+
+        &.total {
+          color: $busy;
+        }
+
+        .extra-credits {
+          color: $blue-green;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+::ng-deep .custom-dialog {
+  .mat-dialog-content {
+    max-height: unset;
+  }
+}

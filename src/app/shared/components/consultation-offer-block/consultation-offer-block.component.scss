@@ -1,0 +1,120 @@
+@import "text-styles";
+@import "variables";
+
+.discovery-offer-wrapper {
+  max-width: 1239px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 23px 47px 26px 138px;
+  background: #f8f8f8;
+  margin: 0;
+
+  .middle-column-offer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      width: max-content;
+      font-size: 28px;
+      font-weight: bold;
+      color: $black;
+      text-align: center;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 21px;
+      line-height: 25px;
+      margin: 0;
+      padding: 7px 0;
+    }
+
+    .psychics-text {
+      @include paragraph-black;
+      font-size: 21px;
+      line-height: 17px;
+      color: $lightblack;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .discovery-offer-wrapper {
+    width: 100%;
+    column-gap: 0;
+    padding: 14px 6px 14px 14px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 914px) {
+  .discovery-offer-wrapper {
+    img {
+      width: 54px;
+      height: 54px;
+    }
+
+    .middle-column-offer {
+      h1 {
+        font-size: 16px;
+        line-height: 18px;
+      }
+
+      h2 {
+        font-size: 12px;
+        line-height: 14px;
+      }
+
+      .psychics-text {
+        font-size: 12px;
+        line-height: 11px;
+      }
+    }
+
+    .green-button {
+      padding: 6px 24.44px;
+    }
+  }
+}
+
+@media (max-width: 534px) {
+  .discovery-offer-wrapper {
+    flex-wrap: nowrap;
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .middle-column-offer {
+      text-align: center;
+
+      h1 {
+        font-size: 12px;
+        line-height: 12px;
+        width: 75%;
+      }
+
+      h2 {
+        width: 68%;
+        line-height: 12px;
+      }
+
+      .psychics-text {
+        font-size: 12px;
+        line-height: 10px;
+      }
+    }
+
+    .green-button {
+      padding: 10px 22px;
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+}

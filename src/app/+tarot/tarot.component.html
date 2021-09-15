@@ -1,0 +1,39 @@
+<main class="tarot-wrapper flex-center flex-column">
+  <div class="inside-wrapper-new">
+
+    <router-outlet></router-outlet>
+
+    <nsp-consultation-offer-block></nsp-consultation-offer-block>
+
+    <div class="top-rated-mediums flex-column">
+      <div class="flex-column flex-center">
+        <h1 class="light-green-sub-title text-uppercase m-0">
+          {{ "horoscope.topRatedTextLabel" | translate}}
+        </h1>
+
+        <img class="yellow-line"
+             src="./assets/icons/header/yellow-line-icon.svg">
+      </div>
+
+      <nsp-top-rated-mediums></nsp-top-rated-mediums>
+    </div>
+
+    <div class="astro-sections-wrapper flex-column">
+      <div class="flex-column flex-center">
+        <h1 class="light-green-sub-title text-uppercase m-0">
+          {{ "horoscope.topRatedTextLabel" | translate}}
+        </h1>
+
+        <img class="yellow-line"
+             src="./assets/icons/header/yellow-line-icon.svg">
+      </div>
+
+      <nsp-astro-sections-carousel></nsp-astro-sections-carousel>
+    </div>
+
+    <!--    <nsp-horoscope-request></nsp-horoscope-request>-->
+    <nsp-offer-disclaimer></nsp-offer-disclaimer>
+
+    <nsp-reusable-personal-goals></nsp-reusable-personal-goals>
+  </div>
+</main>

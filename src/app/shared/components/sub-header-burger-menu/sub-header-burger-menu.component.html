@@ -1,0 +1,134 @@
+<div class="burger-menu-wrapper flex-column flex-center">
+  <div class="flex-between header">
+    <button (click)="close()"
+            class="close-button d-flex"
+            mat-button>
+      <mat-icon svgIcon="close-menu"></mat-icon>
+    </button>
+  </div>
+
+  <div class="content flex-center flex-column">
+    <div class="head flex-center flex-column">
+      <mat-icon class="logo"
+                routerLink="/psychics"
+                svgIcon="second-logo"></mat-icon>
+      <p *ngIf="authService.isAuthenticated"
+         class="text-head-burger text-bold m-0">
+        {{'headerBurgerMenu.helloLabel' | translate }},
+      </p>
+
+      <p *ngIf="authService.isAuthenticated"
+         class="text-head-burger name m-0">
+        {{user?.name}}
+      </p>
+    </div>
+
+    <ul class="m-0 flex-center flex-column">
+      <li *ngIf="authService.isAuthenticated" class="flex-between">
+        <div class="flex-between menu-item">
+          <div class="menu-content">
+            <mat-icon class="icon-page" svgIcon="profile"></mat-icon>
+
+            <a (click)="closePage(false)"
+               class="router-item"
+               routerLinkActive="active">
+              {{ 'userAccount.myProfileLabel' | translate}}
+            </a>
+          </div>
+
+          <p></p>
+        </div>
+      </li>
+
+      <li *ngFor="let page of pages; let i = index"
+          [class.opened]="openedSlot === i">
+        <div class="flex-between menu-item">
+          <div class="menu-content">
+            <mat-icon [svgIcon]="page.iconPage"
+                      class="icon-page">
+            </mat-icon>
+
+            <a (click)="close()"
+               [routerLink]="page.routerLink"
+               class="router-item">
+              {{page.pageName | translate}}
+            </a>
+          </div>
+        </div>
+
+        <div *ngIf="openedSlot === i"
+             class="flex-center"></div>
+      </li>
+
+      <li>
+        <div class="flex-between menu-item">
+          <div class="menu-content">
+            <mat-icon class="icon-page"
+                      svgIcon="phone">
+            </mat-icon>
+
+            <a class="router-item"
+               href="tel:01 86 86 86 86">
+              {{ "header.helpLabel" | translate}}
+            </a>
+          </div>
+
+          <p></p>
+        </div>
+      </li>
+
+      <li *ngIf="authService.isAuthenticated && userService.isAdmin" class="flex-between">
+        <div class="flex-between menu-item">
+          <div class="menu-content">
+            <mat-icon class="icon-page resized-icon">admin_panel_settings
+            </mat-icon>
+
+            <a (click)="close()"
+               [routerLink]="['/back-office']"
+               class="router-item"
+               routerLinkActive="active">
+              {{ 'subHeader.backOfficeLabel' | translate}}
+            </a>
+          </div>
+
+          <p></p>
+        </div>
+      </li>
+    </ul>
+
+    <!--    <div class="consultations">-->
+    <!--      <h1-->
+    <!--        class="light-green-title m-0 consultations-title">{{'headerBurgerMenu.ourConsultationsLabel' | translate}}</h1>-->
+
+    <!--      <div class="flex-between blocks">-->
+    <!--        <div class="flex-column flex-center" *ngFor="let consultation of consultationBlocks; let i = index">-->
+    <!--          <img [class]=consultation.class [src]=consultation.image>-->
+    <!--          <p class="text-uppercase text-head-burger m-0">{{consultation.title}}</p>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+
+    <div class="auth flex-column flex-center">
+      <button (click)="onSignUpButton()"
+              *ngIf="!authService.isAuthenticated"
+              class="flex-center sign-up-button text-uppercase text-button"
+              mat-button>
+        {{ "header.freeRegistrationLabel" | translate}}
+      </button>
+
+      <button (click)="onSignInButton()"
+              *ngIf="!authService.isAuthenticated"
+              class="flex-center sign-in-button text-button text-uppercase"
+              mat-button>
+        {{ "header.loginLabel" | translate }}
+      </button>
+
+      <button (click)="onLogout()"
+              *ngIf="authService.isAuthenticated"
+              class="flex-center sign-in-button text-button text-uppercase"
+              mat-button>
+        {{'header.logoutLabel' | translate}}
+      </button>
+    </div>
+  </div>
+</div>

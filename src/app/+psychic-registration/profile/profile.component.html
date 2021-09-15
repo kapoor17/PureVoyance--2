@@ -1,0 +1,140 @@
+<div class="psychic-profile-wrapper flex-column flex-center">
+  <div class="container flex-center flex-column">
+    <div class="flex-column flex-center">
+      <h1 class="m-0 text-uppercase light-green-title">
+        {{ "psychicRegistration.profile.titleLabel" | translate}}
+      </h1>
+      <img class="yellow-line"
+           src="./assets/icons/header/yellow-line-icon.svg">
+    </div>
+
+
+    <form [formGroup]="psychicProfileForm" class="flex-column flex-center">
+      <div class="upload-image flex-center">
+        <div class="profile-image flex-center flex-column">
+          <p *ngIf="!avatarUrl; else avatarPhoto"
+             class="text-uppercase input-text avatar-text">
+            {{ "psychicRegistration.profile.profilePhotoLabel" | translate}}
+          </p>
+          <img *ngIf="!avatarUrl" src="./assets/icons/psychic-registration/user-icon.svg">
+
+          <img class="camera" src="./assets/icons/psychic-registration/camera-icon.svg">
+          <input (change)="uploadAvatar($event)" accept="image/*" class="camera" id="avatar"
+                 type="file">
+        </div>
+
+        <ng-template #avatarPhoto>
+          <img [src]="avatarUrl" class="avatar-photo">
+        </ng-template>
+      </div>
+
+      <div class="flex-column">
+        <p class="user-name m-0">{{ "psychicRegistration.profile.userNameTextInfoLabel" | translate}}</p>
+
+        <mat-form-field class="pink-form user-name-registration">
+          <input class="input-user-name"
+                 formControlName="username"
+                 matInput
+                 pattern="[a-zA-Z ]*"
+                 placeholder="{{'psychicRegistration.profile.userNamePlaceholderLabel' | translate}}"
+                 type="text">
+
+          <mat-error>{{'validationService.required' | translate}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="flex-column flex-center">
+        <h1 class="m-0 text-uppercase light-green-sub-title">
+          {{ "psychicRegistration.profile.firstSubTitleLabel" | translate}}
+        </h1>
+        <img class="yellow-line"
+             src="./assets/icons/header/yellow-line-icon.svg">
+
+        <p class="m-0 paragraph-black description-text">
+          {{ "psychicRegistration.profile.descriptionTextLabel" | translate}}
+        </p>
+
+        <mat-form-field class="pink-form area-form">
+          <textarea formControlName="textAbout" matInput type="text"></textarea>
+        </mat-form-field>
+      </div>
+    </form>
+
+    <div class="flex-column flex-center">
+      <h1 class="m-0 text-uppercase light-green-sub-title">
+        {{ "psychicRegistration.profile.secondSubTitleLabel" | translate}}
+      </h1>
+
+      <img class="yellow-line"
+           src="./assets/icons/header/yellow-line-icon.svg">
+    </div>
+
+    <div class="information-about flex-column">
+      <p class="languages-text m-0"> {{ "psychicRegistration.profile.spokenLanguagesLabel" | translate}}</p>
+
+      <form [formGroup]="languageForm" class="flex-center">
+        <mat-checkbox *ngFor="let language of languages" [value]="language.value" formControlName="{{language.value}}">
+          {{language.title}}
+        </mat-checkbox>
+        <mat-form-field class="pink-form others-input">
+          <input formControlName="anotherLanguage"
+                 matInput
+                 pattern="[a-zA-Z ]*"
+                 type="text">
+        </mat-form-field>
+      </form>
+
+      <div class="flex-column">
+        <p class="estimated-availability m-0">
+          {{ "psychicRegistration.profile.estimatedAvailabilityLabel" | translate}}
+        </p>
+
+        <form [formGroup]="daysOfWeek" class="flex-center">
+          <mat-checkbox *ngFor="let day of week" [value]="day.value" formControlName="{{day.value}}">
+            {{day.title}}
+          </mat-checkbox>
+        </form>
+      </div>
+
+      <form [formGroup]="contactVariant" class="flex-column work-time">
+        <p class="languages-text m-0">{{ "psychicRegistration.profile.workHoursLabel" | translate}}</p>
+
+        <mat-form-field appearance="fill" class="pink-form input-form select-form flex-column flex-center">
+          <mat-select class="country-select" formControlName="workTime" placeholder="{{workTime[0]}}">
+            <mat-option *ngFor="let hour of workTime" [value]="hour">{{hour}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <p class="estimated-availability m-0">{{ "psychicRegistration.profile.mediaLabel" | translate}}</p>
+
+        <div>
+          <mat-checkbox *ngFor="let contact of mediaContacts" [value]="contact.value"
+                        formControlName="{{contact.value}}">
+            {{contact.title}}
+          </mat-checkbox>
+        </div>
+      </form>
+
+      <div class="footer-field flex-column">
+        <h2 class="m-0 input-text">{{ "psychicRegistration.profile.requiredFieldsLabel" | translate}}</h2>
+
+        <mat-checkbox [formControl]="agreeControl" class="input-text">
+          <p [innerHTML]="'psychicRegistration.profile.requiredFieldsInformationLabel' | translate" class="m-0"></p>
+        </mat-checkbox>
+
+        <div class="d-flex buttons">
+          <img routerLink="/psychic-registration/experience" src="assets/icons/psychic-registration/go-back-icon.svg">
+
+          <button [disabled]="psychicProfileForm.invalid && agreeControl.invalid" class="dark-button text-uppercase"
+                  routerLink="/psychic-registration/pro-status">
+            {{"myExperience.sentLabel" | translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <img class="line-between" src="/assets/icons/psychic-registration/line-between-icon.svg">
+
+    <nsp-reusable-registration-component></nsp-reusable-registration-component>
+  </div>
+</div>

@@ -1,0 +1,151 @@
+<div class="router-list flex-column">
+
+  <div class="head flex-column">
+    <div class="block-with-logo flex-center flex-column">
+      <mat-icon class="logo" routerLink="/psychics" svgIcon="logo"></mat-icon>
+      <p *ngIf="authService.isAuthenticated" class="text-head-burger text-bold m-0">
+        {{'headerBurgerMenu.helloLabel' | translate }},
+      </p>
+
+      <p *ngIf="authService.isAuthenticated" class="text-head-burger name m-0">{{user?.name}}</p>
+    </div>
+  </div>
+
+  <div class="link-wrapper">
+    <a>
+      <div class="d-flex align-center">
+        <mat-icon class="sun d-flex" svgIcon="sun">
+          <mat-icon class="moon" svgIcon="moon"></mat-icon>
+        </mat-icon>
+
+        <span>{{"userAccount.creditsLabel" | translate}}</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="top-up flex-column align-center">
+    <p class="paragraph-black">{{"userAccount.youHaveLabel" | translate}}</p>
+
+    <p class="paragraph-black gold-text">{{credits}}€ {{"userAccount.creditsSecondLabel" | translate}}</p>
+
+    <button (click)="recharge()" class="text-uppercase" mat-button>{{"userAccount.topUpLabel" | translate}}</button>
+  </div>
+
+  <div class="link-wrapper">
+    <a (click)="recharge()" routerLinkActive="active">
+      <div class="d-flex align-center">
+        <mat-icon svgIcon="recharge"></mat-icon>
+
+        <span>{{'header.rechargeLabel' | translate}}</span>
+      </div>
+
+
+    </a>
+  </div>
+
+  <div class="link-wrapper">
+    <a (click)="close()" [routerLink]="['/account/profile']" routerLinkActive="active">
+      <div class="d-flex align-center">
+        <mat-icon svgIcon="profile"></mat-icon>
+
+        <span>{{'userAccount.myProfileLabel' | translate}}</span>
+      </div>
+
+
+    </a>
+  </div>
+
+  <div class="link-wrapper">
+    <a (click)="close()" [routerLink]="['/account/my-psychics']" routerLinkActive="active">
+      <div class="d-flex align-center">
+        <mat-icon svgIcon="heart"></mat-icon>
+
+        <span>{{'header.psychicsLabel' | translate}}</span>
+      </div>
+
+
+    </a>
+  </div>
+
+  <div class="link-wrapper">
+    <a (click)="close()" [routerLink]="['/account/consultations']" routerLinkActive="active">
+      <div class="d-flex align-center">
+        <mat-icon svgIcon="communications"></mat-icon>
+
+        <span>{{'userAccount.consultationsLabel' | translate}}</span>
+      </div>
+
+
+    </a>
+  </div>
+
+  <div class="link-wrapper">
+    <a (click)="close()" [routerLink]="['/account/invoices']" routerLinkActive="active">
+      <div class="d-flex align-center">
+        <mat-icon svgIcon="factures"></mat-icon>
+
+        <span>{{'userAccount.invoicesLabel' | translate}}</span>
+      </div>
+
+
+    </a>
+  </div>
+
+  <div class="link-wrapper">
+    <a (click)="close()" [routerLink]="['/account/appointments']" routerLinkActive="active">
+      <div class="d-flex align-center">
+        <mat-icon svgIcon="appointments"></mat-icon>
+
+        <span>{{'appointments.appointmentsLabel' | translate}}</span>
+      </div>
+
+
+    </a>
+  </div>
+
+  <div class="link-wrapper">
+    <a (click)="close()" [routerLink]="['/account/comments']" routerLinkActive="active">
+      <div class="d-flex align-center">
+        <mat-icon svgIcon="comment"></mat-icon>
+
+        <span>{{'comments.commentsLabel' | translate}}</span>
+      </div>
+
+
+    </a>
+  </div>
+
+  <div class="link-wrapper">
+    <a (click)="close()" [routerLink]="['/account/payments']" routerLinkActive="active">
+      <div class="d-flex align-center">
+        <mat-icon svgIcon="payments"></mat-icon>
+
+        <span>{{'payments.paymentsLabel' | translate}}</span>
+      </div>
+
+
+    </a>
+  </div>
+
+  <div class="link-wrapper">
+    <a (click)="close()" [routerLink]="['/account/communication-preferences']" class="d-flex" routerLinkActive="active">
+      <div class="d-flex align-center">
+        <mat-icon svgIcon="letter"></mat-icon>
+
+        <span>{{'userAccount.preferencesLabel' | translate}}</span>
+      </div>
+
+
+    </a>
+  </div>
+
+  <div class="link-wrapper">
+    <a (click)="onLogOut()" class="d-flex align-center">
+      <div class="d-flex align-center">
+        <mat-icon svgIcon="log-out"></mat-icon>
+
+        <span>{{'userAccount.logOutLabel' | translate}}</span>
+      </div>
+    </a>
+  </div>
+</div>

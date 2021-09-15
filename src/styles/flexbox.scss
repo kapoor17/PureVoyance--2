@@ -1,0 +1,37 @@
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  @extend .d-flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  @extend .d-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-baseline {
+  @extend .d-flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.flex-between {
+  @extend .d-flex;
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}

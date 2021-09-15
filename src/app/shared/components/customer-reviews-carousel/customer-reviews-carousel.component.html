@@ -1,0 +1,48 @@
+<div class="customer-reviews">
+
+  <div class="flex-column flex-center">
+    <h1 class="text-uppercase light-green-sub-title title">
+      {{ "horoscope.reviewsLabelFirstTextLabel" | translate}}
+    </h1>
+
+    <img class="yellow-line" src="assets/images/divider.png">
+  </div>
+
+  <div class="carousel-reviews">
+    <mat-carousel [autoplay]="false"
+                  [hideArrows]="true"
+                  [hideIndicators]="false"
+                  [interval]="6000"
+                  [loop]="true"
+                  [maintainAspectRatio]="false"
+                  [slideHeight]="'450px'"
+                  [slides]="2"
+                  [useKeyboard]="true"
+                  [useMouseWheel]="true"
+                  color="accent"
+                  timings="250ms ease-in">
+      <mat-carousel-slide #matCarouselSlide
+                          *ngFor="let chunk of chunks; let i = index"
+                          [hideOverlay]="true"
+                          overlayColor="#00000040">
+
+        <div class="slider-wrapper">
+          <div *ngFor="let item of chunk"
+               class="slide-wrapper">
+            <div class="rating-comment light-green-sub-title">
+              {{item.user.name}} - {{item.rate}}/5
+            </div>
+
+            <p class="view-about">
+              {{ item.content }}
+            </p>
+
+            <p class="date-comment">
+              {{item.date}}
+            </p>
+          </div>
+        </div>
+      </mat-carousel-slide>
+    </mat-carousel>
+  </div>
+</div>

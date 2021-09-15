@@ -1,0 +1,55 @@
+@import 'variables';
+
+.actions {
+  flex-direction: row-reverse;
+  display: flex;
+  justify-content: center;
+
+  .mat-button-base {
+    width: 106px;
+    height: 48px;
+    font-size: 25px;
+    line-height: 29px;
+    font-weight: 500;
+    border-radius: 0;
+    border: none;
+  }
+
+  .confirm-button {
+    background: $golden-gradient;
+    color: $white;
+
+    &:hover {
+      background: $golder-hover;
+    }
+  }
+
+  .cancel-button {
+    color: $button-black;
+    background-color: $grey-alternative;
+
+    &:hover {
+      background: $grey;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content-message {
+    font-family: $font-lato;
+    font-size: 25px;
+    line-height: 30px;
+    color: #000000;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .confirmation-input {
+    padding-bottom: 16px;
+    margin-top: 16px;
+  }
+}

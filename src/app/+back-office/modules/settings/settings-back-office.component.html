@@ -1,0 +1,21 @@
+<div class="back-office-section-wrapper">
+  <h1 class="h1 text-uppercase">
+    {{"settings.settingsLabel" | translate}}
+  </h1>
+
+  <nav mat-tab-nav-bar>
+    <a #rla="routerLinkActive"
+       (click)="activeLink = link.link"
+       *ngFor="let link of links"
+       [active]="activeLink === link.link"
+       [routerLink]="[link.link]"
+       mat-tab-link
+       routerLinkActive>
+      <span>
+        {{'settings.tabs.' + link.name | translate}}
+      </span>
+    </a>
+  </nav>
+
+  <router-outlet></router-outlet>
+</div>

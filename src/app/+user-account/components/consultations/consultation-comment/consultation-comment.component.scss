@@ -1,0 +1,93 @@
+@import "text-styles";
+@import "variables";
+@import "flexbox";
+
+.comment-modal-wrapper {
+  width: 448px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 40px;
+    }
+
+    .small-close {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      border: 2px solid #E6E8EC;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .comment {
+    width: 100%;
+    display: flex;
+    column-gap: 20px;
+    padding: 27px 0 27px 27px;
+
+    .icon-comment {
+      padding: 5px;
+      display: flex;
+    }
+
+    .comment-content {
+      display: flex;
+      width: 80%;
+
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+      }
+    }
+  }
+
+  .close {
+    width: 100%;
+    border: 2px solid #E6E8EC;
+    border-radius: 8px;
+  }
+}
+
+.theme {
+  font-weight: bold;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.mat-form-field-appearance-fill::ng-deep .mat-form-field-flex {
+  padding: 0;
+}
+
+.mat-form-field::ng-deep .mat-form-field-wrapper .mat-form-field-infix {
+  margin: 0;
+}
+
+textarea {
+  overflow: auto;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+textarea.mat-input-element {
+  resize: none;
+}

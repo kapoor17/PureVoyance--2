@@ -1,0 +1,90 @@
+<div class="test-wrapper flex-center flex-column">
+
+  <div class="flex-column flex-center">
+    <h1 class="light-green-title text-uppercase">
+      {{'horoscope.articlesFirstPartFifthTextLabel' | translate}} {{'horoscope.articlesSecondPartFifthTextLabel' |
+      translate}}
+    </h1>
+
+    <img class="yellow-line"
+         src="./assets/icons/header/yellow-line-icon.svg">
+
+    <p *ngIf="!showResult"
+       class="light-green-sub-title sub-title-text">
+      {{'horoscope.lovingBehaviorSubTitleTextLabel' | translate}}
+    </p>
+  </div>
+
+  <div *ngIf="!showResult"
+       class="ascendant-wrapper container flex-between">
+    <img src="./assets/images/horoscope/article-third-image.png">
+
+    <div class="right-side flex-column">
+      <div [formGroup]="form"
+           class="right-side-behavior">
+        <div class="choose-sign">
+          <p class="header-main-text">
+            {{"tarot.yourSignTextLabel" | translate}}
+          </p>
+
+          <mat-form-field class="input-form">
+            <mat-select class="country-select"
+                        formControlName="sign">
+              <mat-option *ngFor="let sign of horoscopeService.horoscopes"
+                          [value]="sign">
+                {{sign.title}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="choose-sign">
+          <p class="header-main-text">
+            {{"horoscope.selectPartnersSignLabel" | translate}}
+          </p>
+
+          <mat-form-field class="input-form">
+            <mat-select class="country-select"
+                        formControlName="partnerSign">
+              <mat-option *ngFor="let sign of horoscopeService.horoscopes"
+                          [value]="sign">
+                {{sign.title}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <button (click)="submit()"
+              [disabled]="form.invalid"
+              class="dark-button">
+        {{'horoscope.sendButtonLabel' | translate}}
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="showResult"
+       class="ascendant-result flex-column flex-center">
+    <p class="light-green-sub-title sub-title-text text-uppercase">
+      {{form.value.sign.title}} with {{form.value.partnerSign.title}}
+    </p>
+
+    <div class="flex-center result-of-sings">
+      <img [src]="form.value.sign.picture">
+
+      <h1 class="ampersand">@</h1>
+
+      <img [src]="form.value.partnerSign.picture">
+    </div>
+
+    <div *ngFor="let result of result"
+         class="text-result">
+      <p>{{result}}</p>
+    </div>
+
+    <button (click)="reset()"
+            class="dark-button text-uppercase">
+      {{'horoscope.seeAnotherSign' | translate }}
+    </button>
+  </div>
+</div>

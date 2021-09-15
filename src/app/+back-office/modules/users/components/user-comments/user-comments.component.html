@@ -1,0 +1,101 @@
+<mat-card class="comments-container mat-elevation-z0">
+  <div class="filter-wrapper">
+    <mat-form-field *ngIf="!!dataSource.length || !!searchControl.value"
+                    appearance="outline"
+                    class="input-form">
+      <mat-label>{{'general.searchLabel'| translate}}</mat-label>
+      <input [formControl]="searchControl"
+             matInput
+             type="text">
+    </mat-form-field>
+  </div>
+
+  <mat-table (matSortChange)="sortingEvent($event)"
+             [dataSource]="dataSource"
+             matSort>
+    <div *matNoDataRow>
+      <div class="table-no-data">
+        {{'users.comments.noDataLabel' | translate}}
+      </div>
+    </div>
+
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.comments.date' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.date || 'n/a'}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="rate">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.comments.rate' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <nsp-rating-stars [rate]="element.rate"></nsp-rating-stars>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="psychic">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.comments.psychic' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <a *ngIf="!!element.psychic"
+           [routerLink]="['/back-office', 'psychics', element.psychic.id]">
+          {{element.psychic.name || 'n/a'}}
+        </a>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.comments.status' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{'comments.statuses.' + element.status | translate}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="content">
+      <mat-header-cell *matHeaderCellDef>
+        {{'users.comments.amount' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div [matTooltipShowDelay]="500"
+             [matTooltip]="element.content"
+             class="truncated-cell">
+          {{element.content || 'n/a'}}
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="highlight">
+      <mat-header-cell *matHeaderCellDef
+                       mat-sort-header>
+        {{'users.comments.highlight' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <mat-slide-toggle [checked]="element.high_light"
+                          [disabled]="true">
+        </mat-slide-toggle>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator (page)="paginatorEvent($event)"
+                 *ngIf="!!dataSource.length"
+                 [length]="total"
+                 [pageIndex]="page - 1"
+                 [pageSizeOptions]="paginatorPageSizeOptions"
+                 [pageSize]="pageSize">
+  </mat-paginator>
+</mat-card>

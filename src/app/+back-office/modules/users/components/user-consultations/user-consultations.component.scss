@@ -1,0 +1,34 @@
+@import 'variables';
+
+.consultations-container {
+  padding: 0 24px;
+
+  .filter-wrapper {
+    padding-left: 24px;
+    padding-top: 24px;
+
+    ::ng-deep .mat-form-field-infix {
+      padding-top: 8px;
+    }
+  }
+
+  .mat-table {
+    min-height: 300px;
+  }
+}
+
+.mat-column-duration,
+.mat-column-invoice,
+.mat-column-price,
+.mat-column-media {
+  flex: 0 0 10%;
+  width: 10%;
+}
+
+.mat-column-psychics,
+.mat-column-telcoEndStatus,
+.mat-column-start,
+.mat-column-end {
+  flex: 0 0 15%;
+  width: 15%;
+}

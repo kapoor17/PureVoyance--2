@@ -1,0 +1,76 @@
+<main class="horoscope-wrapper flex-column flex-center">
+  <div class="inside-wrapper-new">
+    <div class="header-wrapper flex-between">
+      <div class="header-main-wrapper flex-column">
+        <router-outlet></router-outlet>
+      </div>
+
+      <div class="medium-and-reviews">
+        <div class="mediums">
+          <div class="flex-column flex-center">
+            <h1 class="text-uppercase light-green-sub-title">
+              {{ "horoscope.headerMainWrapperThirdLabel" | translate}}
+            </h1>
+            <img class="yellow-line"
+                 src="./assets/icons/header/yellow-line-icon.svg">
+          </div>
+
+          <nsp-psychics-about [dense]="true"
+                              [psychicsToShow]="1">
+          </nsp-psychics-about>
+        </div>
+
+        <div class="reviews">
+          <nsp-customer-reviews-carousel>
+          </nsp-customer-reviews-carousel>
+        </div>
+
+        <nsp-need-help *ngIf="!isListPage"></nsp-need-help>
+      </div>
+    </div>
+
+    <nsp-astrology-test-links></nsp-astrology-test-links>
+
+    <div class="tablet-reviews-and-mediums flex-column flex-center">
+      <div class="reviews">
+        <nsp-latest-comments></nsp-latest-comments>
+      </div>
+    </div>
+
+    <div class="discovery-offer">
+      <nsp-discovery-offer-block></nsp-discovery-offer-block>
+    </div>
+
+    <div class="top-rated-mediums flex-column">
+      <div class="mediums">
+        <div class="flex-column flex-center">
+          <h1 class="text-uppercase light-green-sub-title">
+            {{ "horoscope.headerMainWrapperThirdLabel" | translate}}
+          </h1>
+          <img class="yellow-line"
+               src="./assets/icons/header/yellow-line-icon.svg">
+        </div>
+      </div>
+
+      <nsp-top-rated-mediums></nsp-top-rated-mediums>
+    </div>
+
+    <div class="astro-sections-wrapper flex-column">
+      <div class="flex-column flex-center">
+        <h1 class="light-green-sub-title text-uppercase">
+          {{ "horoscope.astraSectionTextLabel" | translate}}
+        </h1>
+        <img class="yellow-line"
+             src="./assets/icons/header/yellow-line-icon.svg">
+      </div>
+
+      <nsp-astro-sections-carousel></nsp-astro-sections-carousel>
+    </div>
+
+    <!--    Block with advertisement-->
+    <!--    <nsp-horoscope-request></nsp-horoscope-request>-->
+    <nsp-offer-disclaimer></nsp-offer-disclaimer>
+
+    <nsp-reusable-personal-goals></nsp-reusable-personal-goals>
+  </div>
+</main>

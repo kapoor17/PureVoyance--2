@@ -1,0 +1,46 @@
+.send-sms-wrapper {
+  width: 87.8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 92px 56px;
+  background: #FCFCFD;
+  border: 2px solid #E6E8EC;
+  box-shadow: 0 64px 64px -48px rgba(31, 47, 70, 0.12);
+  border-radius: 24px;
+
+  .left-column-sms {
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    p {
+      font-family: Poppins, sans-serif;
+      font-weight: bold;
+      font-size: 15px;
+      text-transform: uppercase;
+      color: #777E91;
+    }
+
+    h1 {
+      font-family: DM Sans, sans-serif;
+      font-weight: bold;
+      font-size: 38px;
+      line-height: 40px;
+    }
+
+    img {
+      width: 105px;
+      height: 31px;
+    }
+  }
+
+  @media (max-width: 599px) {
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+}

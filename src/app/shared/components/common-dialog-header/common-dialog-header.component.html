@@ -1,0 +1,22 @@
+<div [class.hidden]="isHidden" mat-dialog-title>
+  <div class="dialog-header">
+    <div class="dialog-header-content">
+      <mat-icon class="logo-icon"
+                svgIcon="logo">
+      </mat-icon>
+      <div class="title">
+        {{ (title || 'general.confirmationLabel') | translate}}
+      </div>
+      <button (click)="onCancel()"
+              mat-icon-button>
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <div class="dialog-header-divider">
+      <img height="5"
+           src="./assets/images/divider.png"
+           width="475">
+    </div>
+  </div>
+</div>

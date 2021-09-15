@@ -1,0 +1,156 @@
+@import "variables";
+@import "text-styles";
+
+.cards-wrapper {
+  padding-bottom: 24px;
+  width: 100%;
+
+  .sub-title-tarot {
+    color: $black;
+    font-weight: 300;
+    padding-top: 19px;
+  }
+
+  .main-cards {
+    .dark-button {
+      max-width: 332px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .animation {
+      max-width: 1080px;
+      width: 0;
+      animation-name: solitaire;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-timing-function: linear;
+      animation-delay: .5s;
+      height: 395px;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 72px;
+
+      @keyframes solitaire {
+        0% {
+          width: 0;
+        }
+        25% {
+          width: 25%;
+        }
+        50% {
+          width: 50%;
+        }
+        75% {
+          width: 75%;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+
+      .tarot-card {
+        transition: all .1s;
+        width: 166px;
+        height: 318px;
+
+        img {
+          top: 0;
+          transition: all 0.5s;
+
+
+          &:hover {
+            top: -24px;
+            transform: inherit;
+            cursor: pointer;
+          }
+
+          .card-see img {
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+    .second-line {
+      z-index: 1;
+      perspective: 1000px;
+      position: relative;
+      padding: 0 0 61px;
+      column-gap: 33px;
+
+      .close-cards {
+        padding-top: 68px;
+        transform-style: preserve-3d;
+        transition: all 10s linear;
+        flex-wrap: wrap;
+        column-gap: 32px;
+
+        .second-line-cards {
+          width: 133px;
+          height: 259px;
+
+          .closed-img {
+            width: 100%;
+            z-index: 1;
+            position: relative;
+          }
+
+          .open-img {
+            width: 78px;
+            height: 147px;
+            position: relative;
+            z-index: 0;
+            left: -80px;
+          }
+        }
+      }
+    }
+  }
+
+  button {
+    align-self: center;
+  }
+}
+
+.cards-result-wrapper {
+
+  .day-block {
+    row-gap: 12px;
+
+    .day {
+      width: max-content;
+      padding: 8px 0;
+      column-gap: 9.33px;
+
+      p {
+        color: $gold;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 28px;
+      }
+    }
+
+    .day-text {
+      padding-bottom: 29px;
+
+      .description {
+        @include paragraph-black;
+        line-height: 24px;
+      }
+
+      .quotes-description {
+        font-weight: bold;
+        margin-top: 8px !important;
+      }
+
+      .quote {
+        font-size: 24px;
+        line-height: 28px;
+        font-weight: bold;
+        color: $text-green;
+        padding: 12px 0 0;
+      }
+    }
+  }
+}

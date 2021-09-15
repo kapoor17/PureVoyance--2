@@ -1,0 +1,208 @@
+<div class="sign-up-psychic-wrapper flex-column flex-center">
+  <div class="container">
+    <div class="flex-column flex-center">
+      <h1 class="text-uppercase light-green-sub-title m-0">
+        {{ "psychicRegistration.signUpPsychic.signUpHeaderPsychicLabel" | translate}}
+      </h1>
+      <img class="yellow-line"
+           src="./assets/icons/header/yellow-line-icon.svg">
+      <p class="m-0 text-uppercase light-green-sub-title">
+        {{ "psychicRegistration.signUpPsychic.headerSubTitleTextLabel" | translate}}
+      </p>
+    </div>
+    <form [formGroup]="generalInformationForm" class="flex-column flex-center">
+
+      <div class="take-your-gender flex-center">
+        <mat-radio-group aria-labelledby="example-radio-group-label"
+                         class="choose-gender flex-between example-radio-group" formControlName="checkRadio">
+          <div *ngFor="let sex of gender" class="gender flex-center">
+            <img [src]=sex.image>
+
+            <mat-radio-button value="{{sex.gender}}">{{sex.gender}}</mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+
+      <img class="line-between" src="/assets/icons/psychic-registration/line-between-icon.svg">
+
+      <div class="general-information flex-column flex-center">
+        <mat-form-field class="input-form">
+          <input class="input-field"
+                 formControlName="lastname"
+                 matInput
+                 pattern="[a-zA-Z ]*"
+                 placeholder="{{'signUp.lastNameLabel'| translate | titlecase}}"
+                 type="text">
+
+          <mat-error>{{'validationService.required' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-form">
+          <input class="input-field"
+                 formControlName="name"
+                 matInput
+                 pattern="[a-zA-Z ]*"
+                 placeholder="{{'signUp.firstNameLabel'| translate | titlecase}}"
+                 type="text">
+
+          <mat-error>{{'validationService.required' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-form">
+          <input [matDatepicker]="picker"
+                 [max]="startDate"
+                 formControlName="birthDate"
+                 matInput
+                 placeholder="{{'signUp.birthDateLabel'| translate | titlecase}}"
+                 type="text">
+          <mat-datepicker-toggle [for]="picker"
+                                 matSuffix>
+          </mat-datepicker-toggle>
+
+          <mat-datepicker #picker></mat-datepicker>
+
+          <mat-error>{{'validationService.dateOfBirth' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-form">
+          <input class="birth-time"
+                 formControlName="birthTime"
+                 matInput
+                 max="23:59"
+                 min="00:00"
+                 placeholder="{{'horoscope.timeOfBirthLabel' | translate | titlecase}}"
+                 type="time">
+          <mat-error>{{'horoscope.timeOfBirthErrorLabel' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-form">
+          <input class="input-field"
+                 formControlName="city"
+                 matInput
+                 pattern="[a-zA-Z ]*"
+                 placeholder="{{'horoscope.cityWhereBornLabel' | translate | titlecase}}"
+                 type="text">
+
+          <mat-error>{{'validationService.required' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-form">
+          <input class="input-field"
+                 formControlName="phone"
+                 matInput
+                 pattern="[0-9]*"
+                 placeholder="{{ 'psychicRegistration.signUpPsychic.telephoneFormLabel' | translate | titlecase}}"
+                 type="text">
+
+          <mat-error>{{'validationService.required' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-form">
+          <input class="input-field"
+                 formControlName="mobile"
+                 matInput
+                 pattern="[0-9]*"
+                 placeholder="{{ 'psychicRegistration.signUpPsychic.mobileFormLabel' | translate | titlecase}}"
+                 type="text">
+
+          <mat-error>{{'validationService.required' | translate}}</mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+
+    <img class="line-between" src="/assets/icons/psychic-registration/line-between-icon.svg">
+
+    <form [formGroup]="contactInformationForm" class="identifiers flex-column flex-center">
+      <div class="flex-column flex-center">
+        <h1 class="text-uppercase light-green-sub-title m-0">
+          {{ "psychicRegistration.signUpPsychic.identifiersTextLabel" | translate}}
+        </h1>
+        <img class="yellow-line"
+             src="./assets/icons/header/yellow-line-icon.svg">
+      </div>
+
+      <div class="general-information flex-column flex-center">
+        <mat-form-field class="input-form">
+          <input formControlName="email"
+                 matInput
+                 placeholder="E-mail"
+                 type="email">
+          <mat-error>{{'validationService.emailIncorrect' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-form">
+          <input [type]="showPassword ? 'password' : 'text'"
+                 formControlName="password"
+                 matInput
+                 placeholder="{{'signUp.passwordLabel'| translate | titlecase}}"
+                 type="password">
+          <button (click)="togglePasswordVisibility()"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="!showPassword"
+                  mat-icon-button
+                  matSuffix>
+            <img alt="show password"
+                 src="assets/images/sign-up/show-password.svg">
+          </button>
+          <mat-error>{{'validationService.password' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-form">
+          <input [type]="showPassword ? 'password' : 'text'"
+                 formControlName="passwordConfirm"
+                 matInput
+                 placeholder="{{'general.confirmationLabel'| translate }} {{'signUp.passwordLabel'| translate }}"
+                 type="password">
+          <button (click)="togglePasswordVisibility()"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="!showPassword"
+                  mat-icon-button
+                  matSuffix>
+            <img alt="show password"
+                 src="assets/images/sign-up/show-password.svg">
+          </button>
+          <mat-error>{{'validationService.password' | translate}}</mat-error>
+        </mat-form-field>
+
+        <div class="confirm-registration">
+          <p class="required-fields m-0">{{ 'psychicRegistration.signUpPsychic.requiredFieldsLabel' | translate}}</p>
+          <mat-checkbox>
+            <p class="checkbox-text m-0">{{'psychicRegistration.signUpPsychic.checkboxFirstTextLabel' | translate}}</p>
+          </mat-checkbox>
+
+          <mat-checkbox formControlName="newsletter">
+            <p [innerHTML]="'psychicRegistration.signUpPsychic.checkboxSecondTextLabel' | translate"
+               class="checkbox-text m-0">
+            </p>
+          </mat-checkbox>
+
+          <button [disabled]="contactInformationForm.invalid && generalInformationForm.invalid"
+                  class="dark-button text-uppercase m-0"
+                  routerLink="/psychic-registration/registration-list">
+            {{'psychicRegistration.signUpPsychic.buttonConfirmLabel' | translate}}
+          </button>
+
+          <p class="m-0 information-text">
+            {{'psychicRegistration.signUpPsychic.infoAboutRegistrationFirstTextLabel' | translate}}
+          </p>
+
+          <p class="m-0 text-underline information-text text-bold">
+            {{'psychicRegistration.signUpPsychic.infoAboutRegistrationSecondTextLabel' | translate}}
+          </p>
+        </div>
+      </div>
+    </form>
+
+    <img class="line-between" src="/assets/icons/psychic-registration/line-between-icon.svg">
+
+    <div class="flex-center">
+      <div class="flex-center flex-column">
+        <nsp-reusable-registration-component></nsp-reusable-registration-component>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

@@ -1,0 +1,44 @@
+@import 'variables';
+
+.register-side-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  @media (max-width: 1440px) {
+    display: none;
+  }
+
+  .title, .description {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: right;
+    text-transform: uppercase;
+  }
+
+  .title {
+    color: $dim-gray;
+    margin-top: 6px;
+  }
+
+  .description {
+    color: $another-golder-this-is-insane;
+    margin-top: 6px;
+  }
+
+  .register-button {
+    width: 100%;
+    background-color: $just-another-green;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 19px;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-family: $font-main;
+    margin-top: 6px;
+    border: none;
+    height: 52px;
+    font-weight: 500;
+  }
+}

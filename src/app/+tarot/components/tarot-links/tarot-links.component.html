@@ -1,0 +1,95 @@
+<div class="header-main-wrapper">
+
+  <form [formGroup]="form">
+    <div class="head-online-reading flex-column flex-center">
+      <h1 class="light-green-title text-uppercase">
+        {{ "tarot.headFirstTextLabel" | translate}}
+      </h1>
+
+      <img class="divider" src="./assets/images/divider.png">
+
+      <p class="light-green-sub-title m-0">
+        {{'tarot.headSecondTextFirstPartLabel' | translate }}
+
+        <span>{{'tarot.headSecondTextSecondPartLabel' | translate }}</span>
+        {{"tarot.headThirdTextLabel" | translate}}
+      </p>
+    </div>
+
+    <div class="choose-your-card flex-column">
+      <h1 class="light-green-title m-0">
+        {{"tarot.tarotThemeFirstTextLabel" | translate}}
+      </h1>
+
+      <div>
+        <mat-radio-group aria-labelledby="example-radio-group-label"
+                         class="choose-blocks flex-between example-radio-group"
+                         formControlName="pack">
+          <mat-card *ngFor="let pack of tarotService.tarotPacks; let i = index"
+                    [class.active]="form.value.pack?.id === pack.id"
+                    class="radio-select flex-column flex-between">
+            <div class="flex-column flex-between">
+              <img [src]="pack.image" style="width: 100%;">
+
+              <h3 [class.active]="form.value.pack?.id === pack.id"
+                  class="text-uppercase light-green-sub-title m-0">
+                {{pack.titleText}}
+              </h3>
+
+              <p class="m-0">
+                {{pack.descriptionText}}
+              </p>
+              <mat-radio-button [value]="pack"
+                                color="primary">
+              </mat-radio-button>
+            </div>
+
+          </mat-card>
+        </mat-radio-group>
+      </div>
+    </div>
+
+    <div class="choose-your-sign flex-column flex-between">
+      <p [innerHTML]="'tarot.tarotThemeSecondTextLabel' | translate: {tarotTitle: form.value.pack?.titleText || ''}"
+         class="light-green-sub-title m-0">
+      </p>
+
+      <div class="first-name-sign flex-column flex-center">
+        <mat-form-field class="input-form">
+          <input class="input-field"
+                 formControlName="name"
+                 matInput
+                 pattern="[a-zA-Z]*"
+                 placeholder="{{'tarot.yourFirstNameTextLabel' | translate}}"
+                 type="text">
+
+          <mat-error>{{'validationService.required' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-form">
+          <mat-label>
+            {{"tarot.yourSignTextLabel" | translate}}
+          </mat-label>
+
+          <mat-select class="country-select"
+                      formControlName="sign">
+
+            <mat-option *ngFor="let horoscope of horoscopeSigns.horoscopes"
+                        [value]="horoscope.value">
+              {{horoscope.title}}
+            </mat-option>
+
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <ng-container *ngIf="!!form.value">
+        <a [class.disabled]="form.invalid"
+           [routerLink]="['./', form.value.pack?.routePath]"
+           class="dark-button inspiration m-0 text-uppercase">
+          {{"tarot.interpretationButtonLabel" | translate}}
+        </a>
+      </ng-container>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,38 @@
+@import 'variables';
+
+.status {
+  display: flex;
+  align-items: center;
+
+  .mat-icon {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 9px;
+
+    &.online {
+      fill: $just-another-green;
+    }
+
+    &.offline {
+      fill: $grey-offline;
+    }
+
+    &.busy {
+      fill: $busy;
+    }
+  }
+
+  p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 17px;
+    margin: 0;
+
+    @media (max-width: 450px) {
+      font-size: 12px;
+    }
+  }
+}

@@ -1,0 +1,104 @@
+<div class="after-dialog-wrapper">
+  <nsp-common-dialog-header (cancel)="onClose()"
+                            [title]="title">
+  </nsp-common-dialog-header>
+
+  <div class="head-psychic-block flex-center">
+    <img [src]=data.psychic.image>
+    <div class="name-and-rate flex-column">
+      <h3 class="light-green-sub-title">
+        {{data.psychic.name}}
+      </h3>
+
+      <nsp-rating-stars [rate]="data.psychic.rate"
+                        class="rating-start">
+      </nsp-rating-stars>
+    </div>
+  </div>
+
+  <div *ngIf="closeConsultation">
+    <div class="star-rating">
+      <p class="text-title m-0">
+        {{'consultations.opinionAboutLabel' | translate: {name: data.psychic.name} }}
+      </p>
+
+      <p class="text-sub-title m-0">
+        {{'consultations.starsCountLabel' | translate}}
+      </p>
+
+      <nsp-rating-stars [rate]=rating
+                        class="rating-start">
+      </nsp-rating-stars>
+    </div>
+
+    <div class="most-like">
+      <p class="text-title m-0">
+        {{'consultations.mostLikeLabel' | translate}}
+      </p>
+
+      <div class="buttons flex-between">
+        <button (click)="selected(i)"
+                *ngFor="let button of buttons; let i = index"
+                [class.bordered]="selectedButton === i"
+                class="button-most text-title"
+                mat-button>
+          {{button | translate}}
+        </button>
+      </div>
+    </div>
+
+    <div class="details-and-comments">
+      <p class="text-title m-0">
+        {{'consultations.detailsLabel' | translate}}
+      </p>
+
+      <form [formGroup]="form">
+        <p class="input-title m-0 text-uppercase">
+          {{'consultations.titleCommentLabel' | translate}}
+        </p>
+
+        <mat-form-field appearance="fill">
+          <input class="theme"
+                 formControlName="theme"
+                 matInput>
+        </mat-form-field>
+
+        <p class="input-title m-0 text-uppercase">
+          {{'consultations.leaveCommentLabel' | translate}}
+        </p>
+
+        <mat-form-field appearance="fill">
+          <textarea class="area"
+                    formControlName="text"
+                    matInput
+                    rows="3"></textarea>
+        </mat-form-field>
+
+        <p class="text-sub-title m-0">
+          {{'consultations.charactersMinLabel' | translate}}
+        </p>
+      </form>
+    </div>
+    <button (click)="submit()"
+            [disabled]="!form.valid"
+            class="dark-button closed">
+      {{'general.submitLabel' | translate}}
+    </button>
+  </div>
+
+  <div *ngIf="!closeConsultation"
+       class="flex-center flex-column">
+    <p class="text-title m-0">
+      {{'consultations.thanksForAdviceLabel' | translate}}
+    </p>
+
+    <nsp-rating-stars [rate]=5
+                      class="rating-start">
+    </nsp-rating-stars>
+
+    <button (click)="closeModal()"
+            class="dark-button closed">
+      {{'consultations.consultEndButtonLabel' | translate}}
+    </button>
+  </div>
+</div>

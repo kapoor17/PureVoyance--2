@@ -1,0 +1,40 @@
+<div class="head-text-wrapper flex-column align-center">
+  <h1 class="light-green-title">
+    {{"psychoTest.headFirstTextLabel" | translate}}
+  </h1>
+
+  <img alt=""
+       class="divider"
+       src="assets/images/divider.png">
+
+  <p class="paragraph-black psycho-sub-title">
+    {{"psychoTest.headSecondTextLabel" | translate}}
+  </p>
+</div>
+
+<div class="change-tests d-flex align-center">
+  <div *ngFor="let test of psychoTestService.tests; let i = index"
+       class="test-block flex-column flex-between test-wrapper align-center">
+
+    <div class="flex-column align-center">
+      <div class="select-test flex-column align-center">
+        <img [src]="test.img">
+
+        <div class="showText">
+          <h2 class="psycho-test-first-text">
+            {{ 'quizz.' + test.routePath + '.definition.title' | translate }}
+          </h2>
+
+          <div class="grey-line"></div>
+
+          <p>{{ 'quizz.' + test.routePath + '.definition.text' | translate }}</p>
+        </div>
+      </div>
+
+      <a [routerLink]="['./', test?.routePath]"
+         class="dark-button">
+        {{ 'quizz.' + test.routePath + '.definition.action' | translate }}
+      </a>
+    </div>
+  </div>
+</div>

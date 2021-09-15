@@ -1,0 +1,68 @@
+@import "flexbox";
+@import "variables";
+@import "text-styles";
+
+.contact-us {
+  padding: 48px 0;
+
+  form {
+    width: 100%;
+    display: contents;
+  }
+
+  .contact-wrapper {
+    max-width: 544px;
+    position: relative;
+
+    input {
+      height: 30px;
+
+      &[placeholder] {
+        font-family: $font-main;
+      }
+    }
+
+    p {
+      margin: 0;
+      padding: 16px 0 12px;
+      color: $text-green;
+    }
+
+    .place-area {
+      height: 96px;
+      padding: 5px;
+      align-items: center;
+      border: $border-grey;
+      outline: none;
+      font-size: 14px;
+      line-height: 24px;
+      font-family: $font-main;
+      color: $metal-grey;
+    }
+
+    button {
+      max-width: 100%;
+    }
+
+    .sent-message {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      top: -78px;
+      right: 115px;
+      background: $white-alternative;
+      box-shadow: 0 3px 17px 4px rgba(15, 15, 15, 0.2);
+      border-radius: 56px;
+      max-width: 298px;
+      column-gap: 18px;
+      padding: 10.67px;
+      vertical-align: middle;
+      align-items: center;
+
+      p {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+}

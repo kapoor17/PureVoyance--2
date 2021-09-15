@@ -1,0 +1,85 @@
+<div class="sub-header-wrapper flex-center">
+  <div class="inside-wrapper-new flex-between">
+    <ul class="flex-between">
+      <li>
+        <a [routerLink]="['/psychics']"
+           routerLinkActive="active">
+          {{"subHeader.physicsLabel" | translate }}
+        </a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/horoscope']"
+           routerLinkActive="active">
+          {{"subHeader.horoscopeLabel" | translate }}
+        </a>
+      </li>
+
+      <li>
+        <a [routerLink]="['#']"
+           routerLinkActive="active">
+          {{"subHeader.chatLifeLabel" | translate }}
+        </a>
+      </li>
+
+
+      <li>
+        <a [routerLink]="['astrology']"
+           routerLinkActive="active">
+          {{"subHeader.astrologyLabel" | translate }}
+        </a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/psycho-tests']"
+           routerLinkActive="active">
+          {{"subHeader.psychoTestLabel" | translate }}
+        </a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/tarot']"
+           routerLinkActive="active">
+          {{"subHeader.tarotLabel" | translate }}
+        </a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/sexo']"
+           routerLinkActive="active">
+          {{"subHeader.sexoLabel" | translate }}
+        </a>
+      </li>
+
+      <li>
+        <a href=""
+           routerLinkActive="active">
+          {{"subHeader.forumsLabel" | translate }}
+        </a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/contact-us']"
+           routerLinkActive="active">
+          {{"subHeader.contactUsLabel" | translate}}
+        </a>
+      </li>
+
+      <li>
+        <a *ngIf="authService.isAuthenticated"
+           [routerLink]="['/account']"
+           routerLinkActive="active">
+          {{'userAccount.myProfileLabel' | translate}}
+        </a>
+      </li>
+
+      <li>
+        <a *ngIf="authService.isAuthenticated && userService.isAdmin"
+           [routerLink]="['/back-office']"
+           routerLinkActive="active">
+          {{"subHeader.backOfficeLabel" | translate}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

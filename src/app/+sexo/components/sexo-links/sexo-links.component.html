@@ -1,0 +1,42 @@
+<div class="sexual-horoscope flex-column align-center">
+  <h1 class="light-green-title">
+    {{"sexo.sexualHoroscopeFirstTextLabel" | translate}}
+  </h1>
+
+  <img alt=""
+       class="divider"
+       src="assets/images/divider.png">
+
+  <p class="paragraph-black sexo-sub-title">
+    {{"sexo.sexualHoroscopeSecondTextLabel" | translate}}
+  </p>
+
+  <div class="change-tests">
+    <div *ngFor="let test of sexoService.sexoTests; let i = index"
+         class="choose-your-sexual-horoscope">
+      <div class="select-block flex-column flex-between">
+        <div class="flex-column align-center">
+          <img alt=""
+               class="sexo-image {{test.routePath}}">
+
+          <h2 class="m-0 light-green-title text-uppercase">
+            {{test.title}}
+          </h2>
+
+          <div class="grey-line"></div>
+
+          <h2 class="golden light-green-sub-title text-uppercase">
+            {{test.subTitle}}
+          </h2>
+
+          <p>{{test.text}}</p>
+        </div>
+
+        <a [routerLink]="['/sexo', test.routePath]"
+           class="dark-button">
+          {{test.button}}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

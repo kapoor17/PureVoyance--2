@@ -1,0 +1,45 @@
+.mat-paginator-container {
+  .mat-paginator-page-size-select {
+    width: 86px;
+    margin: 0;
+
+    .mat-form-field-infix {
+      padding: 0;
+      border-top: none;
+    }
+  }
+}
+
+.mat-cell {
+  word-wrap: break-word;
+  white-space: unset;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  text-align: center;
+  width: max-content;
+
+  &.start-align {
+    text-align: start !important;
+  }
+}
+
+.table-no-data {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: $dark-blue;
+  font-weight: bold;
+  font-family: $font-family;
+}
+
+.right-align-column {
+  text-align: right;
+  width: 100%;
+  margin-right: 16px;
+}

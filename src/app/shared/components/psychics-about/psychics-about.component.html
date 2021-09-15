@@ -1,0 +1,132 @@
+<div class="mediums-about">
+  <div class="mediums-wrapper d-flex justify-center">
+    <div
+      *ngFor="let medium of psychicList | paginate:{ itemsPerPage: psychicsToShow, currentPage: pageNumber, totalItems: total}; let i = index"
+      [class.dense]="dense"
+      class="psychic-card d-flex">
+
+      <div class="card flex-between flex-column">
+        <div class="card-header flex-between">
+          <div *ngIf="medium.is_new; else stripePlaceholder"
+               class="stripe flex-center">
+            {{"psychics.newLabel" | translate}}
+          </div>
+          <ng-template #stripePlaceholder>
+            <div class="stripe-placeholder"></div>
+          </ng-template>
+
+          <ng-container *ngIf="!dense">
+            <nsp-rating-stars [rate]="medium.rate"
+                              class="rating-start">
+            </nsp-rating-stars>
+
+            <a [routerLink]="['/psychics', medium.id]"
+               class="image-button eye-button"
+               mat-icon-button>
+              <mat-icon svgIcon="eye">
+              </mat-icon>
+            </a>
+
+            <button (click)="toggleFavorite(medium, $event)"
+                    *ngIf="authService.isAuthenticated"
+                    class="image-button"
+                    mat-icon-button>
+              <mat-icon *ngIf="!medium.isFavorite"
+                        svgIcon="empty-heart">
+              </mat-icon>
+              <mat-icon *ngIf="medium.isFavorite"
+                        svgIcon="red-heart">
+              </mat-icon>
+            </button>
+          </ng-container>
+        </div>
+
+        <div class="card-body flex-column ">
+          <div>
+            <div class="left-section flex-column">
+              <img [src]="medium.image || './assets/images/no-avatar.png'"
+                   alt=""
+                   class="avatar">
+            </div>
+
+            <div class="right-section flex-column">
+              <ng-container *ngIf="dense">
+                <nsp-online-status [status]="medium.status"></nsp-online-status>
+
+                <nsp-rating-stars [rate]="medium.rate"
+                                  class="rating-start">
+                </nsp-rating-stars>
+              </ng-container>
+
+              <h2 class="medium-name">
+                {{medium.name}}
+              </h2>
+
+              <div class="paragraph-black">
+                {{medium.skills | join}}
+              </div>
+
+              <ng-container *ngIf="!dense">
+
+                <ng-container *ngIf="userService.hasDiscoverOffer$ | async; else noDiscovery">
+                  <div class="prices-block flex-column">
+                    <div class="price special">
+                      <span
+                        [innerHTML]="(settingsApiService.getDiscoveryOfferSettings() | async)?.data?.price | price: true"></span>/min
+                    </div>
+
+                    <div class="price strikethrough">
+                      {{"psychics.strikethroughTextLabel" | translate}} {{medium.price}}€/min
+                    </div>
+                  </div>
+                </ng-container>
+                <ng-template #noDiscovery>
+                    <span class="price regular">
+                      {{medium.price}}€/min
+                    </span>
+                </ng-template>
+
+
+                <div *ngIf="userService.hasDiscoverOffer$ | async"
+                     class="offer-validity">
+                  {{"psychics.offerLabel" | translate}}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+
+          <div *ngIf="!dense; else denseContainer"
+               [class.online-status-container]="!(userService.hasDiscoverOffer$ | async)">
+            <nsp-online-status [status]="medium.status"></nsp-online-status>
+          </div>
+
+          <ng-template #denseContainer>
+            <p>
+              <span class="price">
+                {{medium.price}}€/min
+              </span>
+            </p>
+
+            <p class="offer-validity">
+              {{"psychics.offerLabel" | translate}}
+            </p>
+          </ng-template>
+        </div>
+
+        <button (click)="startConsultation(i)" class="free-call-button"
+                mat-button>
+          {{"mySeers.freeAppointmentLabel" | translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <pagination-controls (pageChange)="paginatorEvent($event)"
+                       *ngIf="!dense && (this.total !== this.psychicsToShow)"
+                       [autoHide]="false"
+                       [directionLinks]="true"
+                       class="my-pagination"
+                       nextLabel=""
+                       previousLabel="">
+  </pagination-controls>
+</div>

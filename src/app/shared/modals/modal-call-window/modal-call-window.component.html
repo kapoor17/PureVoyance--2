@@ -1,0 +1,26 @@
+<div class="modal-window">
+  <div class="header">
+    <h1>{{'profile.appointmentLabel' | translate}}</h1>
+
+    <img (click)="closeDialog()" alt="close icon" class="close-button"
+         src="../../../../assets/images/sign-up/Close-icon.svg">
+  </div>
+  <div class="medium">
+    <img [src]=psychic?.image class="profile-image">
+
+    <div class="medium-name-and-rating">
+      <h2>{{psychic?.name}}</h2>
+
+      <div class="rating">
+        <nsp-rating-stars></nsp-rating-stars>
+      </div>
+    </div>
+  </div>
+
+  <h3>{{'profile.contactTextLabel' | translate}}</h3>
+
+  <button class="dark-button"><a href="tel:01 86 86 86 86">01 86 86 86 86</a></button>
+
+  <p>{{'profile.surchargetCallLable' | translate}}</p>
+</div>
+

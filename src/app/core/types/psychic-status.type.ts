@@ -1,0 +1,1 @@
+export type PsychicStatus = 'nonAvailable' | 'available' | 'onConsultation';

@@ -1,0 +1,68 @@
+@import "text-styles";
+@import "variables";
+
+.tarot-wrapper {
+  padding: 48px 0 0;
+
+  .top-rated-mediums,
+  .astro-sections-wrapper {
+    width: 100%;
+    padding: 20px 0px;
+    background-color: white;
+
+    h1 {
+      padding: 0;
+      font-size: 32px;
+      line-height: 37px;
+      color: $black;
+    }
+  }
+
+  .astro-sections-wrapper {
+    padding: 76px 0 0;
+  }
+}
+
+::ng-deep.gold-text {
+  color: $gold;
+  font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .tarot-wrapper {
+    padding-top: 0px;
+  }
+}
+
+@media (max-width: 450px) {
+  .tarot-wrapper {
+    padding-bottom: 24px;
+
+    .flex-column {
+      h1 {
+        text-align: center;
+        font-size: 19.182px;
+        line-height: 22px;
+      }
+
+      img {
+        width: 60%;
+        padding-bottom: 10px;
+      }
+
+      p {
+        font-size: 15.5248px;
+        line-height: 18px;
+        text-align: center;
+      }
+    }
+
+    mat-card {
+      width: 90%;
+    }
+
+    .astro-sections-wrapper {
+      padding: 0;
+    }
+  }
+}

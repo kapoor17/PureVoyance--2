@@ -1,0 +1,15 @@
+@import "text-styles";
+@import "variables";
+
+.completion-wrapper {
+  padding-top: 34px;
+
+  p {
+    padding-top: 20px;
+  }
+
+  button {
+    margin: 51px 0 61px;
+    padding: 15px 62px;
+  }
+}

@@ -1,0 +1,61 @@
+<mat-card class="settings-container mat-elevation-z0">
+
+  <div *ngIf="!!form"
+       [formGroup]="form">
+
+    <p class="header-main-text">
+      {{'settings.call.maxRetries'| translate}}
+    </p>
+
+    <mat-form-field [appearance]="'outline'"
+                    class="input-form">
+      <input [placeholder]="'tings.call.maxRetries'| translate"
+             formControlName="maxRetries"
+             matInput
+             min="0"
+             type="number">
+
+      <mat-error>{{'validationService.required' | translate}}</mat-error>
+    </mat-form-field>
+
+    <p class="header-main-text">
+      {{'settings.call.clientTelcoNumber'| translate}}
+    </p>
+
+    <mat-form-field [appearance]="'outline'"
+                    class="input-form">
+      <input [placeholder]="'settings.call.clientTelcoNumber'| translate"
+             formControlName="clientTelcoNumber"
+             matInput
+             min="0"
+             type="number">
+
+      <mat-error>{{'validationService.required' | translate}}</mat-error>
+    </mat-form-field>
+
+    <p class="header-main-text">
+      {{'settings.call.callTimeToComment'| translate}}
+    </p>
+
+    <mat-form-field [appearance]="'outline'"
+                    class="input-form">
+      <input [placeholder]="'settings.call.callTimeToComment'| translate"
+             formControlName="callTimeToComment"
+             matInput
+             min="0"
+             type="number">
+
+      <mat-error>{{'validationService.required' | translate}}</mat-error>
+    </mat-form-field>
+
+    <div class="actions-container">
+      <button (click)="save()"
+              [disabled]="!form.valid"
+              color="primary"
+              mat-stroked-button
+              type="submit">
+        {{'settings.discovery.saveLabel' | translate}}
+      </button>
+    </div>
+  </div>
+</mat-card>

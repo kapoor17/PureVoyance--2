@@ -1,0 +1,271 @@
+@import './stepper';
+@import './spinner';
+@import './checkbox';
+@import './input';
+@import './select';
+@import './slide-toggle';
+@import './table';
+@import "variables";
+
+//radio (it was used until they changed designs, maybe it will be useful in future)
+//.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+//  border-color: #2955BF;
+//}
+//
+//.mat-radio-button.mat-accent .mat-radio-inner-circle {
+//  background-color: #2955BF;
+//}
+
+//dialog
+.mat-dialog-container {
+  padding: 0 !important;
+}
+
+//snackbar
+.mat-snack-bar-container {
+  background: #FCFCFD;
+  box-shadow: 0 24px 24px -16px rgba(15, 15, 15, 0.2);
+  border-radius: 56px !important;
+  color: #777E91;
+  padding: 8px !important;
+  min-height: 0 !important;
+}
+
+//button
+.mat-button-ripple.mat-ripple, .mat-button-focus-overlay {
+  display: none;
+}
+
+//menu for users
+.user-panel-class + * .cdk-overlay-pane {
+  position: absolute !important;
+  left: -52.5px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 98px;
+    top: 13px;
+    width: 0;
+    height: 0;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-bottom: 16px solid #FCFCFD;
+  }
+}
+
+.user-popover-wrapper {
+  margin-top: 29px;
+  background: #FCFCFD;
+  border-radius: 12px !important;
+  box-shadow: 0 16px 64px -24px rgba(31, 47, 70, 0.4),
+  0 16px 64px -24px rgba(31, 47, 70, 0.4),
+  0 16px 64px -48px rgba(31, 47, 70, 0.4) !important;
+}
+
+.user-popover-wrapper {
+  .mat-menu-content:not(:empty) {
+    padding: 24px 24px 0;
+  }
+}
+
+.user-popover-wrapper {
+  .mat-menu-item:hover:not([disabled]), .cdk-focused, .cdk-mouse-focused, .mat-menu-item.cdk-program-focused:not([disabled]), .mat-menu-item.cdk-keyboard-focused:not([disabled]), .mat-menu-item-highlighted:not([disabled]) {
+    background: transparent !important;
+  }
+}
+
+
+.user-popover-wrapper {
+  .mat-ripple, .mat-menu-ripple {
+    display: none !important;
+  }
+}
+
+//mat-button-toggler
+.mat-button-toggle-standalone.mat-button-toggle-appearance-standard, .mat-button-toggle-group-appearance-standard {
+  border-radius: 30px !important;
+  border: 2px solid #E6E8EC;
+  background-color: transparent;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+//carousel
+nsp-top-rated-mediums, nsp-astro-sections-carousel {
+  .carousel {
+    .material-icons {
+      color: #777E91;
+      border: 1px solid #777E91;
+      border-radius: 50%;
+    }
+
+    button:first-of-type {
+      background: no-repeat 40% 44% url("~src/assets/icons/left-carousel-icon.svg");
+
+      span {
+        display: none;
+      }
+
+      @media (max-width: 450px) {
+        left: 13px !important;
+      }
+      @media (max-width: 405px) {
+        left: 3px !important;
+      }
+    }
+
+    button:last-of-type {
+      background: no-repeat 40% 44% url("~src/assets/icons/right-carousel-icon.svg");
+
+      span {
+        display: none;
+      }
+
+      @media (max-width: 450px) {
+        right: 13px !important;
+      }
+
+      @media (max-width: 405px) {
+        right: 3px !important;
+      }
+    }
+
+
+  }
+}
+
+//mat-datepicker for profile page
+nsp-profile {
+  mat-form-field {
+
+    .mat-form-field-infix {
+      width: 0;
+    }
+
+    .mat-form-field-prefix, .mat-form-field-suffix {
+      margin: 0;
+    }
+
+    .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button, .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button {
+      width: 0;
+    }
+  }
+
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .mat-form-field .mat-form-field-wrapper .mat-form-field-infix {
+    padding: 0;
+    margin: 0;
+  }
+
+  .mat-form-field:not(.mat-form-field-appearance-legacy)
+  .mat-form-field-prefix .mat-icon-button .mat-datepicker-toggle-default-icon,
+  .mat-form-field:not(.mat-form-field-appearance-legacy)
+  .mat-form-field-suffix .mat-icon-button
+  .mat-datepicker-toggle-default-icon {
+    color: #777E91;
+  }
+}
+
+.mat-drawer-container {
+  min-height: calc(100vh - 500px);
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle,
+.mat-radio-button.mat-accent .mat-radio-ripple
+.mat-ripple-element:not(.mat-radio-persistent-ripple),
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
+.mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+  background: linear-gradient(180deg, #00A8AA 0%, #0B2325 100%);
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #195858;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: $green-active;
+}
+
+.cdk-overlay-container, .cdk-global-overlay-wrapper {
+  //left: 12px;
+
+  .mat-menu-panel {
+    min-width: max-content !important;
+    min-height: max-content !important;
+    background: #ECE7E1;
+
+    .mat-menu-item {
+      padding: 0 4px !important;
+      height: 30px !important;
+    }
+  }
+}
+
+.ngx-pagination a, .ngx-pagination button {
+  background: transparent !important;
+}
+
+.ng-star-inserted .current {
+  color: $gold;
+}
+
+.mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+  background-color: $gold;
+}
+
+nsp-tarot {
+  .mat-radio-outer-circle {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .mat-radio-inner-circle {
+    width: 20px !important;
+    height: 20px !important;
+    top: 4px !important;
+    left: 5px !important;
+    box-shadow: none;
+  }
+
+  .mat-radio-button.mat-primary .mat-radio-inner-circle, .mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-primary:active .mat-radio-persistent-ripple {
+    background: #06989B;
+    box-shadow: none;
+  }
+
+  .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #06989B;
+    border-width: 4px;
+    width: 30px;
+    height: 30px;
+    box-shadow: none;
+    transition: none;
+  }
+
+  .mat-radio-button .mat-radio-ripple {
+    width: 0;
+  }
+}
+
+nsp-common-dialog-header {
+  .mat-dialog-title {
+    margin: 0;
+  }
+}
+
+nsp-psycho-test {
+  .mat-radio-container {
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+}
+
+nsp-comunication-preferences {
+  .mat-radio-label {
+    align-items: flex-start;
+  }
+}

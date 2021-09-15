@@ -1,0 +1,127 @@
+@import "text-styles";
+@import "variables";
+
+.discovery-offer-wrapper {
+  width: 100%;
+  max-width: 1239px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 23px 47px 26px 138px;
+  background: $skin-background-secondary;
+  margin: 0;
+  @media (max-width: 768px) {
+    column-gap: 0;
+  }
+
+  .middle-column-offer {
+
+    p {
+      @include paragraph-black;
+      font-size: 28px;
+      line-height: 28px;
+      color: #D1AB42;
+      text-align: center;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 21px;
+      line-height: 25px;
+      text-align: center;
+      margin: 0;
+      padding: 8px 0 9px;
+    }
+
+    .psychics-text {
+      font-size: 21px;
+      line-height: 17px;
+      color: $lightblack;
+      @media (max-width: 768px) {
+        transform: scale(0.8);
+      }
+    }
+  }
+
+  button {
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 13px;
+      min-width: 35% !important;
+      padding: 6px 14px !important;
+      margin-right: 5px !important;
+    }
+  }
+
+  @media (max-width: 1292px) {
+    justify-content: center;
+    row-gap: 32px;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 20px 20px 20px 40px;
+    flex-wrap: nowrap;
+  }
+
+  @media (max-width: 320px) {
+    padding: 20px 20px 20px 29px;
+  }
+}
+
+
+@media (max-width: 914px) {
+  .discovery-offer-wrapper {
+    width: 100%;
+
+    .right-column-sms {
+      width: 54px;
+      height: 54px;
+    }
+
+    .middle-column-offer {
+      p {
+        font-size: 16px;
+        line-height: 18px;
+      }
+
+      h1 {
+        font-size: 12px;
+        line-height: 14px;
+      }
+
+      .psychics-text {
+        font-size: 12px;
+        line-height: 11px;
+      }
+
+      @media (min-width: 768px) {
+        margin: 0 15px;
+      }
+    }
+
+    .green-button {
+      padding: 6px 24.44px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .discovery-offer-wrapper {
+    row-gap: 12px;
+    width: 100%;
+    flex-wrap: nowrap;
+    padding: 14px 0 14px 14px;
+
+    .middle-column-offer {
+      padding: 4px 0 5px;
+    }
+
+    .green-button {
+      margin-right: 0;
+      min-width: 50%;
+    }
+  }
+}

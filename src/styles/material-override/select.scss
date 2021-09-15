@@ -1,0 +1,69 @@
+@import "variables";
+
+.mat-select {
+  .mat-select-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.custom-select, .country-select .mat-select-arrow {
+  border-left: 32px solid transparent !important;
+  border-right: none !important;
+  border-top: 32px solid transparent !important;
+  background: no-repeat 100% 115% url("~src/assets/icons/horoscope/right-arrow-input-icon.svg");
+  margin: 0;
+}
+
+nsp-before-consultation {
+  .mat-select-value {
+    margin-bottom: 24px;
+  }
+
+  .mat-form-field-infix {
+    margin: 0 !important;
+  }
+
+  .phone-select .mat-select-arrow {
+    border-left: 32px solid transparent !important;
+    border-right: none !important;
+    border-top: 32px solid transparent !important;
+    background: no-repeat 100% 100% url("~src/assets/icons/dropdown-arrow.svg");
+    margin: 0;
+  }
+}
+
+.phone-code-select .mat-select-trigger {
+  height: 100%;
+}
+
+.mat-select-value {
+  max-width: 200px !important;
+  min-width: 50px !important;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: $white;
+}
+
+nsp-experience, nsp-pro-status {
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: transparent;
+    padding: 0 !important;
+  }
+
+  .input-middle.mat-form-field-appearance-fill.mat-form-field-disabled .mat-form-field-flex {
+    margin-left: -7px;
+    width: calc(100% + 7px);
+    height: 47%;
+    margin-top: 16px;
+  }
+
+  .input.mat-form-field-appearance-fill.mat-form-field-disabled .mat-form-field-flex {
+    margin-left: -7px;
+    width: calc(100% + 7px);
+  }
+}
+
+

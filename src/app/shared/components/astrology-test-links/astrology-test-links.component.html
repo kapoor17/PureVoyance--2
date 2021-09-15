@@ -1,0 +1,25 @@
+<div class="articles-main flex-center flex-column">
+  <div class="flex-between">
+    <div *ngFor="let test of astrologyTests.horoscopeTests; let i = index"
+         class="articles-blocks flex-between flex-column">
+      <div class="content-wrapper flex-column flex-between" style="width: 100%;">
+        <img class="{{test.routePath}}">
+
+        <h1 class="light-green-title text-uppercase">
+          {{test.titleFirst}}
+        </h1>
+
+        <h2 class="light-green-sub-title text-uppercase">
+          {{test.titleSecond}}
+        </h2>
+
+        <p>{{ test.textAbout}}</p>
+      </div>
+
+      <a [routerLink]="['/astrology', test.routePath]"
+         class="dark-button">
+        {{test.button}}
+      </a>
+    </div>
+  </div>
+</div>

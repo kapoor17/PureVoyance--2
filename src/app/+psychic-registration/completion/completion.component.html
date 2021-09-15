@@ -1,0 +1,23 @@
+<div class="completion-wrapper flex-center">
+  <div class="container">
+    <div class="flex-column flex-center">
+      <h1 class="m-0 text-uppercase light-green-title">
+        {{ "psychicRegistration.completion.congratulations" | translate}}
+      </h1>
+      <img class="yellow-line"
+           src="./assets/icons/header/yellow-line-icon.svg">
+
+      <p [innerHTML]="'psychicRegistration.completion.successRequestLabel' | translate" class="paragraph-black m-0"></p>
+      <p class="paragraph-black m-0">{{'psychicRegistration.completion.teamNotificationLabel' | translate}}</p>
+      <p class="paragraph-black m-0">{{'psychicRegistration.completion.farewellLabel' | translate}}</p>
+
+      <button class="dark-button text-uppercase" routerLink="/">
+        {{'psychicRegistration.completion.returnButtonLabel' | translate}}
+      </button>
+    </div>
+
+    <img class="line-between" src="/assets/icons/psychic-registration/line-between-icon.svg">
+
+    <nsp-reusable-registration-component></nsp-reusable-registration-component>
+  </div>
+</div>

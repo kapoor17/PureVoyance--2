@@ -1,0 +1,185 @@
+@import "variables";
+@import "text-styles";
+@import "flexbox";
+
+.psychics-wrapper {
+  .short-image-block {
+    display: none;
+
+    img {
+      width: 100%;
+    }
+
+    @media (max-width: 1024px) {
+      display: flex;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  .main-content-wrapper {
+    position: relative;
+  }
+
+  .main-image-block {
+    width: 100%;
+    overflow-x: auto;
+
+    img {
+      width: 100%;
+      cursor: pointer;
+    }
+
+    @media (max-width: 1338px) {
+      background-color: $white;
+    }
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .is-discovery-offer {
+    margin-top: 40px;
+  }
+
+  .head-search-wrapper {
+    width: 99.3%;
+    padding: 12px 0 38px 8px;
+    justify-content: flex-end;
+    @media (max-width: 1024px) {
+      justify-content: center;
+    }
+
+    @media (max-width: 700px) {
+      width: 98%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      row-gap: 7px;
+      column-gap: 8px;
+      padding-bottom: 0;
+    }
+
+
+    .input-head-search {
+      width: 326px;
+      height: 36px;
+      padding: 0 5px;
+      display: flex;
+      align-items: center;
+      border: $border-grey;
+      background-color: $skin-background;
+
+      @media (max-width: 450px) {
+        width: 94.3%;
+      }
+
+      &:not(:first-child) {
+        margin-left: 21px;
+      }
+
+      &.select-input {
+        width: 200px;
+        @media (max-width: 450px) {
+          width: 46%;
+          margin: 0;
+          padding: 0;
+          font-size: 13px;
+        }
+
+        ::ng-deep.mat-form-field-wrapper {
+          @media (max-width: 450px) {
+            width: 100%;
+          }
+        }
+
+        ::ng-deep .mat-select-arrow {
+          border-left: 15px solid transparent !important;
+          border-right: none !important;
+          border-top: 25px solid transparent !important;
+          border-image-source: url("~src/assets/icons/dropdown-toggle-arrow.svg") !important;
+          border-image-repeat: stretch !important;
+          @media (max-width: 450px) {
+            transform: scale(0.7);
+          }
+        }
+
+        ::ng-deep .mat-select-min-line {
+          text-transform: uppercase;
+        }
+      }
+
+      input {
+        padding-left: 6px;
+        width: 90%;
+        border: none;
+        outline: none;
+        font-size: 14px;
+        background: transparent;
+        font-family: Roboto, sans-serif;
+        color: $metal-grey;
+        height: 100%;
+        @media (max-width: 450px) {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  .title {
+    width: 100%;
+    padding-bottom: 34px;
+    @media (max-width: 450px) {
+      padding-bottom: 0;
+    }
+
+    h1 {
+      margin-bottom: 6px;
+      @media (max-width: 450px) {
+        font-size: 16px;
+        line-height: 16px;
+      }
+    }
+
+    .p {
+      span {
+        color: $text-green;
+      }
+    }
+
+    .psychic-text {
+      font-size: 24px;
+      line-height: 28px;
+
+      span {
+        color: $green;
+        font-weight: 600;
+      }
+
+      @media (max-width: 450px) {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.bottom-blocks {
+  @media (max-width: 1024px) {
+    width: 96%;
+    padding: 0 20px;
+  }
+  @media (max-width: 450px) {
+    padding: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .psychics-wrapper {
+    padding: 0;
+  }
+}
+
+

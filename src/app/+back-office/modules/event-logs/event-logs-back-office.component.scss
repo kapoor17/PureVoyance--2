@@ -1,0 +1,16 @@
+@import "variables";
+
+.back-office-section-wrapper {
+  .filter-wrapper {
+    padding-left: 24px;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+
+    .mat-table {
+      width: max-content;
+      min-width: 100%;
+    }
+  }
+}

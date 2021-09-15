@@ -1,0 +1,9 @@
+<div class="offer-disclaimer-container">
+  <p *ngIf="!!discoverSettings">
+    {{"psychics.oneStarLabel" | translate : {price: discoverSettings.price, duration: discoverSettings.duration} }}
+  </p>
+
+  <p>
+    {{"psychics.twoStarLabel" | translate}}
+  </p>
+</div>

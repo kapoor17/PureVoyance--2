@@ -1,0 +1,19 @@
+<div *ngIf="!currentUser?.has_discovery_offer" class="discovery-offer-wrapper">
+  <img class="right-column-sms"
+       src="assets/icons/psychics/dyscovery-offer-icon.svg">
+
+  <div class="middle-column-offer flex-between flex-column">
+    <p>{{ "psychics.pureDiscoveryOfferLabel" | translate}}</p>
+
+    <h1 class="light-green-sub-title text-uppercase">{{ "horoscope.headerMainWrapperThirdLabel" | translate}}</h1>
+
+    <p class="psychics-text">
+      {{ "horoscope.headerMainWrapperFourthPartLabel" | translate}}
+      <span [innerHTML]="(settingsApiService.getDiscoveryOfferSettings() | async)?.data?.price | price: true"></span>
+      {{ "general.perMinuteLabel" | translate}}
+    </p>
+  </div>
+
+  <button (click)="openOffer()"
+          class="green-button input-text">{{ "psychics.discoveryOfferButtonLabel" | translate}}</button>
+</div>

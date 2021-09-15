@@ -1,0 +1,103 @@
+@import 'variables';
+
+@mixin package-list-item {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border: $light-border-grey;
+  cursor: pointer;
+  background-color: $white;
+
+  .amount,
+  .credits,
+  .extra-amount,
+  .extra-credits,
+  .market,
+  .active,
+  .star-key {
+    width: 13%;
+  }
+
+  .block {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    text-align: center;
+
+    &.handle, &.edit, &.delete {
+      width: 48px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &.edit {
+      color: $dark-blue;
+    }
+
+    &.delete {
+      color: $dark-red;
+    }
+
+    &.handle {
+      cursor: move;
+    }
+
+    &.color-discriminator {
+      width: 8px;
+      padding: 0;
+      background-color: $text-green;
+
+      &.extra:not(.disabled) {
+        background-color: $golden;
+      }
+
+      &.disabled {
+        background-color: $grey;
+      }
+    }
+
+    .label {
+      font-size: 12px;
+    }
+
+    .value {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 4px;
+    }
+  }
+}
+
+
+.packages-container {
+  padding: 24px;
+
+  .actions-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 24px;
+
+    .mat-button-base {
+      background-color: $text-green;
+      color: $white;
+    }
+  }
+
+  .packages-list {
+    &-item {
+      @include package-list-item;
+    }
+  }
+}
+
+::ng-deep .cdk-drag-preview {
+  @include package-list-item;
+  opacity: 0.9;
+}
+
+::ng-deep .drag-placeholder {
+  background: $grey-alternative;
+  border: dotted 1px #999;
+  min-height: 60px;
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

@@ -1,0 +1,112 @@
+<mat-card class="packages-container mat-elevation-z0">
+
+  <div class="actions-container">
+    <button (click)="createPackage()"
+            color="primary"
+            mat-stroked-button>
+      {{'settings.package.createLabel' | translate}}
+    </button>
+  </div>
+
+  <div (cdkDropListDropped)="drop($event)"
+       cdkDropList
+       class="packages-list">
+    <div *ngFor="let package of dataSource"
+         cdkDrag
+         class="packages-list-item">
+      <div *cdkDragPlaceholder
+           class="drag-placeholder">
+      </div>
+
+      <div [class.disabled]="!package.active"
+           [class.extra]="!!package.extra_amount && package.extra_amount > 0"
+           class="block color-discriminator">
+      </div>
+
+      <div class="block amount">
+        <div class="label">
+          {{'settings.package.amountLabel' | translate}}
+        </div>
+        <div class="value">
+          {{package.amount}}
+        </div>
+      </div>
+
+      <div class="block credits">
+        <div class="label">
+          {{'settings.package.creditsLabel' | translate}}
+        </div>
+        <div class="value">
+          {{package.credits}}
+        </div>
+      </div>
+
+      <div class="block extra-amount">
+        <div class="label">
+          {{'settings.package.extraAmountLabel' | translate}}
+        </div>
+        <div class="value">
+          {{ !!package.extra_amount && package.extra_amount > 0 ? package.extra_amount : '-'}}
+        </div>
+      </div>
+
+      <div class="block extra-credits">
+        <div class="label">
+          {{'settings.package.extraCreditsLabel' | translate}}
+        </div>
+        <div class="value">
+          {{ !!package.extra_credits && package.extra_credits > 0 ? package.extra_credits : '-'}}
+        </div>
+      </div>
+
+      <div class="block market">
+        <div class="label">
+          {{'settings.package.marketLabel' | translate}}
+        </div>
+        <div class="value">
+          {{package.market}}
+        </div>
+      </div>
+
+      <div class="block star-key">
+        <div class="label">
+          {{'settings.package.starKeyLabel' | translate}}
+        </div>
+        <div class="value">
+          {{package.star_key > 0 ? package.star_key : '-'}}
+        </div>
+      </div>
+
+      <div class="block active">
+        <div class="label">
+          {{'settings.package.activeLabel' | translate}}
+        </div>
+        <div class="value">
+          <mat-slide-toggle (change)="activityToggled($event, package)"
+                            [checked]="package.active">
+          </mat-slide-toggle>
+        </div>
+      </div>
+
+      <div (click)="deletePackage(package.id)"
+           [matTooltipShowDelay]="300"
+           [matTooltip]="'settings.package.deleteDisclaimerLabel' | translate"
+           class="block delete">
+        <mat-icon>delete</mat-icon>
+      </div>
+
+      <div (click)="edit(package)"
+           [matTooltipShowDelay]="300"
+           [matTooltip]="'settings.package.editDisclaimerLabel' | translate"
+           class="block edit">
+        <mat-icon>edit</mat-icon>
+      </div>
+
+      <div [matTooltipShowDelay]="300"
+           [matTooltip]="'settings.package.dragDisclaimerLabel' | translate"
+           class="block handle">
+        <mat-icon>drag_handle</mat-icon>
+      </div>
+    </div>
+  </div>
+</mat-card>

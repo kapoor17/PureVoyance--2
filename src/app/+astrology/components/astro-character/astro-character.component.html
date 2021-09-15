@@ -1,0 +1,102 @@
+<div class="test-wrapper flex-center flex-column">
+
+  <div class="flex-column flex-center">
+    <h1 class="light-green-title text-uppercase">
+      {{'horoscope.articlesFirstPartThirdTextLabel' | translate}} {{'horoscope.articlesSecondPartThirdTextLabel' |
+      translate}}
+    </h1>
+
+    <img class="divider" src="./assets/images/divider.png">
+
+
+    <!-- <img class="yellow-line"
+         src="./assets/icons/header/yellow-line-icon.svg"> -->
+
+    <p *ngIf="!showResult"
+       class="light-green-sub-title sub-title-text">
+      {{'horoscope.ascendentSubTitleTestLabel' | translate}}
+    </p>
+  </div>
+
+  <div *ngIf="!showResult"
+       class="ascendant-wrapper container flex-between">
+    <img src="./assets/images/horoscope/article-second-image.png">
+
+    <div class="right-side flex-column">
+      <div [formGroup]="form"
+           class="right-side-astrological">
+        <p class="header-main-text">
+          {{'signUp.yourLabel'| translate}} {{"signUp.birthDateLabel"| translate}}
+        </p>
+
+        <mat-form-field class="input-form">
+          <input (focus)="picker.open()"
+                 [matDatepicker]="picker"
+                 [max]="startDate"
+                 formControlName="birthDate"
+                 matInput
+                 placeholder="{{'signUp.enterLabel'| translate}} {{'signUp.birthDateLabel'| translate}}"
+                 type="text">
+          <mat-datepicker-toggle [for]="picker"
+                                 matSuffix>
+          </mat-datepicker-toggle>
+
+          <mat-datepicker #picker></mat-datepicker>
+
+          <mat-error>{{'validationService.dateOfBirth' | translate}}</mat-error>
+        </mat-form-field>
+
+        <div class="choose-sign">
+          <p class="header-main-text">{{"sexo.chooseSexLabel" | translate}}</p>
+
+          <mat-form-field class="input-form">
+            <mat-label>{{"sexo.chooseSexLabel" | translate}}</mat-label>
+            <mat-select class="country-select"
+                        formControlName="gender">
+              <mat-option [value]="'male'">
+                {{'sexo.manLabel' | translate}}
+              </mat-option>
+
+              <mat-option [value]="'female'">
+                {{'sexo.womanLabel' | translate}}
+              </mat-option>
+
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <button (click)="submit()"
+              [disabled]="form.invalid"
+              class="dark-button">
+        {{'horoscope.sendButtonLabel' | translate}}
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="showResult"
+       class="ascendant-result flex-column flex-center">
+
+    <div class="result-disclaimer">
+      <div class="result-disclaimer-row">
+        <span class="title">
+          {{'tarot.yourSignTextLabel' | translate}}:
+        </span>
+        <span class="value">
+          {{currentSign.title}}
+        </span>
+      </div>
+
+    </div>
+
+    <div *ngFor="let result of result"
+         class="text-result">
+      <p>{{result}}</p>
+    </div>
+
+    <button (click)="reset()"
+            class="dark-button text-uppercase">
+      {{'horoscope.seeAnotherSign' | translate }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,173 @@
+@import "variables";
+@import "text-styles";
+@import "flexbox";
+
+.sexo-wrapper {
+  padding: 48px 0 0;
+
+  @media (max-width: 450px) {
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .sexual-horoscope {
+    width: 100%;
+
+    .sexo-sub-title {
+      font-family: Roboto, sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 28px;
+      @media (max-width: 768px) {
+        width: 80%;
+        text-align: center;
+      }
+    }
+
+    p {
+      padding: 10px 0 38px;
+    }
+
+    .change-tests {
+      display: flex;
+      padding: 0;
+      flex-grow: 1;
+      column-gap: 40px;
+      @media (max-width: 1024px) {
+        flex-wrap: wrap;
+        padding: 0 37px;
+        justify-content: center;
+        row-gap: 38px;
+      }
+      @media (max-width: 1280px) {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .select-block {
+        padding-bottom: 12px;
+        @media (max-width: 1024px) {
+          height: 430px;
+        }
+        @media (max-width: 1280px) {
+          max-width: 380px;
+        }
+
+        img {
+          height: 329px;
+          @media (max-width: 1024px) {
+            height: 224px;
+            width: 369px;
+            object-fit: cover;
+          }
+        }
+
+        h2 {
+          padding: 25px 0 16px;
+          color: $black;
+          line-height: 28px;
+          @media (max-width: 1024px) {
+            padding: 14px 0 9px;
+          }
+        }
+
+        p {
+          text-align: center;
+          margin: 0;
+          line-height: 20px;
+          padding: 0;
+          @media (max-width: 1024px) {
+            display: flex;
+            font-size: 16px;
+          }
+        }
+
+        div {
+          padding-bottom: 25px;
+          @media (max-width: 1024px) {
+            padding: 0;
+          }
+        }
+
+        .grey-line {
+          width: 100%;
+          padding: 0;
+          border: $light-border-grey;
+        }
+
+        .golden {
+          color: $golden;
+          @media (max-width: 1024px) {
+            padding: 7px 0 15px;
+            margin: 0;
+          }
+        }
+
+        button {
+          min-width: 100%;
+        }
+      }
+
+      @media (max-width: 599px) {
+        margin: 0;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.bottom-blocks {
+  width: 100%;
+  margin-top: 10px;
+  @media (max-width: 1024px) {
+    padding: 0 20px;
+    width: 96%;
+  }
+  @media (max-width: 450px) {
+    padding: 0;
+  }
+
+  nsp-discovery-offer-block, nsp-astro-sections-carousel, nsp-top-rated-mediums {
+    width: 100%;
+  }
+
+  p {
+    padding-top: 50px;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 37px;
+  }
+}
+
+.choose-your-sexual-horoscope {
+  @media (max-width: 1024px) {
+    max-width: 369px;
+  }
+}
+
+nsp-reusable-personal-goals {
+  @media (max-width: 450px) {
+    width: 99%;
+  }
+  @media (max-width: 375px) {
+    width: 90%;
+  }
+}
+
+nsp-consultation-offer-block {
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+nsp-answer-call {
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: block;
+  }
+}

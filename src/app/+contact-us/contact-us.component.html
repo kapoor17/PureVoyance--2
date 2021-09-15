@@ -1,0 +1,43 @@
+<main class="contact-us flex-column align-center justify-center">
+  <form [formGroup]="contactUsForm">
+    <div class="inside-wrapper-new contact-wrapper flex-column">
+      <div class="d-flex justify-center align-center">
+        <h1 class="light-green-title">{{"subHeader.contactUsLabel" | translate}}</h1>
+      </div>
+
+      <img alt="" src="assets/images/divider.png">
+
+      <p class="header-main-text">{{"contactUs.contactLastNameLabel" | translate}}</p>
+
+      <input formControlName="firstName" placeholder='{{"contactUs.firstNamePlaceholderLabel" | translate}}'
+             type="text">
+
+      <p class="header-main-text">{{"contactUs.phoneNumberLabel" | translate}}</p>
+
+      <input formControlName="phoneNumber" placeholder='{{"contactUs.phoneNumberPlaceholderLabel" | translate}}'
+             type="text">
+
+      <p class="header-main-text">{{"contactUs.emailLabel" | translate}}</p>
+
+      <input formControlName="email" placeholder='{{"contactUs.emailPlaceholderLabel" | translate}}' type="email">
+
+      <p class="header-main-text">{{"contactUs.sendMessageLabel" | translate}}</p>
+
+      <textarea class="place-area d-flex" cols="50" formControlName="sendMessage"
+                placeholder="{{'contactUs.sendMessagePlaceholderLabel' | translate}}"
+                rows="4"
+                wrap="soft"></textarea>
+
+      <button (click)="sentInfo()" [disabled]="contactUsForm.invalid"
+              class="dark-button">{{"contactUs.contactUsButtonLabel" | translate}}</button>
+
+      <div *ngIf="showMessage" class="sent-message">
+        <img src="/assets/icons/contact-us/green-check-icon.svg">
+
+        <p>{{"contactUs.sentMessageLabel" | translate}}</p>
+
+        <img (click)="sentInfo()" src="assets/icons/contact-us/close-block-icon.svg">
+      </div>
+    </div>
+  </form>
+</main>

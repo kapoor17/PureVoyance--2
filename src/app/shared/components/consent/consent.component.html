@@ -1,0 +1,41 @@
+<section *ngIf="!!form && !!consent"
+         [formGroup]="form"
+         class="consent-container">
+  <div [innerHTML]="consent.ableToContractText"
+       class="text-row">
+  </div>
+
+  <div class="consents-list"
+       formArrayName="consents">
+    <div *ngFor="let consent of consentFormArray.controls; let i = index;">
+      <div [formGroupName]="i" class="consent-item">
+        <mat-checkbox class="unknown-time-checkbox"
+                      formControlName="checked">
+          <span [innerHTML]="consent.value.displayedText">
+          </span>
+        </mat-checkbox>
+
+        <mat-error *ngIf="consent.invalid && (consent.dirty || consent.touched)">
+          {{consent.value.errorMessage}}
+        </mat-error>
+      </div>
+    </div>
+  </div>
+
+  <div [innerHTML]="consent.dataTreatmentText"
+       class="text-row">
+  </div>
+
+  <div *ngIf="!!consent.dataTreatmentDetailsText"
+       [innerHTML]="consent.dataTreatmentDetailsText"
+       class="text-row">
+  </div>
+
+  <button (click)="submit()"
+          *ngIf="!hideSubmit"
+          [disabled]="form.invalid || submitted"
+          class="dark-button"
+          type="submit">
+    {{ consent.validationButtonText }}
+  </button>
+</section>

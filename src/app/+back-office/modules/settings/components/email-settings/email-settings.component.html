@@ -1,0 +1,57 @@
+<mat-card class="settings-container mat-elevation-z0">
+
+  <div *ngIf="!!form"
+       [formGroup]="form">
+
+    <p class="header-main-text">
+      {{'settings.email.fromName'| translate}}
+    </p>
+
+    <mat-form-field [appearance]="'outline'"
+                    class="input-form">
+      <input [placeholder]="'tings.email.fromName'| translate"
+             formControlName="fromName"
+             matInput>
+
+      <mat-error>{{'validationService.required' | translate}}</mat-error>
+    </mat-form-field>
+
+    <p class="header-main-text">
+      {{'settings.email.fromAddress'| translate}}
+    </p>
+
+    <mat-form-field [appearance]="'outline'"
+                    class="input-form">
+      <input [placeholder]="'settings.email.fromAddress'| translate"
+             formControlName="fromAddress"
+             matInput>
+
+      <mat-error>{{'validationService.required' | translate}}</mat-error>
+    </mat-form-field>
+
+    <p class="header-main-text">
+      {{'settings.email.contactEmail'| translate}}
+    </p>
+
+    <mat-form-field [appearance]="'outline'"
+                    class="input-form">
+      <input [placeholder]="'settings.email.contactEmail'| translate"
+             formControlName="contactEmail"
+             matInput>
+
+      <mat-error>{{'validationService.required' | translate}}</mat-error>
+    </mat-form-field>
+
+    <div class="actions-container">
+      <button (click)="save()"
+              [disabled]="!form.valid"
+              color="primary"
+              mat-stroked-button
+              type="submit">
+        {{'settings.discovery.saveLabel' | translate}}
+      </button>
+    </div>
+
+  </div>
+
+</mat-card>

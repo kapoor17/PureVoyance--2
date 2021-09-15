@@ -1,0 +1,38 @@
+@import "variables";
+
+.back-office-section-wrapper {
+  .filter-wrapper {
+    padding-left: 24px;
+    padding-top: 24px;
+
+    ::ng-deep .mat-form-field-infix {
+      padding-top: 8px;
+    }
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+
+    .mat-table {
+      width: max-content;
+      min-width: 100%;
+
+      .mat-column-duration,
+      .mat-column-invoice,
+      .mat-column-price,
+      .mat-column-telcoEndStatus {
+        flex: 0 0 8%;
+        width: 8%;
+      }
+
+      .mat-column-psychic,
+      .mat-column-customer,
+      .mat-column-media,
+      .mat-column-start,
+      .mat-column-end {
+        flex: 0 0 13%;
+        width: 13%;
+      }
+    }
+  }
+}

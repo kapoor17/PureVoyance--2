@@ -1,0 +1,43 @@
+<div class="comment-modal-wrapper">
+  <div class="title">
+    <h1 class="text-uppercase">
+      Votre Commentaire
+    </h1>
+
+    <button (click)="cancel()"
+            class="small-close">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div class="comment">
+    <div class="icon-comment">
+      <mat-icon> comment</mat-icon>
+    </div>
+
+    <div class="comment-content">
+      <form [formGroup]="form">
+        <mat-form-field appearance="fill">
+          <input class="theme"
+                 formControlName="theme"
+                 matInput
+                 placeholder="Type the theme of comment">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <textarea formControlName="text"
+                    matInput
+                    placeholder="Type the text of comment"
+                    rows="3"></textarea>
+        </mat-form-field>
+      </form>
+    </div>
+  </div>
+
+  <button (click)="submit()"
+          [disabled]="!form.valid"
+          class="close"
+          mat-button>
+    {{'general.submitLabel' | translate}}
+  </button>
+</div>

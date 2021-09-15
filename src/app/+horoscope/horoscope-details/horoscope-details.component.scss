@@ -1,0 +1,185 @@
+@import "text-styles";
+@import "variables";
+
+.buttons-days {
+  column-gap: 18px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .disabled {
+    opacity: 0.5;
+  }
+
+  .white-button {
+    &.active {
+      background: $linear-gradient-background;
+      color: $white;
+    }
+  }
+}
+
+.detailed-horoscope-wrapper {
+
+  .detailed-horoscope-header {
+    text-align: center;
+    padding-bottom: 23px;
+
+    h1 {
+      margin: 0;
+    }
+
+    .yellow-line {
+      padding: 6px 0 9px;
+    }
+
+    p {
+      font-family: $font-main;
+      font-size: 24px;
+      line-height: 28px;
+      text-align: center;
+      color: $black;
+      margin: 0;
+    }
+
+    .date {
+      padding: 3px 0 20px;
+      color: $black;
+      font-weight: 300;
+    }
+  }
+
+  .nav {
+    margin-top: 30px;
+  }
+
+  .text-block {
+    text-align: justify;
+    padding: 29px 0 50px;
+    margin-bottom: 45px;
+
+    .content-block {
+      .section-title {
+        font-size: 21px;
+        line-height: 25px;
+        color: $lightblack;
+        margin-bottom: 6px;
+      }
+
+      .section-text {
+        font-size: 17px;
+        line-height: 24px;
+        padding-bottom: 8px;
+      }
+    }
+
+    .result-of-horoscope-text {
+      justify-content: flex-start;
+      align-items: center;
+      column-gap: 11px;
+      padding-bottom: 8px;
+      margin-top: 45px;
+
+      .content-title {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 28px;
+        margin: 0;
+        color: $text-green;
+      }
+
+      h2 {
+        margin: 0;
+      }
+
+      .rate {
+        display: flex;
+      }
+    }
+
+    p {
+      @include paragraph-black;
+      font-size: 17px;
+      line-height: 24px;
+      padding-bottom: 45px;
+      margin: 0;
+    }
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+  }
+
+  .love, .social-life {
+    h2 {
+      color: $dark-gold;
+    }
+  }
+}
+
+.mat-h2, .mat-title, .mat-typography h2 {
+  margin-bottom: 12px;
+}
+
+mat-button-toggle {
+  width: 145px;
+}
+
+@media (max-width: 800px) {
+  .detailed-horoscope-wrapper {
+    width: 100%;
+    padding: 0 10px;
+
+    .detailed-horoscope-header {
+
+      h1 {
+        font-size: 19px;
+        line-height: 22px;
+      }
+
+      p, .date {
+        font-size: 16px;
+        line-height: 18px;
+      }
+
+      .sign-horoscope {
+        width: 100px;
+        height: 89px;
+      }
+    }
+
+    .buttons-days {
+      width: 100%;
+      flex-wrap: wrap;
+      column-gap: 10px;
+      row-gap: 10px;
+    }
+  }
+  .text-block {
+    .result-of-horoscope-text {
+      .content-title {
+        font-size: 19px !important;
+        line-height: 21px !important;
+      }
+    }
+
+    .section-title, .section-text {
+      font-size: 14px !important;
+      line-height: 18px !important;
+    }
+  }
+
+
+  .buttons-days {
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 10px;
+    width: 100%;
+  }
+
+  .buttons-days.side-padding {
+    @media (max-width: 450px) {
+      padding: 0 10px;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import 'variables';
+
+.invoices-container {
+  padding: 0 24px;
+
+  .filter-wrapper {
+    padding-left: 24px;
+    padding-top: 24px;
+
+    ::ng-deep .mat-form-field-infix {
+      padding-top: 8px;
+    }
+  }
+
+  .mat-table {
+    width: max-content;
+    min-width: 100%;
+    min-height: 300px;
+  }
+}

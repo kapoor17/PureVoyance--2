@@ -1,0 +1,27 @@
+<nsp-common-dialog-header (cancel)="cancel()"
+                          [title]="data.title">
+</nsp-common-dialog-header>
+
+<div class="content"
+     mat-dialog-content>
+  <div class="content-message">
+    {{data.message | translate}}
+  </div>
+</div>
+
+<div class="actions"
+     mat-dialog-actions>
+  <button (click)="cancel()"
+          *ngIf="data.canCancel"
+          cdkFocusInitial
+          class="cancel-button"
+          mat-stroked-button>
+    {{ (data.noLabel || 'general.cancelLabel') | translate}}
+  </button>
+
+  <button (click)="submit()"
+          class="confirm-button"
+          mat-stroked-button>
+    {{ (data.okLabel || 'general.okLabel') | translate}}
+  </button>
+</div>

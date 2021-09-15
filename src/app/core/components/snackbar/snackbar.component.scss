@@ -1,0 +1,28 @@
+.snack-container-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.snack-container-message {
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.message-icon {
+  height: 100%;
+  vertical-align: middle;
+}
+
+.message {
+  font-size: 12px;
+  line-height: 20px;
+  color: #777E90;
+  margin-left: 15px;
+}
+
+.snack-container-icon {
+  height: 24px;
+}

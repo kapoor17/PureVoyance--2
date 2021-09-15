@@ -1,0 +1,68 @@
+<nsp-common-dialog-header (cancel)="cancel()"
+                          [isHidden]="true"
+                          [title]="'recharge.confirmPackageHeaderLabel' | translate">
+</nsp-common-dialog-header>
+
+<div class="recharge-wrapper"
+     mat-dialog-content>
+  <div class="content-message">
+
+    <div class="main-title">
+      {{'recharge.confirmPackageSubHeaderLabel' | translate}}
+    </div>
+
+    <div class="package-details">
+      <div class="row">
+        <div class="label">
+          {{'recharge.productLabel' | translate}}
+        </div>
+
+        <div class="value">
+          {{'recharge.headBlockTestLabel' | translate}}
+          <strong>{{total}}&euro;</strong>
+          (<span
+          class="extra-credits">{{'recharge.confirmPackageCreditsLabel' | translate: {value: extraCredits} }}</span>)
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">
+          {{'recharge.totalVatExcludedLabel' | translate}}
+        </div>
+
+        <div class="value">
+          {{excludingVat}}&euro;
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">
+          {{'recharge.totalVatIncludedLabel' | translate}}
+        </div>
+
+        <div class="value total">
+          {{total}}&euro;
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <div class="side-panel">
+        <button (click)="stepBack()"
+                *ngIf="!isDiscovery"
+                mat-icon-button>
+          <mat-icon [svgIcon]="'arrow-left'"></mat-icon>
+        </button>
+      </div>
+
+      <button (click)="confirm()"
+              class="confirm-button"
+              mat-button>
+        {{'recharge.rechargeButtonLabel' | translate}}
+      </button>
+
+      <div class="side-panel"></div>
+    </div>
+
+  </div>
+</div>

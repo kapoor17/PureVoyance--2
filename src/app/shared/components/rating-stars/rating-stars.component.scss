@@ -1,0 +1,16 @@
+@import 'variables';
+
+.rate {
+  display: flex;
+  align-items: center;
+
+  .mat-icon {
+    width: 20px;
+    height: 20px;
+    fill: $golden-star;
+
+    &:not(.active) {
+      fill: $empty-star;
+    }
+  }
+}

@@ -1,0 +1,179 @@
+<div class="back-office-section-wrapper">
+  <h1 class="text-uppercase h1">
+    {{'psychics.psychicsLabel' | translate}}
+  </h1>
+
+  <div class="filter-wrapper">
+    <mat-form-field *ngIf="!!dataSource.length || !!searchControl.value"
+                    appearance="outline"
+                    class="input-form">
+      <mat-label>{{'general.searchLabel'| translate}}</mat-label>
+      <input [formControl]="searchControl"
+             matInput
+             type="text">
+    </mat-form-field>
+  </div>
+
+  <mat-card class="mat-elevation-z0">
+    <form class="main-section">
+      <div class="table-wrapper">
+        <mat-table (matSortChange)="sortingEvent($event)"
+                   [dataSource]="dataSource"
+                   mat-table
+                   matSort>
+          <div *matNoDataRow>
+            <div class="table-no-data">
+              {{'psychics.noDataLabel' | translate}}
+            </div>
+          </div>
+
+          <!-- Image Column -->
+          <ng-container matColumnDef="image">
+            <mat-header-cell *matHeaderCellDef>
+              {{'psychics.columns.imageLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <img [src]="element.image ? (element.image + '&width=32') : 'assets/icons/profile/my-profile-icon.svg'"
+                   class="avatar"/>
+            </mat-cell>
+          </ng-container>
+
+          <!-- 	Name Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef
+                             mat-sort-header>
+              {{'psychics.columns.nameLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element.name || 'n/a'}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- 	Skills Column -->
+          <ng-container matColumnDef="skills">
+            <mat-header-cell *matHeaderCellDef>
+              {{'psychics.columns.skillsLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element"
+                      class="start-align">
+              {{element.skills | join}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- 	Description Column -->
+          <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef>
+              {{'psychics.columns.descriptionLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element.description}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- 	Market Column -->
+          <ng-container matColumnDef="market">
+            <mat-header-cell *matHeaderCellDef
+                             mat-sort-header>
+              {{'psychics.columns.marketLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element.market}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- 	Is Online Column -->
+          <ng-container matColumnDef="isOnline">
+            <mat-header-cell *matHeaderCellDef
+                             mat-sort-header>
+              {{'psychics.columns.isOnlineLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <mat-slide-toggle [checked]="element.online_status"
+                                [disabled]="true"
+                                class="example-margin">
+              </mat-slide-toggle>
+            </mat-cell>
+          </ng-container>
+
+          <!-- 	Price Column -->
+          <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef
+                             mat-sort-header>
+              {{'psychics.columns.priceLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element.price || 'n/a'}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- 	Price Column -->
+          <ng-container matColumnDef="rate">
+            <mat-header-cell *matHeaderCellDef
+                             mat-sort-header>
+              {{'psychics.columns.rateLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element.rate}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- 	Minimal Call Time Column -->
+          <ng-container matColumnDef="minCallTime">
+            <mat-header-cell *matHeaderCellDef
+                             mat-sort-header>
+              {{'psychics.columns.minCallTimeLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element.min_call_time || 'n/a'}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- Actions -->
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef>
+              {{'configurableTable.commentDetailsLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <div class="right-align-column">
+                <a [matTooltip]="'general.openDetailsLabel' | translate"
+                   [routerLink]="[ './', element.id ]"
+                   class="action-icon"
+                   type="button">
+                  <mat-icon>visibility</mat-icon>
+                </a>
+              </div>
+            </mat-cell>
+          </ng-container>
+
+          <!-- Edit -->
+          <ng-container matColumnDef="edit">
+            <mat-header-cell *matHeaderCellDef>
+              {{'configurableTable.editUserLabel' | translate}}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <div>
+                <a [matTooltip]="'configurableTable.editUserLabel' | translate"
+                   [routerLink]="['./psychic-edit', element.id]"
+                   class="action-icon"
+                   type="button">
+                  <mat-icon>edit</mat-icon>
+                </a>
+              </div>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+
+      <mat-paginator (page)="paginatorEvent($event)"
+                     *ngIf="!!dataSource.length"
+                     [length]="total"
+                     [pageIndex]="page - 1"
+                     [pageSizeOptions]="paginatorPageSizeOptions"
+                     [pageSize]="pageSize">
+      </mat-paginator>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,71 @@
+<div class="payments-wrapper">
+  <div class="header flex-between">
+    <div class="titles">
+      <h1 class="text-uppercase">
+        {{"payments.paymentsLabel" | translate}}
+      </h1>
+
+      <p>{{"payments.subTitleLabel" | translate}}</p>
+    </div>
+  </div>
+
+  <mat-card class="payments-content mat-elevation-z0">
+    <div #htmlTable
+         class="table-wrapper">
+      <mat-table [dataSource]="dataSource">
+        <div *matNoDataRow>
+          <div class="table-no-data">
+            {{'payments.noDataLabel' | translate}}
+          </div>
+        </div>
+
+        <ng-container matColumnDef="date">
+          <mat-header-cell *matHeaderCellDef>
+            {{'payments.dateLabel' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{element.date || 'n/a'}}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="psychic">
+          <mat-header-cell *matHeaderCellDef>
+            {{'invoices.psychicLabel' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{element.psychic.name || 'n/a'}}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="duration">
+          <mat-header-cell *matHeaderCellDef>
+            {{'invoices.durationLabel' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{element.duration || 'n/a'}}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="cost">
+          <mat-header-cell *matHeaderCellDef>
+            {{'invoices.costLabel' | translate}}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{element.cost || 'n/a'}}
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+
+    <mat-paginator (page)="paginatorEvent($event)"
+                   *ngIf="total > page * pageSize"
+                   [length]="total"
+                   [pageIndex]="page - 1"
+                   [pageSizeOptions]="paginatorPageSizeOptions"
+                   [pageSize]="pageSize">
+    </mat-paginator>
+  </mat-card>
+</div>

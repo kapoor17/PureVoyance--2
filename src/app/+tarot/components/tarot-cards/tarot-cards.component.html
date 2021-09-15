@@ -1,0 +1,83 @@
+<div class="cards-wrapper">
+  <div class="tarot-cards flex-column flex-center">
+    <h1 class="light-green-title text-uppercase m-0">
+      {{selectedPack.titleText}}
+    </h1>
+
+    <img class="yellow-line"
+         src="./assets/icons/header/yellow-line-icon.svg">
+
+    <p *ngIf="showResult"
+       class="light-green-sub-title text-uppercase sub-title-tarot">
+      {{'tarot.interpretationButtonLabel' | translate}}
+    </p>
+  </div>
+
+  <div class="main-cards flex-between flex-column align-center">
+    <div *ngIf="!showResult"
+         class="first-line flex-center flex-column align-center">
+      <p class="light-green-sub-title sub-title-tarot m-0">
+        {{"tarot.selectFiveCardsLabel" | translate}}
+      </p>
+
+      <div class="animation d-flex flex-column align-center">
+        <div class="first-line-cards d-flex flex-center">
+          <div (click)="selectCard(n)"
+               *ngFor="let cardClosed of cardsClosed; let i = index"
+               class="tarot-card">
+
+            <img (click)="hideCard(i)"
+                 [ngStyle]="{'z-index': i + 1, 'position': 'relative', 'left': 990+ i*-112.7 +'px'}"
+                 [src]="cardClosed">
+          </div>
+        </div>
+      </div>
+
+      <img src="/assets/icons/tarot/line-between-tarot-cards-icon.svg">
+    </div>
+
+    <div class="second-line flex-column flex-between">
+      <div class="close-cards flex-center">
+        <div *ngFor="let cardClose of cardsClosedDown; let i = index"
+             class="second-line-cards">
+          <img [src]="cardClose"
+               class="closed-img">
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngIf="showResult">
+      <div class="cards-result-wrapper">
+        <div *ngFor="let day of result"
+             class="day-block">
+          <div class="day flex-between">
+            <p class="text-uppercase light-green-sub-title m-0">
+              {{ day.title }}
+            </p>
+          </div>
+
+          <div class="day-text m-0">
+            <p class="description m-0">
+              {{day.text}}
+            </p>
+
+            <ng-container *ngIf="!!day.quotes">
+              <p class="light-green-sub-title quote m-0">
+                {{ 'tarot.quote' | translate }}
+              </p>
+
+              <p class="description quotes-description m-0">
+                {{day.quotes }}
+              </p>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <a [routerLink]="['../']"
+       class="dark-button m-0">
+      {{"tarot.backToTarotPageLabel" | translate}}
+    </a>
+  </div>
+</div>

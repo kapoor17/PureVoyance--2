@@ -1,0 +1,60 @@
+@import 'variables';
+
+.comments-container {
+  padding: 0 24px;
+
+  .filter-wrapper {
+    padding-left: 24px;
+    padding-top: 24px;
+
+    ::ng-deep .mat-form-field-infix {
+      padding-top: 8px;
+    }
+  }
+
+  .mat-table {
+    width: max-content;
+    min-width: 100%;
+    min-height: 300px;
+    max-width: 100%;
+  }
+
+  .truncated-cell {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .mat-column-status,
+  .mat-column-highlight {
+    flex: 0 0 5%;
+    width: 5%;
+  }
+
+  .mat-column-date,
+  .mat-column-rate {
+    flex: 0 0 10%;
+    width: 10%;
+  }
+
+  .mat-column-rate {
+    .mat-icon {
+      :not(.active) {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+  .mat-column-psychic {
+    flex: 0 0 15%;
+    width: 15%;
+  }
+
+  .mat-column-content {
+    flex: 0 0 50%;
+    width: 50%;
+  }
+}

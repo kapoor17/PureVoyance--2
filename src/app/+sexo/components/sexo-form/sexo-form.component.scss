@@ -1,0 +1,129 @@
+@import "text-styles";
+@import "variables";
+
+.start-sexo-test {
+  padding: 0 0 48px;
+
+  .sub-title-text {
+    font-weight: 300;
+    color: $black;
+    margin: 0;
+    padding-bottom: 40px;
+  }
+
+  .dark-button {
+    max-width: 332px;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 56px;
+  }
+
+  .test-body {
+    width: 100%;
+
+    @media (max-width: 599px) {
+      flex-direction: column;
+    }
+
+    .left-side {
+      width: 50%;
+      @media (max-width: 450px) {
+        width: 100%;
+      }
+
+      .choose-sign {
+        width: 100%;
+
+        .header-main-text {
+          margin-bottom: 8px;
+          font-size: 20px;
+          line-height: 22px;
+          color: $background-gold;
+        }
+
+        p {
+          color: #B1B5C4;
+          padding: 8px;
+        }
+
+        .input-form {
+          border: 2px solid #E6E8EC;
+          min-width: 100%;
+          margin-bottom: 12px;
+
+          ::ng-deep .mat-select-value-text, ::ng-deep .mat-option-text, ::ng-deep .mat-form-field-hide-placeholder .mat-select-placeholder {
+            @include paragraph-black;
+            margin: 0;
+            display: inline;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    img {
+      @media (max-width: 450px) {
+        margin-top: 12px;
+      }
+
+      @media (max-width: 450px) {
+        width: 100%;
+      }
+    }
+
+    button {
+      min-width: 100%;
+    }
+  }
+
+  .results {
+    display: flex;
+    flex-direction: row;
+
+    .sign {
+      min-width: 200px;
+      text-align: center;
+      @media (max-width: 450px) {
+        display: none;
+      }
+    }
+
+    .content {
+      .title {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 28px;
+        margin: 0;
+        color: $text-green;
+        margin-bottom: 4px;
+
+        &:not(:first-of-type) {
+          margin-top: 16px;
+        }
+      }
+
+      .value {
+        font-size: 17px;
+        line-height: 24px;
+        padding-bottom: 8px;
+
+        @media (max-width: 450px) {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+::ng-deep .mat-menu-content:not(:empty) {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-family: Poppins-Regular, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #777E91;
+}

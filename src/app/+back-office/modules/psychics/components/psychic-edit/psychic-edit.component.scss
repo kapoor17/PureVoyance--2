@@ -1,0 +1,44 @@
+@import 'variables';
+@import 'auth';
+
+.sign-up-container {
+  padding: 24px 20px;
+  @include auth-dialog;
+  width: 100%;
+  display: block;
+
+  a {
+    text-decoration: none;
+    color: $dark-blue;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .divider {
+    padding-bottom: 24px;
+  }
+
+  .form-container {
+    width: 100%;
+  }
+
+  .stepper-container {
+
+    .sign-up-fields {
+      width: 35%;
+    }
+
+    .button {
+      width: 35.1%;
+
+      &:disabled {
+        background: $grey !important;
+      }
+    }
+  }
+}
+
+

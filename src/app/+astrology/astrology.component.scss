@@ -1,0 +1,84 @@
+@import "text-styles";
+@import "variables";
+
+.astrology-wrapper {
+  padding-top: 48px;
+
+  img {
+    padding-bottom: 24px;
+  }
+
+  .astro-sections-wrapper,
+  .top-rated-mediums,
+  .psycho-tests {
+    width: 100%;
+    padding: 67px 0 0;
+    @media (max-width: 450px) {
+      font-size: 20px;
+      padding: 0;
+      background-color: white;
+    }
+
+    h1 {
+      padding: 0;
+      font-size: 32px;
+      line-height: 37px;
+      @media (max-width: 450px) {
+        font-size: 20px;
+      }
+    }
+  }
+
+  nsp-answer-call {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .astrology-wrapper {
+    overflow: hidden;
+    padding-top: 0px;
+
+    .inside-wrapper-new {
+      padding: 0;
+
+      nsp-consultation-offer-block {
+        display: none;
+      }
+
+      .top-rated-mediums,
+      .astro-sections-wrapper {
+        text-align: center;
+      }
+    }
+
+    nsp-answer-call {
+      width: 100%;
+      display: flex !important;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .astrology-wrapper {
+    .flex-column {
+      h1 {
+        text-align: center;
+        font-size: 19.182px;
+        line-height: 22px;
+        margin: 0px;
+        margin: 12px 0px 0px 0px;
+        // border-bottom: 2.5px solid orange;
+      }
+
+      img {
+        width: 60%;
+        padding-bottom: 10px;
+      }
+    }
+
+    .top-rated-mediums {
+      padding-top: 24px;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+<div class="login-dialog-wrapper">
+  <nsp-common-dialog-header (cancel)="onClose($event)" [title]="title"></nsp-common-dialog-header>
+
+  <form (ngSubmit)="onSignIn()"
+        *ngIf="!!signInForm"
+        [formGroup]="signInForm"
+        class="sign-in-container">
+    <div class="inner-container flex-column align-center">
+      <p class="input-title">
+        {{'signUp.yourLabel'| translate}} E-mail
+      </p>
+
+      <mat-form-field [class.invalid]="loginInvalid"
+                      class="input-form">
+        <input formControlName="email"
+               matInput
+               placeholder="{{'signUp.enterLabel'| translate}} E-mail"
+               type="email">
+
+        <mat-error>
+          {{'validationService.emailIncorrect' | translate}}
+        </mat-error>
+      </mat-form-field>
+
+      <p class="input-title">
+        {{'signUp.yourLabel'| translate}} {{"signUp.passwordLabel"| translate}}
+      </p>
+
+      <mat-form-field [class.invalid]="loginInvalid"
+                      class="input-form">
+        <input [type]="showPassword ? 'text' : 'password'"
+               formControlName="password"
+               matInput
+               placeholder="{{'signUp.enterLabel'| translate}} {{'signUp.passwordLabel'| translate}}"
+               type="password">
+
+        <button (click)="togglePasswordVisibility()"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="!showPassword"
+                mat-icon-button
+                matSuffix
+                type='button'>
+
+          <img alt="show password"
+               src="assets/images/sign-up/show-password.svg">
+        </button>
+
+        <mat-error>{{'validationService.password' | translate}}</mat-error>
+      </mat-form-field>
+
+      <button [class.button-disabled]="signInForm?.invalid"
+              [disabled]="signInForm?.invalid"
+              class="gradient-button"
+              mat-button
+              type="submit">
+        {{'signUp.signInButton' | translate}}
+      </button>
+
+      <button (click)="onForgotPassword()"
+              class="simple-button"
+              mat-button>
+        {{'signUp.forgotPasswordButton' | translate}}
+      </button>
+
+      <div class="golden-line"></div>
+
+      <p class="gold-title text-uppercase">{{"signUp.notRegisteredLabel" | translate}}</p>
+
+      <button (click)="onNotRegistered()" class="gold-button text-uppercase"
+              mat-button>{{"header.freeRegistrationLabel" | translate}}</button>
+    </div>
+  </form>
+</div>

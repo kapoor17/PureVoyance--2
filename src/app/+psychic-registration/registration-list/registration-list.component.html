@@ -1,0 +1,53 @@
+<div class="registration-wrapper d-flex justify-center">
+  <div class="inside-wrapper-new d-flex align-center flex-column">
+    <h1 class="light-green-title text-uppercase">{{"psychicRegistration.registrationList.titleLabel" | translate}}</h1>
+
+    <img alt="" src="assets/images/divider.png">
+
+    <div class="instructions-block d-flex flex-between">
+      <div class="step flex-column align-center">
+        <h3><span>1.</span>{{"psychicRegistration.registrationList.expLabel" | translate}}</h3>
+
+        <img alt="" src="assets/images/sign-up%20as%20psychic/first.png">
+
+        <h3
+          class="light-green-sub-title text-uppercase">{{"psychicRegistration.registrationList.completeLabel" | translate}}</h3>
+
+        <p class="text-uppercase">{{"psychicRegistration.registrationList.textFirstLabel" | translate}}</p>
+      </div>
+
+      <div class="line"></div>
+
+      <div class="step flex-column align-center">
+        <h3><span>2.</span>{{"psychicRegistration.registrationList.profileLabel" | translate}}</h3>
+
+        <img alt="" src="assets/images/sign-up%20as%20psychic/second.png">
+
+        <h3
+          class="light-green-sub-title text-uppercase">{{"psychicRegistration.registrationList.preciseLabel" | translate}}</h3>
+
+        <p class="text-uppercase">{{"psychicRegistration.registrationList.textSecondLabel" | translate}}</p>
+      </div>
+
+      <div class="line"></div>
+
+      <div class="step flex-column align-center">
+        <h3><span>3.</span>{{"psychicRegistration.registrationList.statusLabel" | translate}}</h3>
+
+        <img alt="" src="assets/images/sign-up%20as%20psychic/third.png">
+
+        <h3
+          class="light-green-sub-title text-uppercase">{{"psychicRegistration.registrationList.reseigneLabel" | translate}}</h3>
+
+        <p class="text-uppercase">{{"psychicRegistration.registrationList.textThirdLabel" | translate}}</p>
+      </div>
+    </div>
+
+    <button [routerLink]="['/psychic-registration/experience']"
+            class="gradient-button text-uppercase">{{"psychicRegistration.registrationList.creeLabel" | translate}}</button>
+
+    <div class="underline"></div>
+
+    <nsp-reusable-registration-component></nsp-reusable-registration-component>
+  </div>
+</div>

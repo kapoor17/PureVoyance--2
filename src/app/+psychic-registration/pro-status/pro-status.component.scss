@@ -1,0 +1,112 @@
+@import "variables";
+@import "flexbox";
+@import "text-styles";
+@import "auth";
+
+.pro-status-wrapper {
+  padding: 48px 0 0;
+
+  div {
+    .taxes {
+      width: 100%;
+
+      .taxes-disclaimers {
+        margin-top: 12px;
+        row-gap: 52px;
+      }
+
+      .taxes-inputs {
+        row-gap: 42px;
+      }
+    }
+
+    .radio-button-group {
+      width: 100%;
+    }
+
+    .download-group {
+      margin-bottom: 60px;
+      column-gap: 34px;
+
+      .paragraphs {
+        margin-top: 15px;
+        align-items: flex-end;
+        row-gap: 40px;
+      }
+
+      .buttons {
+        row-gap: 22px;
+
+        .download-button {
+          width: 227px;
+          height: 52px;
+          background-color: $profile-image-background;
+          column-gap: 25px;
+          cursor: pointer;
+          color: $dark-gray;
+          border-radius: 8px;
+          border: $border-grey;
+        }
+      }
+    }
+
+    .bottom-info {
+      width: 50%;
+    }
+
+    .validate {
+      width: 284px;
+      border-radius: 0;
+      margin: 60px 0 60px 0;
+    }
+  }
+
+  .line {
+    width: 100%;
+    height: 3px;
+    background: $second-background-gradient;
+    margin-bottom: 36px;
+  }
+
+  .divider {
+    margin-bottom: 31px;
+  }
+
+  .light-green-sub-title {
+    margin-top: 40px;
+  }
+
+  mat-radio-group {
+    display: flex;
+    column-gap: 15px;
+  }
+
+  mat-form-field {
+    background-color: $skin-background;
+    border: $another-border;
+    padding: 0 0 0 5px;
+  }
+
+  .input-smaller {
+    width: 368px;
+    height: 41px;
+  }
+
+  .input-bigger {
+    width: 99%;
+    height: 41px;
+    margin-top: 27px;
+  }
+
+  #document-first, #document-second {
+    display: none;
+  }
+
+  mat-checkbox, mat-radio-group, .download-button {
+    font-family: Lato, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}

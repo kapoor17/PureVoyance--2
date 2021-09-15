@@ -1,0 +1,168 @@
+@import "variables";
+@import "text-styles";
+@import "flexbox";
+@import "material-override/pagination";
+
+.favorite-psychics-wrapper {
+  min-width: 704px;
+  @media (max-width: 450px) {
+    min-width: 99%;
+    align-items: center;
+  }
+
+  h1 {
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 30px;
+    color: $text-green;
+    margin-bottom: 0px;
+  }
+
+  .favorite-psychics-content {
+    @media (max-width: 450px) {
+      width: 100%;
+      align-items: center;
+    }
+
+    p {
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 24px;
+      color: $link-color;
+    }
+
+    .psychics {
+      width: 100%;
+      padding-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 0.46fr));
+      grid-column-gap: 10px;
+      grid-row-gap: 10px;
+      @media (max-width: 450px) {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .psychic {
+        width: 100% x;
+        border: $border-grey;
+        box-sizing: border-box;
+        border-radius: 8px;
+        background: $white;
+
+        .psychic-body {
+          padding: 10px;
+          border-bottom: $border-grey;
+          min-height: 196px;
+
+          .psychic-info {
+            width: 100%;
+            column-gap: 14px;
+            height: 60px;
+
+            img {
+              width: 48px;
+              height: 48px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+
+            .psychic-status {
+              h3 {
+                font-family: $font-main;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 24px;
+                margin: 0;
+              }
+
+              .clients {
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 20px;
+                color: $link-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.appointments {
+  width: 100%;
+  padding-top: 16px;
+
+  .last-appointment,
+  .further-appointment {
+    p {
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .last {
+      color: $golden;
+      font-weight: 500;
+    }
+
+    .further {
+      color: $green-alternative;
+      font-weight: 500;
+    }
+  }
+}
+
+.button-group {
+  padding: 16px;
+
+  button {
+    min-width: 232px;
+    min-height: 40px;
+    border-radius: 0;
+  }
+
+  .like {
+    width: 30px;
+    height: 30px;
+    border: $border-grey;
+    border-radius: 50%;
+    cursor: pointer;
+    background: no-repeat center url("~src/assets/icons/consultations/golden-heart.png");
+  }
+}
+
+.further-appointment {
+  margin-top: 10px;
+}
+
+.empty-list {
+  padding-top: 60px;
+  width: 704px;
+
+  img {
+    padding-bottom: 16px;
+  }
+
+  h3,
+  p {
+    color: $metal-grey;
+  }
+
+  h3 {
+    line-height: 24px;
+  }
+
+  p {
+    line-height: 20px;
+  }
+}
+
+h1,
+h3,
+p,
+.clients {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+}

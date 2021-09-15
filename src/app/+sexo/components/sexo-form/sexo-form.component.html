@@ -1,0 +1,135 @@
+<div class="start-sexo-test flex-between flex-column">
+  <div class="flex-column flex-center">
+    <h1 class="light-green-title text-uppercase">
+      {{ currentSexoTest.title | translate }}
+    </h1>
+
+    <img class="yellow-line"
+         src="./assets/icons/header/yellow-line-icon.svg">
+
+    <p class="light-green-sub-title sub-title-text">
+      {{ currentSexoTest.subTitle | translate}}
+    </p>
+  </div>
+
+  <div *ngIf="!showResults; else results"
+       class="test-body flex-between">
+    <div [formGroup]="form"
+         class="left-side flex-between flex-column">
+      <div class="choose-sign">
+        <p class="header-main-text">
+          {{"tarot.yourSignTextLabel" | translate}}
+        </p>
+
+        <mat-form-field class="input-form country-form">
+          <mat-label>
+            {{"tarot.yourSignDropdownLabel" | translate}}
+          </mat-label>
+
+          <mat-select class="country-select"
+                      formControlName="sign">
+            <mat-option *ngFor="let horoscope of horoscopeSigns.horoscopes"
+                        [value]="horoscope.value">
+              {{horoscope.title}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="choose-sign">
+        <p class="header-main-text m-0">
+          {{"sexo.chooseSexLabel" | translate}}
+        </p>
+
+        <mat-form-field class="input-form country-form">
+          <mat-label>
+            {{"sexo.chooseSexLabel" | translate}}
+          </mat-label>
+
+          <mat-select class="country-select"
+                      formControlName="gender">
+            <mat-option value="man">
+              {{'sexo.manLabel' | translate}}
+            </mat-option>
+
+            <mat-option value="woman">
+              {{'sexo.womanLabel' | translate}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <button (click)="getResult()"
+              [disabled]="form.invalid"
+              class="dark-button">
+        {{"sexo.discoverButtonLabel" | translate}}
+      </button>
+    </div>
+    <img [src]="currentSexoTest.img">
+  </div>
+
+  <ng-template #results>
+    <div class="results">
+      <div class="sign">
+        <img [src]="selectedSign.picture"
+             alt="">
+      </div>
+
+      <div [ngSwitch]="testType"
+           class="content">
+        <ng-container *ngSwitchCase="'daily'">
+          <div class="text-uppercase title">
+            {{'sexo.textLabel' | translate}}
+          </div>
+
+          <div class="value">
+            {{dailyLove.text}}
+          </div>
+
+          <div class="text-uppercase title">
+            {{'sexo.quotesLabel' | translate}}
+          </div>
+
+          <div class="value">
+            {{dailyLove.quotes}}
+          </div>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'weekly'">
+          <div class="text-uppercase title">
+            {{'sexo.couplesLabel' | translate}}
+          </div>
+
+          <div class="value">
+            {{weeklyLove.couples}}
+          </div>
+
+          <div class="text-uppercase title">
+            {{'sexo.singleLabel' | translate}}
+          </div>
+
+          <div class="value">
+            {{weeklyLove.single}}
+          </div>
+
+          <div class="text-uppercase title">
+            {{'sexo.quotesLabel' | translate}}
+          </div>
+
+          <div class="value">
+            {{weeklyLove.quotes}}
+          </div>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'seventh-heaven'">
+          {{seventhHeaven}}
+        </ng-container>
+      </div>
+    </div>
+
+    <button (click)="discoverAnother()"
+            class="dark-button">
+      {{ 'sexo.anotherSignLabel' | translate}}
+    </button>
+  </ng-template>
+</div>

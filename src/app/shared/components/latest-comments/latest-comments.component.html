@@ -1,0 +1,42 @@
+<div class="last-comments flex-column align-center">
+  <div class="desktop-titles flex-column align-center">
+    <h1 class="h1 text-uppercase">
+      {{ "psychics.commentsLabel" | translate}}
+    </h1>
+
+    <img alt="" class="divider"
+         src="./assets/images/divider.png">
+  </div>
+
+  <div class="last-comments-content d-flex">
+    <img alt=""
+         class="commas"
+         src="assets/icons/psychics/lapki.png">
+
+    <div class="text-of-comments">
+      <div class="mobile-title flex-column align-center">
+        <h1 class="h1 text-uppercase">
+          {{ "psychics.commentsLabel" | translate}}
+        </h1>
+
+        <img alt="" class="divider"
+             src="./assets/images/divider.png">
+      </div>
+
+      <div *ngFor="let comment of dataSource$ | async"
+           class="displayed-comment">
+        <h3 class="gold">
+          {{comment.psychic.name}} - {{comment.rate}}/5
+        </h3>
+
+        <p class="comment-text paragraph-black">
+          {{comment.content}}
+        </p>
+
+        <p class="date">
+          {{comment.date | timeAgo}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,269 @@
+<div class="sign-up-container">
+
+  <a [routerLink]="!!user ? ['../../../users'] : ['../../users']"
+     class="text-uppercase d-flex">
+    {{'users.backLinkLabel' | translate}}
+  </a>
+
+  <div class="flex-column flex-center">
+    <h1 class="text-uppercase h1 m-0">
+      {{(!!user ? 'signUp.updateUserLabel' : 'signUp.createUserLabel') | translate}}    </h1>
+
+    <img class="divider" src="./assets/images/divider.png">
+  </div>
+
+
+  <div class="form-container">
+
+    <form (ngSubmit)="update()"
+          *ngIf="userForm" [formGroup]="userForm"
+          class="stepper-container flex-column flex-center">
+      <div class="sign-up-fields flex-baseline">
+        <div class="flex-center flex-column form-column">
+          <p class="input-title">{{'users.columns.roleLabel' | translate }}</p>
+
+          <!--          <mat-form-field class="input-form">-->
+          <!--            <input [placeholder]="'users.columns.roleLabel' | translate | titlecase "-->
+          <!--                   class="input-field"-->
+          <!--                   formControlName="role"-->
+          <!--                   matInput-->
+          <!--                   type="text">-->
+
+          <!--            <mat-error>{{'validationService.required' | translate}}</mat-error>-->
+          <!--          </mat-form-field>-->
+
+
+          <mat-form-field class="input-form country-form">
+            <mat-label>{{'users.columns.roleLabel' | translate | titlecase}} </mat-label>
+
+            <mat-select class="country-select" formControlName="roles" multiple>
+              <mat-option *ngFor="let role of rolesList; let i = index" [value]="role">{{role.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <p class="input-title">
+            {{"signUp.firstNameLabel"| translate}}
+          </p>
+
+          <mat-form-field class="input-form">
+            <input [placeholder]="'signUp.firstNameLabel'| translate | titlecase"
+                   class="input-field"
+                   formControlName="name"
+                   matInput
+                   type="text">
+
+            <mat-error>{{'validationService.required' | translate}}</mat-error>
+          </mat-form-field>
+
+          <p class="input-title">
+            {{'signUp.lastNameLabel'| translate}}
+          </p>
+
+          <mat-form-field class="input-form">
+            <input [placeholder]="'signUp.lastNameLabel'| translate | titlecase"
+                   formControlName="lastname"
+                   matInput
+                   type="text">
+            <mat-error>{{'validationService.required' | translate}}</mat-error>
+          </mat-form-field>
+
+          <p class="input-title">
+            {{"signUp.birthDateLabel"| translate}}
+          </p>
+
+          <mat-form-field class="input-form">
+            <input (focus)="dp.open()"
+                   [matDatepicker]="dp"
+                   [max]="startDate"
+                   [placeholder]="'signUp.birthDateLabel'| translate | titlecase"
+                   formControlName="birthday"
+                   matInput
+                   type="text">
+            <mat-datepicker-toggle [for]="dp"
+                                   matSuffix>
+            </mat-datepicker-toggle>
+
+            <mat-datepicker #dp></mat-datepicker>
+
+            <mat-error>{{'validationService.dateOfBirth' | translate}}</mat-error>
+          </mat-form-field>
+
+
+          <p class="input-title">
+            {{"horoscope.timeOfBirthLabel"| translate | titlecase}}
+          </p>
+
+          <mat-form-field class="input-form">
+            <input class="birth-time"
+                   formControlName="birth_hour"
+                   matInput
+                   max="23:59"
+                   min="00:00"
+                   placeholder="{{'horoscope.timeOfBirthLabel' | translate | titlecase }}"
+                   type="time">
+            <mat-error>{{'horoscope.timeOfBirthErrorLabel' | translate}}</mat-error>
+          </mat-form-field>
+
+          <p class="input-title">
+            E-mail
+          </p>
+
+          <mat-form-field class="input-form">
+            <input formControlName="email"
+                   matInput
+                   placeholder="E-mail"
+                   type="email">
+
+            <mat-error>{{'validationService.emailIncorrect' | translate}}</mat-error>
+          </mat-form-field>
+
+          <p class="input-title">
+            {{"signUp.passwordLabel"| translate}}
+          </p>
+
+          <mat-form-field class="input-form">
+            <input [placeholder]="'signUp.passwordLabel'| translate | titlecase"
+                   formControlName="password"
+                   matInput
+                   type="text">
+
+            <mat-error>{{'validationService.password' | translate}}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="flex-column flex-center form-column">
+          <p class="input-title">
+            {{'signUp.countryLabel'| translate}}
+          </p>
+
+          <mat-form-field class="input-form country-form">
+            <mat-label>{{'signUp.selectCountryLabel'| translate}}</mat-label>
+
+            <mat-select class="country-select"
+                        formControlName="country_id">
+              <mat-option *ngFor="let countryOption of countryOptions"
+                          [value]="countryOption.id">
+                {{ 'countries.' + countryOption.countryCode | translate }}
+              </mat-option>
+            </mat-select>
+
+            <mat-error>{{'validationService.required' | translate}}</mat-error>
+          </mat-form-field>
+
+          <p class="input-title">
+            {{"signUp.cellphoneLabel"| translate}}
+          </p>
+
+          <div class="phone-wrapper w-100">
+            <div *ngFor="let item of phonesArray.controls" [formGroup]="phonesArray"
+                 class="phone-input">
+
+              <div [formGroup]="item" class="d-flex w-100">
+                <mat-select class="phone-code-select"
+                            formControlName="phone_code">
+                  <mat-select-trigger>
+                    <div *ngIf="!!selectedCountry"
+                         class="phone-code-trigger">
+                      <img [src]="countryOptionsArray[item.value.phone_code]?.flag"
+                           class="flag-image">
+
+                      <span class="phone-code">{{countryOptionsArray[item.value.phone_code]?.phoneCode}}</span>
+                    </div>
+                  </mat-select-trigger>
+
+                  <mat-option *ngFor="let phoneCode of countryOptions"
+                              [value]="phoneCode.phoneCode">
+                    <img [src]="phoneCode.flag"
+                         class="flag-image">
+
+                    <span class="phone-code">{{phoneCode.phoneCode}}</span>
+
+                  </mat-option>
+                </mat-select>
+
+                <mat-form-field class="input-form enter-phone-field">
+                  <input [placeholder]="'signUp.phoneLabel'| translate | titlecase"
+                         formControlName="phone"
+                         matInput
+                         pattern="[0-9]*">
+                  <mat-error>{{'validationService.phone' | translate}}</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+          <p class="input-title">
+            {{'signUp.cityLabel' | translate}}
+          </p>
+
+          <mat-form-field class="input-form">
+            <input [placeholder]="'signUp.cityLabel' | translate | titlecase"
+                   formControlName="city"
+                   matInput
+                   type="text">
+
+            <mat-error>{{'validationService.required' | translate}}</mat-error>
+          </mat-form-field>
+
+          <p class="input-title">
+            {{'signUp.streetLabel' | translate}}
+          </p>
+
+          <mat-form-field class="input-form">
+            <input [placeholder]="'signUp.streetLabel' | translate | titlecase"
+                   formControlName="street"
+                   matInput
+                   type="text">
+
+            <mat-error>{{'validationService.required' | translate}}</mat-error>
+          </mat-form-field>
+
+          <p class="input-title">
+            {{'signUp.numberLabel' | translate}}
+          </p>
+
+          <mat-form-field class="input-form">
+            <input [placeholder]="'signUp.numberLabel' | translate | titlecase"
+                   formControlName="number"
+                   matInput
+                   pattern="[0-9]*"
+                   type="text">
+          </mat-form-field>
+
+          <p class="input-title">
+            {{'signUp.zipCodeLabel' | translate}}
+          </p>
+
+          <mat-form-field class="input-form">
+            <input [placeholder]="'signUp.zipCodeLabel' | translate | titlecase"
+                   formControlName="zipcode"
+                   matInput
+                   maxlength="7"
+                   pattern="[0-9]*"
+                   type="text">
+
+            <mat-error>{{'validationService.required' | translate}}</mat-error>
+          </mat-form-field>
+
+          <p class="input-title">
+            {{'signUp.birthPlaceLabel'| translate}}
+          </p>
+
+          <mat-form-field class="input-form">
+            <input [placeholder]="'signUp.birthPlaceLabel'| translate | titlecase"
+                   formControlName="birth_place"
+                   matInput
+                   type="text">
+
+            <mat-error>{{'validationService.required' | translate}}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <button class="button"
+              mat-button>
+        {{ (!!user ? 'signUp.updateButtonLabel' : 'signUp.createButtonLabel') | translate}}
+      </button>
+    </form>
+  </div>
+</div>

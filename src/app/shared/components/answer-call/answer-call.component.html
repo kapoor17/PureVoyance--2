@@ -1,0 +1,13 @@
+<div class="answer-wrapper flex-between">
+
+  <mat-icon svgIcon="green-phone"></mat-icon>
+
+  <div class="middle-text flex-column flex-center">
+    <p [innerHTML]="('psychics.testerLabel' | translate).slice(12)"
+       class="text-uppercase m-0 light-green-sub-title text-bold"></p>
+    <p class="m-0 text-call">{{'templates.callBackLabel' | translate}}</p>
+    <a class="m-0 text-bold light-green-sub-title call-number" href="tel:0186868686">01 86 86 86 86</a>
+  </div>
+
+  <button class="green-button input-text">{{ "psychics.discoveryOfferButtonLabel" | translate}}</button>
+</div>

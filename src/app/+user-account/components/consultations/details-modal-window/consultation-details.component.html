@@ -1,0 +1,57 @@
+<div class="detail-wrapper">
+  <div class="title">
+    <h1 class="text-uppercase">
+      {{"detailedConsultation.detailedLabel" | translate}}
+    </h1>
+
+    <button (click)="onClose()"
+            class="small-close">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div class="medium-info">
+    <div class="photo">
+      <img [src]="consultation.psychic?.image"
+           alt="Psychic image">
+    </div>
+
+    <div class="status">
+      <h3 class="name">
+        {{consultation.psychic?.name}}
+      </h3>
+
+      <p class="text-uppercase">
+        {{"detailedConsultation.yourRateLabel" | translate}}
+      </p>
+
+      <div class="rate">
+        <nsp-rating-stars [rate]="consultation.psychic?.rate"></nsp-rating-stars>
+      </div>
+    </div>
+  </div>
+
+  <div class="info">
+    <div>
+      <p>{{"detailedConsultation.mediumLabel" | translate}}</p>
+      <div class="right">{{consultation.psychic?.name}}</div>
+    </div>
+    <div>
+      <p>{{"detailedConsultation.pricePerMinuteLabel" | translate}}</p>
+      <div class="right">{{consultation.price}}</div>
+    </div>
+    <div>
+      <p>{{"detailedConsultation.dateLabel" | translate}}</p>
+      <div class="right">{{consultation.date}}</div>
+    </div>
+    <div>
+      <p>{{"detailedConsultation.durationLabel" | translate}}</p>
+      <div class="right">{{consultation.duration}}</div>
+    </div>
+  </div>
+
+  <button (click)="onClose()"
+          class="close"
+          mat-button>Close
+  </button>
+</div>

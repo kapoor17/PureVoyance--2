@@ -1,0 +1,37 @@
+:host {
+  width: 100%;
+}
+
+.consent-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .dark-button {
+    cursor: pointer;
+  }
+
+  .text-row {
+    margin-top: 8px;
+  }
+
+  .consents-list {
+    .consent-item {
+      &:not(:first-child) {
+        margin-bottom: 8px;
+      }
+
+      .mat-error {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+::ng-deep.mat-checkbox-layout {
+  white-space: normal !important;
+}
+
+::ng-deep.mat-checkbox-inner-container {
+  margin-top: 4px;
+}

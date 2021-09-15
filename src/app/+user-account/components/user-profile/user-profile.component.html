@@ -1,0 +1,192 @@
+<div class="profile-wrapper flex-column">
+  <div class="title">
+    <h1 class="text-uppercase">{{'userProfile.editProfileLabel' | translate}}</h1>
+    <img class="divider" src="./assets/images/divider.png">
+
+    <p class="d-flex align-center">{{'userProfile.textAboutProfileLabel' | translate}}</p>
+  </div>
+
+  <div *ngIf="!!form"
+       [formGroup]="form"
+       class="profile-form flex-column">
+    <h3>{{'userProfile.accountInfoLabel' | translate}}</h3>
+
+    <p class="input-title text-indentations">
+      {{'signUp.yourLabel'| translate}} {{"signUp.firstNameLabel"| translate}}
+    </p>
+
+    <mat-form-field class="input-form">
+      <input class="input-field"
+             formControlName="name"
+             matInput
+             pattern="[a-zA-Z ]*"
+             placeholder="{{'signUp.enterLabel'| translate}} {{'signUp.firstNameLabel'| translate}}"
+             type="text">
+
+      <mat-error>{{'validationService.required' | translate}}</mat-error>
+    </mat-form-field>
+
+    <p class="input-title text-indentations">
+      {{'signUp.yourLabel'| translate}} {{"signUp.birthDateLabel"| translate}}
+    </p>
+
+    <mat-form-field class="input-form">
+      <input (focus)="picker.open()"
+             [matDatepicker]="picker"
+             [max]="startDate"
+             formControlName="birthday"
+             matInput
+             maxlength="10"
+             placeholder="{{'signUp.enterLabel'| translate}} {{'signUp.birthDateLabel'| translate}}">
+      <mat-datepicker-toggle [for]="picker"
+                             matSuffix>
+      </mat-datepicker-toggle>
+
+      <mat-datepicker #picker></mat-datepicker>
+
+      <mat-error>{{'validationService.dateOfBirth' | translate}}</mat-error>
+    </mat-form-field>
+
+    <p class="input-title text-indentations">
+      {{"signUp.cellphoneLabel"| translate}}
+    </p>
+
+    <div *ngFor="let item of phones.controls" [formGroup]="phones"
+         class="phone-input d-flex">
+
+      <div [formGroup]="item" class="d-flex w-100 phone-single">
+        <mat-select class="phone-code-select"
+                    formControlName="phone_code">
+          <mat-select-trigger>
+            <div class="phone-code-trigger">
+
+              <img [src]="countryOptionsArray[item.value.phone_code]?.flag"
+                   class="flag-image">
+
+              <span class="phone-code">
+                {{countryOptionsArray[item.value.phone_code]?.phoneCode}}
+              </span>
+            </div>
+          </mat-select-trigger>
+
+          <mat-option *ngFor="let phoneCode of countryOptions"
+                      [value]="phoneCode.phoneCode">
+            <img [src]="phoneCode.flag"
+                 class="flag-image">
+
+            <span class="phone-code">
+            {{phoneCode.phoneCode}}
+          </span>
+
+          </mat-option>
+        </mat-select>
+
+        <mat-form-field class="input-form enter-phone-field">
+          <input [maxLength]="10"
+                 formControlName="phone"
+                 matInput
+                 pattern="[0-9]*"
+                 placeholder="{{'signUp.enterLabel'| translate}} {{'signUp.phoneLabel'| translate}}">
+
+          <mat-error>{{'validationService.phone' | translate}}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="d-flex">
+      <button (click)="addPhone()" class="add" mat-button>+</button>
+
+      <button (click)="removePhone()" class="remove" mat-button>-</button>
+    </div>
+
+    <p>{{'userProfile.infoToCallbackLabel' | translate}}</p>
+
+    <h3>
+      {{'signUp.yourAddressLabel' | translate}}
+    </h3>
+
+    <p class="input-title text-indentations">
+      {{'signUp.yourLabel'| translate}} {{'signUp.countryLabel'| translate}}
+    </p>
+
+    <mat-form-field class="input-form country-form">
+      <mat-label>
+        {{'signUp.selectCountryLabel'| translate}}
+      </mat-label>
+      <mat-select class="country-select"
+                  formControlName="country_id">
+        <mat-option *ngFor="let countryOption of countryOptions"
+                    [value]="countryOption.id">
+          {{ 'countries.' + countryOption.countryCode | translate }}
+        </mat-option>
+      </mat-select>
+
+      <mat-error>{{'validationService.required' | translate}}</mat-error>
+    </mat-form-field>
+
+    <p class="input-title text-indentations">
+      {{'signUp.yourLabel'| translate}} {{'signUp.cityLabel' | translate}}
+    </p>
+
+    <mat-form-field class="input-form">
+      <input formControlName="city"
+             matInput
+             pattern="[a-zA-Z]*"
+             placeholder="{{'signUp.enterLabel'| translate}} {{'signUp.cityLabel' | translate}}"
+             type="text">
+
+      <mat-error>{{'validationService.required' | translate}}</mat-error>
+    </mat-form-field>
+
+    <p class="input-title text-indentations">
+      {{'signUp.yourLabel'| translate}} {{'signUp.streetLabel' | translate}}
+    </p>
+
+    <mat-form-field class="input-form">
+      <input formControlName="street"
+             matInput
+             pattern="[a-zA-Z]*"
+             placeholder="{{'signUp.enterLabel'| translate}} {{'signUp.streetLabel' | translate}}"
+             type="text">
+
+      <mat-error>{{'validationService.required' | translate}}</mat-error>
+    </mat-form-field>
+
+    <p class="input-title text-indentations">
+      {{'signUp.numberLabel' | translate}}
+    </p>
+
+    <mat-form-field class="input-form">
+      <input formControlName="number"
+             matInput
+             pattern="[0-9]*"
+             placeholder="{{'signUp.enterLabel'| translate}} {{'signUp.numberLabel' | translate}}"
+             type="text">
+
+      <mat-error>{{'validationService.required' | translate}}</mat-error>
+    </mat-form-field>
+
+    <p class="input-title text-indentations">
+      {{'signUp.zipCodeLabel' | translate}}
+    </p>
+
+    <mat-form-field class="input-form">
+      <input formControlName="zipcode"
+             matInput
+             maxlength="8"
+             pattern="[0-9]*"
+             placeholder="{{'signUp.enterLabel'| translate}} {{'signUp.zipCodeLabel' | translate}}"
+             type="text">
+
+      <mat-error>
+        {{'validationService.pattern' | translate}}
+      </mat-error>
+    </mat-form-field>
+
+    <button (click)="update()"
+            class="gradient-button text-uppercase"
+            mat-button>
+      {{'userProfile.updateButtonLabel' | translate}}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,389 @@
+@import "variables";
+@import "text-styles";
+@import "material-override/pagination";
+
+.mediums-about {
+  width: 100%;
+  overflow: hidden;
+
+  .mediums-wrapper {
+    overflow-y: hidden;
+    flex-wrap: wrap;
+    column-gap: 11px;
+    row-gap: 24px;
+    width: 100%;
+    @media (max-width: 1024px) {
+      justify-content: center;
+      row-gap: 11px;
+    }
+
+    @media (max-width: 768px) {
+      margin-left: 0;
+    }
+
+    @media (max-width: 450px) {
+      row-gap: 14px;
+    }
+
+    .psychic-card {
+      width: 32.6%;
+      column-gap: 13px;
+      @media (max-width: 768px) {
+        max-width: 370px;
+      }
+
+      @media (max-width: 450px) {
+        max-width: 99%;
+      }
+
+      .card {
+        width: 100%;
+        background: $white-alternative;
+        border: $light-border-grey;
+        padding: 15px 15px 15px 0;
+        @media (max-width: 450px) {
+          position: relative;
+          height: 180px;
+        }
+
+        &:after {
+          @media (max-width: 450px) {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 3px;
+            background: $second-background-gradient;
+            top: 184px;
+          }
+        }
+
+        .card-header {
+          width: 95%;
+          @media (max-width: 450px) {
+            flex-direction: column;
+            align-items: flex-end;
+            position: absolute;
+            top: -11px;
+            left: 12px;
+          }
+
+          @media (max-width: 355px) {
+            transform: scale(0.8);
+            top: -28px;
+            left: 41px;
+          }
+
+          .stripe {
+            margin-left: -45px;
+            width: 150px;
+            height: 30px;
+            background-color: $gold;
+            color: $white;
+            font-family: $font-main;
+            font-weight: 500;
+            font-size: 16px;
+            transform: rotate(-35deg);
+          }
+
+          .stripe-placeholder {
+            margin-left: -45px;
+            width: 150px;
+            height: 30px;
+          }
+
+          .rating-start {
+            margin-left: 16px;
+          }
+
+          .image-button {
+            height: 22px;
+            line-height: 22px;
+            width: 32px;
+            font-size: 22px;
+            margin-top: 5px;
+
+            &.eye-button {
+              .mat-icon {
+                width: 32px;
+              }
+            }
+
+            .mat-icon {
+              width: 22px;
+              height: 22px;
+              line-height: 22px;
+            }
+          }
+
+          img {
+            height: 19px;
+          }
+        }
+
+        .card-body {
+          width: 100%;
+          margin-left: 25px;
+
+          .online-status-container {
+            margin-top: 20px;
+          }
+
+          & > div {
+            display: flex;
+            flex-direction: row;
+            column-gap: 18px;
+          }
+
+          .offer-validity {
+            color: $grey;
+            font-size: 16px;
+            line-height: 17px;
+            padding: 0;
+            @media (max-width: 450px) {
+              font-size: 12px;
+            }
+            @media (max-width: 375px) {
+              font-size: 10px;
+            }
+          }
+
+          .left-section {
+            .avatar {
+              width: 126px;
+              height: 126px;
+              border-radius: 50%;
+              object-fit: cover;
+              @media (max-width: 450px) {
+                height: 94px;
+                width: 94px;
+              }
+            }
+
+            .status {
+              display: flex;
+              align-items: center;
+              column-gap: 12px;
+
+              p {
+                font-family: $font-main;
+                font-size: 16px;
+                line-height: 17px;
+                margin: 0;
+              }
+            }
+          }
+
+          .right-section {
+            align-items: flex-start;
+
+            .medium-name {
+              font-size: 24px;
+              font-weight: bold;
+              line-height: 28px;
+              color: $psychics-black;
+              margin-bottom: 12px;
+              @media (max-width: 450px) {
+                font-weight: normal;
+                margin-bottom: 0;
+              }
+            }
+
+            .paragraph-black {
+              color: $psychics-black;
+              font-size: 16px;
+              line-height: 19px;
+              margin-bottom: 12px;
+
+              @media (max-width: 450px) {
+                font-size: 12px;
+              }
+            }
+
+            div {
+              overflow-x: auto;
+            }
+
+            .prices-block {
+              @media (max-width: 450px) {
+                flex-direction: row;
+                align-items: baseline;
+                column-gap: 3px;
+              }
+            }
+
+            .price {
+              font-size: 18px;
+              line-height: 17px;
+              font-weight: bold;
+              padding: 0;
+
+              &.special {
+                color: $green;
+                @media (max-width: 450px) {
+                  font-size: 14px;
+                }
+
+                @media (max-width: 375px) {
+                  font-size: 11px;
+                }
+              }
+
+              &.regular {
+                color: $psychics-black;
+                font-weight: bold;
+              }
+
+              &.strikethrough {
+                color: $psychics-black;
+                text-decoration: line-through;
+                font-size: 16px;
+                font-weight: normal;
+                line-height: 17px;
+                @media (max-width: 450px) {
+                  font-size: 14px;
+                  font-weight: normal;
+                }
+
+                @media (max-width: 375px) {
+                  font-size: 11px;
+                }
+              }
+            }
+          }
+        }
+
+        .free-call-button {
+          position: relative;
+          margin-top: 15px;
+          margin-left: 15px;
+          height: 47px;
+          width: 95%;
+          color: $white;
+          text-transform: uppercase;
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 17px;
+          background: $linear-gradient-background;
+          @media (max-width: 450px) {
+            position: absolute;
+            width: 45%;
+            font-size: 14px;
+            top: 120px;
+            left: 110px;
+            border-radius: 0;
+            height: 35px;
+          }
+
+          &:after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 3px;
+            background: $second-background-gradient;
+            top: 74px;
+            left: 1px;
+            @media (max-width: 1269px) {
+              display: none;
+            }
+          }
+        }
+      }
+
+      &.dense {
+        .card {
+          .card-body {
+            margin-top: -30px;
+
+            .left-section {
+              .avatar {
+                width: 106px;
+                height: 106px;
+                margin-top: 30px;
+
+                @media (max-width: 450px) {
+                  width: 93.28px;
+                  height: 93.28px;
+                }
+              }
+            }
+
+            .right-section {
+              .rating-start {
+                margin-top: 4px;
+              }
+
+              .medium-name {
+                margin-top: 8px;
+              }
+
+              .paragraph-black {
+                padding: 0;
+              }
+            }
+
+            .price,
+            .offer-validity {
+              display: block;
+              text-align: center;
+              margin: 0;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 1408px) {
+        min-width: 220px;
+        width: 32.3%;
+      }
+
+      @media (max-width: 1280px) {
+        width: 403px;
+        min-width: 200px;
+      }
+
+      @media (max-width: 843px) {
+        max-width: 48%;
+      }
+
+      @media (max-width: 640px) {
+        max-width: 100%;
+      }
+
+      @media (max-width: 450px) {
+        max-width: 99%;
+      }
+
+      @media (max-width: 320px) {
+        max-width: 310px;
+      }
+    }
+
+    .psychic-card:before {
+      content: " ";
+      width: 3px;
+      height: 100%;
+      background-image: linear-gradient(
+          0deg,
+          #ffffff 0%,
+          #56bcc2 50.45%,
+          #ffffff 100%
+      );
+      @media (max-width: 1269px) {
+        display: none;
+      }
+    }
+
+    .psychic-card:nth-child(3n + 4):before,
+    .psychic-card:nth-child(1):before {
+      background: none !important;
+    }
+  }
+}
+
+.my-pagination {
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

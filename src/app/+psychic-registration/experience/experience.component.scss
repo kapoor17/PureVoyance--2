@@ -1,0 +1,130 @@
+@import "variables";
+@import "text-styles";
+@import "flexbox";
+@import "auth";
+
+.psychic-profile-form-wrapper {
+  padding: 48px 0 0;
+
+  .experience-image {
+    padding: 18px 0 22px;
+  }
+
+  .skills-checkbox-list {
+    width: 100%;
+    height: 100px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .prices {
+    width: 100%;
+
+    .prices-form {
+      width: 100%;
+
+      .paragraphs {
+        margin-top: 18px;
+
+        p {
+          margin-top: 8px;
+        }
+      }
+
+      .inputs {
+        div {
+          margin-top: 12px;
+          height: 29px;
+        }
+      }
+    }
+  }
+
+  .years-of-experience {
+    width: 51%;
+    margin-top: 48px;
+
+    .paragraph-green {
+      margin: 0;
+    }
+  }
+
+  .social-network-block {
+    padding-top: 22px;
+  }
+
+  div {
+    column-gap: 12px;
+  }
+
+  mat-radio-group {
+    column-gap: 25px;
+    padding-bottom: 12px;
+  }
+
+  .paragraph-green, .paragraph-gold {
+    @include paragraph-black;
+    font-weight: bold;
+  }
+
+  .paragraph-gold {
+    margin: 40px 0 8px;
+    color: $gold;
+  }
+
+  .paragraph-green {
+    margin: 22px 0 27px;
+    color: $text-green;
+  }
+
+  .paragraph-black {
+    margin-top: 20px;
+  }
+
+  mat-form-field {
+    background-color: $skin-background;
+    border: $another-border;
+    padding: 0 0 0 5px;
+  }
+
+  .select {
+    width: 340px;
+    height: 50px;
+    padding: 0 19px;
+  }
+
+  .input-short {
+    width: 68px;
+    height: 36px;
+  }
+
+  .input-middle {
+    width: 229px;
+    height: 100%;
+  }
+
+  .input-smaller {
+    width: 550px;
+    height: 48px;
+  }
+
+  .input {
+    width: 660px;
+    height: 48px;
+  }
+
+  .line {
+    width: 200%;
+    height: 3px;
+    background: $second-background-gradient;
+    margin: 42px 0 28px 0;
+  }
+
+  .required-fields {
+    margin-top: 48px;
+  }
+
+  button {
+    width: 378px;
+  }
+}

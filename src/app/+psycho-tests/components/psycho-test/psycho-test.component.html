@@ -1,0 +1,150 @@
+<div class="selected-test">
+  <div class="test-wrapper">
+    <div class="head-text-wrapper flex-column align-center">
+      <h1 class="light-green-title">
+        {{ 'quizz.' + type + '.definition.title' | translate }}
+      </h1>
+
+      <img alt=""
+           class="divider"
+           src="assets/images/divider.png">
+
+    </div>
+
+    <div class="show-text d-flex flex-between align-center">
+      <img *ngIf="!showResult"
+           [src]="selectedTest.img"
+           class="tablet">
+
+      <div *ngIf="!questionNum && !showResult"
+           class="all-text-about">
+        <p>{{'quizz.' + type + '.definition.text' | translate}}</p>
+
+        <p class="second-paragraph">
+          {{'quizz.' + type + '.definition.description' | translate}}
+        </p>
+
+        <button (click)="startQuizz()"
+                class="dark-button">
+          {{"psychoTest.startTestButtonLabel" | translate}}
+        </button>
+      </div>
+
+      <div *ngIf="questionNum > 0 && !showResult"
+           class="questions-block flex-column align-center">
+        <div
+          *ngFor="let question of quizz?.questions | paginate:{ itemsPerPage: 1, currentPage: questionNum, totalItems: quizz.questions.length }"
+          class="questions flex-column align-center">
+
+          <h5> Question {{questionNum}} / {{quizz.questions.length}}</h5>
+
+          <p>{{question.text | translate}}</p>
+
+          <div class="flex-column">
+            <mat-radio-group [(ngModel)]="selectedValue"
+                             class="options d-flex flex-column">
+              <label class="option d-flex"
+                     for="radio-first">
+                <mat-radio-button [value]="1"
+                                  color="primary"
+                                  id="radio-first">
+                  {{question.c1 | translate}}
+                </mat-radio-button>
+              </label>
+
+              <label class="option d-flex"
+                     for="radio-second">
+                <mat-radio-button [value]="2"
+                                  color="primary"
+                                  id="radio-second">
+                  {{question.c2 | translate}}
+                </mat-radio-button>
+              </label>
+
+              <label class="option d-flex"
+                     for="radio-third">
+                <mat-radio-button [value]="3"
+                                  color="primary"
+                                  id="radio-third">
+                  {{question.c3 | translate}}
+                </mat-radio-button>
+              </label>
+
+              <label class="option d-flex"
+                     for="radio-fours">
+                <mat-radio-button [value]="4"
+                                  color="primary"
+                                  id="radio-fours">
+                  {{question.c4 | translate}}
+                </mat-radio-button>
+              </label>
+            </mat-radio-group>
+          </div>
+
+          <div class="question-number d-flex justify-center align-center">
+            {{questionNum}}/{{quizz.questions.length}}
+          </div>
+        </div>
+
+        <pagination-controls (pageChange)="questionNum = $event"
+                             *ngIf="!showPagination"
+                             [autoHide]="true"
+                             [directionLinks]="false"
+                             class="my-pagination">
+        </pagination-controls>
+
+        <button (click)="nextQuestion(questionNum)"
+                class="dark-button text-uppercase">
+          <span *ngIf="showPagination && !(questionNum !== quizz.questions.length); else lastText">
+            {{"startPsychoTest.lastQuestionLabel" | translate}}
+          </span>
+
+          <ng-template #lastText>
+            <span>{{"startPsychoTest.nextQuestionLabel" | translate}}</span>
+          </ng-template>
+        </button>
+      </div>
+
+      <img *ngIf="!showResult"
+           [src]="selectedTest.img"
+           class="hd">
+    </div>
+  </div>
+
+
+  <div *ngIf="showResult"
+       class="result flex-column align-center">
+    <img [src]="selectedTest.img"
+         class="tablet">
+
+    <div *ngIf="!resultLoaded"
+         class="load-result">
+      <p>{{"startPsychoTest.loadResultLabel" | translate}}</p>
+    </div>
+
+    <div *ngIf="resultLoaded && highestScore"
+         class="text-result flex-column align-center">
+      <h2>
+        {{'quizz.' + type + '.result.' + highestScore + '.title' | translate}}
+      </h2>
+
+      <div class="title">
+        {{'quizz.resultProfileLabel' | translate}}:
+      </div>
+
+      <p [innerHTML]="'quizz.' + type + '.result.' + highestScore + '.description' | translate"></p>
+
+      <div class="title">
+        {{'quizz.adviceLabel' | translate}}:
+      </div>
+
+      <p [innerHTML]="'quizz.' + type + '.result.' + highestScore + '.advice' | translate"></p>
+
+      <button (click)="restart()"
+              class="dark-button text-uppercase">
+
+        {{"startPsychoTest.returnTestLabel" | translate}}
+      </button>
+    </div>
+  </div>
+</div>
