@@ -19,6 +19,7 @@
     }
 
     .animation {
+      z-index: 1;
       max-width: 1080px;
       width: 0;
       animation-name: solitaire;

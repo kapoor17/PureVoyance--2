@@ -1,20 +1,22 @@
 <header class="header-wrapper d-flex justify-center align-center">
   <div class="inside-wrapper-new d-flex flex-between align-center">
 
-    <div class="left-side-wrapper flex-center">
-      <mat-icon (click)="toggleSidebar(true)"
-                class="burger"
-                svgIcon="burger-menu">
-      </mat-icon>
+    <a routerLink="/psychics">
+      <div class="left-side-wrapper flex-center">
+        <mat-icon (click)="toggleSidebar(true)"
+                  class="burger"
+                  svgIcon="burger-menu">
+        </mat-icon>
 
-      <img class="left-side-image-logo"
-           routerLink="/psychics"
-           src="./assets/images/header/logo-image.png">
-      <mat-icon class="left-side-logo"
-                routerLink="/psychics"
-                svgIcon="second-logo"></mat-icon>
-    </div>
-
+        <img class="left-side-image-logo"
+            routerLink="/psychics"
+            src="./assets/images/header/logo-image.png">
+        <mat-icon class="left-side-logo"
+                  routerLink="/psychics"
+                  svgIcon="second-logo"></mat-icon>
+      </div>
+    </a>
+    
     <div class="right-side-wrapper d-flex justify-center align-center">
       <button (click)="onSignUpButton()"
               *ngIf="!authService.isAuthenticated"

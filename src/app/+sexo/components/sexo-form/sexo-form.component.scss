@@ -42,16 +42,18 @@
         }
 
         p {
-          color: #B1B5C4;
+          color: #b1b5c4;
           padding: 8px;
         }
 
         .input-form {
-          border: 2px solid #E6E8EC;
+          border: 2px solid #e6e8ec;
           min-width: 100%;
           margin-bottom: 12px;
 
-          ::ng-deep .mat-select-value-text, ::ng-deep .mat-option-text, ::ng-deep .mat-form-field-hide-placeholder .mat-select-placeholder {
+          ::ng-deep .mat-select-value-text,
+          ::ng-deep .mat-option-text,
+          ::ng-deep .mat-form-field-hide-placeholder .mat-select-placeholder {
             @include paragraph-black;
             margin: 0;
             display: inline;
@@ -106,6 +108,7 @@
         font-size: 17px;
         line-height: 24px;
         padding-bottom: 8px;
+        text-align: justify;
 
         @media (max-width: 450px) {
           font-size: 12px;
@@ -125,5 +128,5 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
-  color: #777E91;
+  color: #777e91;
 }

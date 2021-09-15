@@ -99,15 +99,15 @@ export class SignUpComponent implements OnInit {
     });
   }
 
-  // public addPhone(): void {
-  //   this.phonesArray.push(this.createPhonesArray());
-  // }
+  public addPhone(): void {
+    this.phonesArray.push(this.createPhonesArray());
+  }
 
-  // public removePhone(): void {
-  //   if (this.phonesArray?.length > 1) {
-  //     this.phonesArray.removeAt(this.phonesArray.length - 1);
-  //   }
-  // }
+  public removePhone(): void {
+    if (this.phonesArray?.length > 1) {
+      this.phonesArray.removeAt(this.phonesArray.length - 1);
+    }
+  }
 
   public onCountryChange($event: MatSelectChange): void {
     this.mainInfo.patchValue({

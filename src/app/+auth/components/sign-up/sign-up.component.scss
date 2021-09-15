@@ -348,15 +348,24 @@ h2 {
 }
 
 .button-group {
-  padding: 3px 5px;
+  max-width: 465px;
+  opacity: 0.85;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 5px 0 12px 0;
 
   .add {
-    background-color: $green;
+    background: linear-gradient(
+      180deg,
+      #00a8aa -4.2%,
+      #00a2a4 31.73%,
+      #0a2c2e 98.07%
+    );
     border-radius: 0;
   }
 
   .remove {
-    background-color: $dark-red;
+    background: linear-gradient(315deg, #eb4511 0%, #b02e0c 74%);
     margin-left: 12px;
     border-radius: 0;
   }
