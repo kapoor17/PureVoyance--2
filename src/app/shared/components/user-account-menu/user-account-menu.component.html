@@ -1,7 +1,7 @@
 <div class="router-list flex-column">
 
   <div class="head flex-column">
-    <div class="block-with-logo flex-center flex-column">
+    <div class="block-with-logo flex-center flex-column" tabindex="-1">
       <mat-icon class="logo" routerLink="/psychics" svgIcon="logo"></mat-icon>
       <p *ngIf="authService.isAuthenticated" class="text-head-burger text-bold m-0">
         {{'headerBurgerMenu.helloLabel' | translate }},
