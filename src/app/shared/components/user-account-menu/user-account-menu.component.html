@@ -1,5 +1,19 @@
 <div class="router-list flex-column">
+  <div [ngClass]="!authService.isAuthenticated ? 'no-login' : '' "
+  class="language-select language-select-user-menu">
+<button [matMenuTriggerFor]="menu"
+       mat-button>
+ <img [src]="currentLanguage?.languageImage">
+</button>
 
+<mat-menu #menu="matMenu">
+ <button (click)="changeLanguage(language.languageCode)"
+         *ngFor="let language of languages"
+         mat-menu-item>
+   <img [src]="language.languageImage">
+ </button>
+</mat-menu>
+</div>
   <div class="head flex-column">
     <div class="block-with-logo flex-center flex-column" tabindex="-1">
       <mat-icon class="logo" routerLink="/psychics" svgIcon="logo"></mat-icon>

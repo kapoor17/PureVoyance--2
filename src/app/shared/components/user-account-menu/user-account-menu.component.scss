@@ -2,6 +2,14 @@
 @import "variables";
 @import "text-styles";
 
+
+.language-select-user-menu{
+  display:none;
+
+  @media (max-width:1100px){
+    display:block;
+  }
+}
 .router-list {
   width: 100%;
   row-gap: 15px;

@@ -49,6 +49,15 @@ export class UserAccountMenuComponent implements OnInit {
       panelClass: 'custom-dialog'
     });
   }
+  public get currentLanguage(): LanguageInterface | undefined {
+    return this.languages.find((element: LanguageInterface) => element.languageCode === this.languageService.currentLanguage);
+  }
+
+  public changeLanguage(languageCode: string): void {
+    if (this.languageService.currentLanguage !== languageCode) {
+      this.languageService.currentLanguage = languageCode;
+    }
+  }
 
   public onLogOut(): void {
     this.authService.logOut()
