@@ -75,6 +75,8 @@ header.header-wrapper {
     .language-select {
       @media (min-width: 1024px) {
         padding-right: 10px;
+      }
+      @media (max-width: 1024px) {
         display: none;
       }
     }
